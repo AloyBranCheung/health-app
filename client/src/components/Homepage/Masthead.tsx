@@ -33,16 +33,16 @@ export default function Masthead() {
           <Button
             variant="gradient"
             size="sm"
-            className="bg-mainColor text-mainFontColor font-bold shadow"
+            className="bg-mainColor text-mainFontColor font-bold shadow normal-case px-8"
           >
-            <span>Login</span>
+            <span className="text-base">Login</span>
           </Button>
           <Button
             variant="gradient"
             size="sm"
-            className="bg-tertiaryColor text-mainFontColor font-bold"
+            className="bg-tertiaryColor text-mainFontColor font-bold normal-case px-8"
           >
-            <span>Sign Up</span>
+            <span className="text-base">Sign Up</span>
           </Button>
         </div>
       </div>
