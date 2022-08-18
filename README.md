@@ -1,2 +1,2 @@
 # health-app
-A health app in progress
+A fullstack health app in progress
