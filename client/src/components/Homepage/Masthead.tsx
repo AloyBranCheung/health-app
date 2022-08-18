@@ -3,7 +3,7 @@ import { Button } from "@material-tailwind/react";
 
 export default function Masthead() {
   return (
-    <div className="h-screen w-full relative flex items-center">
+    <section className="h-screen w-full relative flex items-center">
       <div className="h-screen w-full absolute -z-10">
         <video
           autoPlay
@@ -33,19 +33,19 @@ export default function Masthead() {
           <Button
             variant="gradient"
             size="sm"
-            className="bg-tertiaryColor text-mainFontColor font-bold"
+            className="bg-mainColor text-mainFontColor font-bold shadow"
           >
             <span>Login</span>
           </Button>
           <Button
             variant="gradient"
             size="sm"
-            className="bg-mainColor text-mainFontColor font-bold"
+            className="bg-tertiaryColor text-mainFontColor font-bold"
           >
             <span>Sign Up</span>
           </Button>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

@@ -4,6 +4,8 @@ import React from "react";
 import HomeNavbar from "../components/Homepage/HomeNavbar";
 import Masthead from "../components/Homepage/Masthead";
 import Featured from "../components/Homepage/Featured";
+import Newsletter from "../components/Homepage/Newsletter";
+import Footer from "../components/Homepage/Footer";
 
 export default function Home() {
   return (
@@ -11,6 +13,8 @@ export default function Home() {
       <HomeNavbar />
       <Masthead />
       <Featured />
+      <Newsletter />
+      <Footer />
     </div>
   );
 }
