@@ -35,6 +35,9 @@ const UserSchema = new mongoose.Schema(
     patientList: {
       type: [String],
     },
+    preferredPronouns: {
+      type: [String],
+    },
   },
   { timestamps: true }
 );
