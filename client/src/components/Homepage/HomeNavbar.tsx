@@ -23,6 +23,10 @@ export default function HomeNavbar() {
     navigate("/login");
   };
 
+  const navSignup = () => {
+    navigate("/signup");
+  };
+
   const navList = (
     <ul className="mb-4 mt-2 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
       <Typography
@@ -59,7 +63,7 @@ export default function HomeNavbar() {
   );
 
   return (
-    <Navbar className="mx-auto max-w-screen-xl py-2 px-4 lg:px-8 lg:py-4 absolute z-10 border-none mt-3">
+    <Navbar className="mx-auto max-w-screen-xl py-2 px-4 lg:px-8 lg:py-4 absolute z-10 border-none mt-3 bg-transparent">
       <div className="container mx-auto flex items-center justify-between text-white">
         <Typography
           as="a"
@@ -83,7 +87,7 @@ export default function HomeNavbar() {
             variant="gradient"
             size="sm"
             className="hidden lg:inline-block bg-mainColor text-mainFontColor normal-case"
-            onClick={navigateLoginpage}
+            onClick={navSignup}
           >
             <span className="text-sm">Sign Up</span>
           </Button>
@@ -134,6 +138,7 @@ export default function HomeNavbar() {
         <div>{navList}</div>
         <div className="flex flex-row gap-5">
           <Button
+            onClick={navigateLoginpage}
             ripple={true}
             variant="gradient"
             size="sm"
@@ -143,6 +148,7 @@ export default function HomeNavbar() {
             <span>Login</span>
           </Button>
           <Button
+            onClick={navSignup}
             ripple={true}
             variant="gradient"
             size="sm"

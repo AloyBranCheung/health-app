@@ -1,9 +1,16 @@
 import React from "react";
 import { Button } from "@material-tailwind/react";
+import { useNavigate } from "react-router-dom";
 
 export default function FeaturedDescriptions() {
+  const navigate = useNavigate();
+
+  const navLogin = () => {
+    navigate("/login");
+  };
+
   return (
-    <section className="text-gray-400 body-font bg-mainColor">
+    <section className=" body-font bg-mainColor">
       <div className="container px-5 py-12 mx-auto">
         <div className="flex flex-wrap w-full mb-20 flex-col items-center text-center">
           <h1 className="sm:text-3xl text-2xl font-medium title-font mb-2 text-mainFontColor">
@@ -18,7 +25,7 @@ export default function FeaturedDescriptions() {
         <div className="flex flex-wrap -m-4">
           <div className="xl:w-1/3 md:w-1/2 p-4">
             <div className="shadow p-6 rounded-lg bg-secondaryColor">
-              <div className="w-10 h-10 inline-flex items-center justify-center rounded-full bg-gray-800 text-mainFontColor mb-4">
+              <div className="w-10 h-10 inline-flex items-center justify-center rounded-full  text-mainFontColor mb-4">
                 <svg
                   fill="none"
                   stroke="currentColor"
@@ -42,7 +49,7 @@ export default function FeaturedDescriptions() {
           </div>
           <div className="xl:w-1/3 md:w-1/2 p-4">
             <div className="shadow p-6 rounded-lg bg-secondaryColor">
-              <div className="w-10 h-10 inline-flex items-center justify-center rounded-full bg-gray-800 text-mainFontColor mb-4">
+              <div className="w-10 h-10 inline-flex items-center justify-center rounded-full  text-mainFontColor mb-4">
                 <svg
                   fill="none"
                   stroke="currentColor"
@@ -68,7 +75,7 @@ export default function FeaturedDescriptions() {
           </div>
           <div className="xl:w-1/3 md:w-1/2 p-4">
             <div className="shadow p-6 rounded-lg bg-secondaryColor">
-              <div className="w-10 h-10 inline-flex items-center justify-center rounded-full bg-gray-800 text-mainFontColor mb-4">
+              <div className="w-10 h-10 inline-flex items-center justify-center rounded-full  text-mainFontColor mb-4">
                 <svg
                   fill="none"
                   stroke="currentColor"
@@ -93,7 +100,7 @@ export default function FeaturedDescriptions() {
           </div>
           <div className="xl:w-1/3 md:w-1/2 p-4">
             <div className="shadow p-6 rounded-lg bg-secondaryColor">
-              <div className="w-10 h-10 inline-flex items-center justify-center rounded-full bg-gray-800 text-mainFontColor mb-4">
+              <div className="w-10 h-10 inline-flex items-center justify-center rounded-full  text-mainFontColor mb-4">
                 <svg
                   fill="none"
                   stroke="currentColor"
@@ -117,7 +124,7 @@ export default function FeaturedDescriptions() {
           </div>
           <div className="xl:w-1/3 md:w-1/2 p-4">
             <div className="shadow p-6 rounded-lg bg-secondaryColor">
-              <div className="w-10 h-10 inline-flex items-center justify-center rounded-full bg-gray-800 text-mainFontColor mb-4">
+              <div className="w-10 h-10 inline-flex items-center justify-center rounded-full  text-mainFontColor mb-4">
                 <svg
                   fill="none"
                   stroke="currentColor"
@@ -141,7 +148,7 @@ export default function FeaturedDescriptions() {
           </div>
           <div className="xl:w-1/3 md:w-1/2 p-4">
             <div className="shadow p-6 rounded-lg bg-secondaryColor">
-              <div className="w-10 h-10 inline-flex items-center justify-center rounded-full bg-gray-800 text-mainFontColor mb-4">
+              <div className="w-10 h-10 inline-flex items-center justify-center rounded-full  text-mainFontColor mb-4">
                 <svg
                   fill="none"
                   stroke="currentColor"
@@ -164,7 +171,10 @@ export default function FeaturedDescriptions() {
             </div>
           </div>
         </div>
-        <Button className="flex mx-auto mt-16 text-mainFontColor bg-tertiaryColor shadow border-0 py-2 px-8 focus:outline-none rounded text-lg normal-case">
+        <Button
+          onClick={navLogin}
+          className="flex mx-auto mt-16 text-mainFontColor bg-tertiaryColor shadow border-0 py-2 px-8 focus:outline-none rounded text-lg normal-case"
+        >
           Join us now
         </Button>
       </div>
