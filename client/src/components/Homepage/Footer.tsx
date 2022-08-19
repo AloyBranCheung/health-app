@@ -20,24 +20,16 @@ export default function Footer() {
             </h2>
             <nav className="list-none mb-10">
               <li>
-                <a className="text-gray-400 hover:text-mainFontColor">
-                  aliquam malesuada
-                </a>
+                <a className=" hover:text-mainFontColor">aliquam malesuada</a>
               </li>
               <li>
-                <a className="text-gray-400 hover:text-mainFontColor">
-                  varius vel
-                </a>
+                <a className=" hover:text-mainFontColor">varius vel</a>
               </li>
               <li>
-                <a className="text-gray-400 hover:text-mainFontColor">
-                  ullamcorper morbi
-                </a>
+                <a className=" hover:text-mainFontColor">ullamcorper morbi</a>
               </li>
               <li>
-                <a className="text-gray-400 hover:text-mainFontColor">
-                  in cursus
-                </a>
+                <a className=" hover:text-mainFontColor">in cursus</a>
               </li>
             </nav>
           </div>
@@ -47,35 +39,27 @@ export default function Footer() {
             </h2>
             <nav className="list-none mb-10">
               <li>
-                <a className="text-gray-400 hover:text-mainFontColor">
-                  eu volutpat
-                </a>
+                <a className=" hover:text-mainFontColor">eu volutpat</a>
               </li>
               <li>
-                <a className="text-gray-400 hover:text-mainFontColor">
-                  sapien nec
-                </a>
+                <a className=" hover:text-mainFontColor">sapien nec</a>
               </li>
               <li>
-                <a className="text-gray-400 hover:text-mainFontColor">
-                  auctor elit
-                </a>
+                <a className=" hover:text-mainFontColor">auctor elit</a>
               </li>
               <li>
-                <a className="text-gray-400 hover:text-mainFontColor">
-                  in arcu
-                </a>
+                <a className=" hover:text-mainFontColor">in arcu</a>
               </li>
             </nav>
           </div>
         </div>
       </div>
-      <div className="bg-gray-800 bg-opacity-75">
+      <div className=" bg-opacity-75">
         <div className="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row">
-          <p className="text-gray-400 text-sm text-center sm:text-left">
+          <p className=" text-sm text-center sm:text-left">
             <a
               href="https://www.brandoncheung.dev/"
-              className="text-gray-500 ml-1"
+              className=" ml-1"
               rel="noopener noreferrer"
               target="_blank"
             >
@@ -83,7 +67,10 @@ export default function Footer() {
             </a>
           </p>
           <span className="inline-flex sm:ml-auto sm:mt-0 mt-2 justify-center sm:justify-start">
-            <a href="https://www.brandoncheung.dev/" className="text-gray-400">
+            <a
+              href="https://www.brandoncheung.dev/"
+              className="ml-3 text-mainFontColor"
+            >
               <svg
                 fill="currentColor"
                 stroke-linecap="round"
@@ -97,7 +84,7 @@ export default function Footer() {
             </a>
             <a
               href="https://www.brandoncheung.dev/"
-              className="ml-3 text-gray-400"
+              className="ml-3  text-mainFontColor"
             >
               <svg
                 fill="currentColor"
@@ -112,7 +99,7 @@ export default function Footer() {
             </a>
             <a
               href="https://www.brandoncheung.dev/"
-              className="ml-3 text-gray-400"
+              className="ml-3  text-mainFontColor"
             >
               <svg
                 fill="none"
@@ -129,7 +116,7 @@ export default function Footer() {
             </a>
             <a
               href="https://www.brandoncheung.dev/"
-              className="ml-3 text-gray-400"
+              className="ml-3  text-mainFontColor"
             >
               <svg
                 fill="currentColor"

@@ -16,7 +16,7 @@ module.exports = {
       tertiaryColor: "#FDDD6D",
       mainFontColor: "#423066",
       white: "white",
-      test: "red",
+      red: "red",
       gray: colors.gray,
       transparent: "transparent",
     },
