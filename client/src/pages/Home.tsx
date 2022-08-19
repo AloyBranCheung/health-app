@@ -8,6 +8,7 @@ import Featured from "../components/Homepage/Featured";
 import CallToAction from "../components/Homepage/CallToAction";
 import Footer from "../components/Homepage/Footer";
 import FeaturedDescriptions from "../components/Homepage/FeaturedDescriptions";
+import ButtonToTop from "../components/Homepage/ButtonToTop";
 
 export default function Home() {
   return (
@@ -16,13 +17,14 @@ export default function Home() {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
     >
-      <div className="relative flex w-full flex-col">
+      <div id="home" className="relative flex w-full flex-col">
         <HomeNavbar />
         <Masthead />
         <FeaturedDescriptions />
         <Featured />
         <CallToAction />
         <Footer />
+        <ButtonToTop />
       </div>
     </motion.div>
   );
