@@ -35,9 +35,13 @@ export default function HomeNavbar() {
         color="blue-gray"
         className="p-1 font-normal"
       >
-        <a href="#" className="flex items-center text-base">
+        <Link
+          to="/aboutus
+        "
+          className="flex items-center text-base"
+        >
           About Us
-        </a>
+        </Link>
       </Typography>
       <Typography
         as="li"
@@ -45,9 +49,9 @@ export default function HomeNavbar() {
         color="blue-gray"
         className="p-1 font-normal"
       >
-        <a href="#" className="flex items-center text-base">
+        <Link to="/careers" className="flex items-center text-base">
           Careers
-        </a>
+        </Link>
       </Typography>
       <Typography
         as="li"
@@ -55,9 +59,9 @@ export default function HomeNavbar() {
         color="blue-gray"
         className="p-1 font-normal"
       >
-        <a href="#" className="flex items-center text-base">
+        <Link to="/contactus" className="flex items-center text-base">
           Contact Us
-        </a>
+        </Link>
       </Typography>
     </ul>
   );
