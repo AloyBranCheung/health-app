@@ -6,7 +6,7 @@ export default function FeaturedDescriptions() {
   const navigate = useNavigate();
 
   const navLogin = () => {
-    navigate("/login");
+    navigate("/signup");
   };
 
   return (

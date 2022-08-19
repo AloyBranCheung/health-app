@@ -82,7 +82,7 @@ export default function HomeNavbar() {
           <Button
             variant="gradient"
             size="sm"
-            className="hidden lg:inline-block bg-tertiaryColor text-mainFontColor normal-case"
+            className="hidden lg:inline-block bg-mainColor text-mainFontColor normal-case"
             onClick={navigateLoginpage}
           >
             <span className="text-sm">Login</span>
@@ -90,7 +90,7 @@ export default function HomeNavbar() {
           <Button
             variant="gradient"
             size="sm"
-            className="hidden lg:inline-block bg-mainColor text-mainFontColor normal-case"
+            className="hidden lg:inline-block bg-tertiaryColor text-mainFontColor normal-case"
             onClick={navSignup}
           >
             <span className="text-sm">Sign Up</span>

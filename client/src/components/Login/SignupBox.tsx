@@ -11,10 +11,12 @@ export default function LoginModal() {
 
   return (
     <div className="flex flex-col gap-10 bg-mainColor p-5 text-mainFontColor max-w-sm w-full">
-      <h1 className="text-3xl font-bold">Login</h1>
+      <h1 className="text-3xl font-bold">Sign Up</h1>
       <form className="flex flex-col gap-5">
+        <Input label="Name" />
         <Input label="Email" />
         <Input label="Password" />
+        <Input label="Confirm Password" />
         <div className="flex flex-row justify-around">
           <Button
             onClick={navHome}
@@ -23,12 +25,12 @@ export default function LoginModal() {
             Back
           </Button>
           <Button className="bg-tertiaryColor text-mainFontColor text-xs w-1/3 shadow">
-            Login
+            Sign Up
           </Button>
         </div>
       </form>
       <p className="text-base font-semibold">
-        Don't have an account? <Link to="/signup">Sign up here.</Link>
+        Have an account? <Link to="/login">Log in here.</Link>
       </p>
     </div>
   );

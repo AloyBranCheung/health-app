@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 
 // components
 import HomeNavbar from "../components/Homepage/HomeNavbar";
@@ -10,13 +11,19 @@ import FeaturedDescriptions from "../components/Homepage/FeaturedDescriptions";
 
 export default function Home() {
   return (
-    <div className="relative flex w-full flex-col">
-      <HomeNavbar />
-      <Masthead />
-      <FeaturedDescriptions />
-      <Featured />
-      <CallToAction />
-      <Footer />
-    </div>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
+      <div className="relative flex w-full flex-col">
+        <HomeNavbar />
+        <Masthead />
+        <FeaturedDescriptions />
+        <Featured />
+        <CallToAction />
+        <Footer />
+      </div>
+    </motion.div>
   );
 }
