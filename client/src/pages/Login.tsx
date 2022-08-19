@@ -4,12 +4,14 @@ import { Link } from "react-router-dom";
 
 export default function Login() {
   return (
-    <section className="text-mainFontColor bg-mainColor h-screen flex flex-row">
-      <div className="hidden md:flex bg-secondaryColor w-1/2">
-        <img
-          alt="login-img"
-          src="../../public/assets/illustrations/2.svg"
-        ></img>
+    <section className="text-mainFontColor bg-mainColor h-screen flex flex-row relative">
+      <div className="hidden md:flex bg-secondaryColor w-1/2 justify-center items-center">
+        <div>
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/8289/8289002.png"
+            alt="login-img"
+          />
+        </div>
       </div>
       <div className="flex flex-col justify-between gap-12 items-center w-full md:w-1/2  py-16 px-5 ">
         <div className="p-5 w-full max-w-sm">
