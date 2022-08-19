@@ -13,8 +13,8 @@ export default function LoginModal() {
     <div className="flex flex-col gap-10 bg-mainColor p-5 text-mainFontColor max-w-sm w-full">
       <h1 className="text-3xl font-bold">Login</h1>
       <form className="flex flex-col gap-5">
-        <Input label="Email" />
-        <Input label="Password" />
+        <Input name="email" label="Email" />
+        <Input name="password" label="Password" />
         <div className="flex flex-row justify-around">
           <Button
             onClick={navHome}
