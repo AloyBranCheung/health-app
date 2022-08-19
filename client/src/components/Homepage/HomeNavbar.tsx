@@ -6,8 +6,10 @@ import {
   Button,
   IconButton,
 } from "@material-tailwind/react";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function HomeNavbar() {
+  const navigate = useNavigate();
   const [openNav, setOpenNav] = useState(false);
 
   useEffect(() => {
@@ -17,6 +19,14 @@ export default function HomeNavbar() {
     );
   }, []);
 
+  const navigateLoginpage = () => {
+    navigate("/login");
+  };
+
+  const navSignup = () => {
+    navigate("/signup");
+  };
+
   const navList = (
     <ul className="mb-4 mt-2 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
       <Typography
@@ -25,7 +35,7 @@ export default function HomeNavbar() {
         color="blue-gray"
         className="p-1 font-normal"
       >
-        <a href="#" className="flex items-center">
+        <a href="#" className="flex items-center text-base">
           About Us
         </a>
       </Typography>
@@ -35,7 +45,7 @@ export default function HomeNavbar() {
         color="blue-gray"
         className="p-1 font-normal"
       >
-        <a href="#" className="flex items-center">
+        <a href="#" className="flex items-center text-base">
           Careers
         </a>
       </Typography>
@@ -45,25 +55,15 @@ export default function HomeNavbar() {
         color="blue-gray"
         className="p-1 font-normal"
       >
-        <a href="#" className="flex items-center">
+        <a href="#" className="flex items-center text-base">
           Contact Us
-        </a>
-      </Typography>
-      <Typography
-        as="li"
-        variant="small"
-        color="blue-gray"
-        className="p-1 font-normal"
-      >
-        <a href="#" className="flex items-center">
-          Img/Video Sources
         </a>
       </Typography>
     </ul>
   );
 
   return (
-    <Navbar className="mx-auto max-w-screen-xl py-2 px-4 lg:px-8 lg:py-4 absolute z-10 border-none">
+    <Navbar className="mx-auto max-w-screen-xl py-2 px-4 lg:px-8 lg:py-4 absolute z-10 border-none mt-3 bg-transparent">
       <div className="container mx-auto flex items-center justify-between text-white">
         <Typography
           as="a"
@@ -78,14 +78,16 @@ export default function HomeNavbar() {
           <Button
             variant="gradient"
             size="sm"
-            className="hidden lg:inline-block bg-tertiaryColor text-mainFontColor"
+            className="hidden lg:inline-block bg-tertiaryColor text-mainFontColor normal-case"
+            onClick={navigateLoginpage}
           >
             <span className="text-sm">Login</span>
           </Button>
           <Button
             variant="gradient"
             size="sm"
-            className="hidden lg:inline-block bg-mainColor text-mainFontColor"
+            className="hidden lg:inline-block bg-mainColor text-mainFontColor normal-case"
+            onClick={navSignup}
           >
             <span className="text-sm">Sign Up</span>
           </Button>
@@ -93,7 +95,7 @@ export default function HomeNavbar() {
 
         <IconButton
           variant="text"
-          className="ml-auto h-6 w-6 text-inherit hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden [&>span]:relative"
+          className="ml-auto h-6 w-6 text-inherit hover:bg-transparent focus:bg-transparent active:bg-transparent lg:hidden [&>span]:relative [&>span]:top-0"
           ripple={true}
           onClick={() => setOpenNav(!openNav)}
         >
@@ -136,20 +138,22 @@ export default function HomeNavbar() {
         <div>{navList}</div>
         <div className="flex flex-row gap-5">
           <Button
+            onClick={navigateLoginpage}
             ripple={true}
             variant="gradient"
             size="sm"
             fullWidth
-            className="bg-mainColor text-mainFontColor shadow"
+            className="bg-secondaryColor text-mainFontColor shadow normal-case"
           >
             <span>Login</span>
           </Button>
           <Button
+            onClick={navSignup}
             ripple={true}
             variant="gradient"
             size="sm"
             fullWidth
-            className="bg-tertiaryColor text-mainFontColor"
+            className="bg-tertiaryColor text-mainFontColor text-xs shadow normal-case"
           >
             <span>Sign Up</span>
           </Button>

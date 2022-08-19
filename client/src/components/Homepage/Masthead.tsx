@@ -1,7 +1,18 @@
 import React from "react";
 import { Button } from "@material-tailwind/react";
+import { useNavigate } from "react-router-dom";
 
 export default function Masthead() {
+  const navigate = useNavigate();
+
+  const navLogin = () => {
+    navigate("/login");
+  };
+
+  const navSignup = () => {
+    navigate("/signup");
+  };
+
   return (
     <section className="h-screen w-full relative flex items-center">
       <div className="h-screen w-full absolute -z-10">
@@ -31,18 +42,20 @@ export default function Masthead() {
 
         <div className="flex flex-row gap-7">
           <Button
+            onClick={navLogin}
             variant="gradient"
             size="sm"
-            className="bg-mainColor text-mainFontColor font-bold shadow"
+            className="bg-mainColor text-mainFontColor font-bold shadow normal-case px-8"
           >
-            <span>Login</span>
+            <span className="text-base">Login</span>
           </Button>
           <Button
+            onClick={navSignup}
             variant="gradient"
             size="sm"
-            className="bg-tertiaryColor text-mainFontColor font-bold"
+            className="bg-tertiaryColor text-mainFontColor font-bold normal-case px-8"
           >
-            <span>Sign Up</span>
+            <span className="text-base">Sign Up</span>
           </Button>
         </div>
       </div>

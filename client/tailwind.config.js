@@ -1,4 +1,7 @@
 /** @type {import('tailwindcss').Config} */
+
+const colors = require("tailwindcss/colors");
+
 module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
@@ -14,6 +17,8 @@ module.exports = {
       mainFontColor: "#423066",
       white: "white",
       test: "red",
+      gray: colors.gray,
+      transparent: "transparent",
     },
     extend: {},
   },

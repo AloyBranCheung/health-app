@@ -2,8 +2,8 @@ import React from "react";
 
 export default function Featured() {
   return (
-    <section className="text-gray-400 bg-gray-900 body-font text-mainFontColor bg-mainColor">
-      <div className="container px-5 py-24 mx-auto">
+    <section className="body-font text-mainFontColor bg-mainColor">
+      <div className="container px-5 py-12 mx-auto">
         <div className="flex flex-col text-center w-full mb-20">
           <h1 className="sm:text-3xl text-4xl font-medium title-font mb-4 ">
             convallis aenean et tortor
