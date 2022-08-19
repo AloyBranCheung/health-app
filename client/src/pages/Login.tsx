@@ -2,8 +2,13 @@ import React from "react";
 import LoginModal from "../components/Login/LoginModal";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 
 export default function Login() {
+  const navigate = useNavigate();
+  const navHome = () => {
+    navigate("/");
+  };
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -22,7 +27,9 @@ export default function Login() {
         <div className="flex flex-col justify-between gap-12 items-center w-full md:w-1/2  py-16 px-5 ">
           <div className="p-5 w-full max-w-sm">
             <h1>
-              <strong className="text-2xl">Random Health Tech</strong>
+              <strong className="text-2xl cursor-pointer" onClick={navHome}>
+                Random Health Tech
+              </strong>
             </h1>
           </div>
           <LoginModal />
