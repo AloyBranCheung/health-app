@@ -2,12 +2,11 @@ import React, { useState } from "react";
 import Input from "../UI/Input";
 import { Button } from "@material-tailwind/react";
 import { Link, useNavigate } from "react-router-dom";
-import axios, { AxiosError } from "axios";
+import axios from "axios";
 import FormInputErrMsg from "../UI/FormInputErrMsg";
 
 export default function LoginModal() {
   const [error, setError] = useState(false);
-  const [errorMessage, setErrorMessage] = useState("");
   const [loginForm, setLoginForm] = useState({
     email: "",
     password: "",
