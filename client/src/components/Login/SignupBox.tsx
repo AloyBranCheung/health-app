@@ -15,6 +15,7 @@ export default function LoginModal() {
     lastName: "",
     isProvider: false,
   });
+
   const [confirmPassword, setConfirmPassword] = useState("");
   const [passwordError, setPasswordError] = useState(false);
 

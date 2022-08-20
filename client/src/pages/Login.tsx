@@ -16,7 +16,10 @@ export default function Login() {
       exit={{ opacity: 0 }}
     >
       <section className="text-mainFontColor bg-mainColor h-screen flex flex-row relative">
-        <div className="hidden md:flex bg-secondaryColor w-1/2 justify-center items-center">
+        <div className="hidden md:flex md:flex-col md:gap-10 bg-secondaryColor w-1/2 justify-center items-center">
+          <h1 className="text-5xl text-mainFontColor font-bold">
+            Welcome Back :&#41;
+          </h1>
           <div>
             <img
               src="https://cdn-icons-png.flaticon.com/512/8289/8289002.png"
@@ -24,8 +27,13 @@ export default function Login() {
             />
           </div>
         </div>
-        <div className="flex flex-col justify-between gap-12 items-center w-full md:w-1/2  py-16 px-5 ">
-          <div className="p-5 w-full max-w-sm">
+        <div className="flex flex-col justify-center gap-5 items-center w-full md:w-1/2  py-16 px-5 ">
+          <div className="flex p-5 w-full max-w-sm">
+            <img
+              className="h-7 w-7 self-center mr-3"
+              src="https://cdn-icons.flaticon.com/png/512/1177/premium/1177232.png?token=exp=1660956265~hmac=d965bf48482fcf14909c113d38aeb5dc"
+              alt="brandimg"
+            />
             <h1>
               <strong className="text-2xl cursor-pointer" onClick={navHome}>
                 Random Health Tech

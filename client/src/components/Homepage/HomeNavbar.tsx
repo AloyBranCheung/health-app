@@ -73,8 +73,13 @@ export default function HomeNavbar() {
           as="a"
           href="#"
           variant="small"
-          className="mr-4 cursor-pointer py-1.5 font-normal"
+          className="mr-4 cursor-pointer py-1.5 font-normal flex"
         >
+          <img
+            className="h-7 w-7 self-center mr-3"
+            src="https://cdn-icons.flaticon.com/png/512/1177/premium/1177232.png?token=exp=1660956265~hmac=d965bf48482fcf14909c113d38aeb5dc"
+            alt="brandimg"
+          />
           <strong className="text-xl">Random Health Tech</strong>
         </Typography>
         <div className="hidden lg:block">{navList}</div>
