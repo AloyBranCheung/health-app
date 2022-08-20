@@ -1,5 +1,5 @@
 # health-app
-A fullstack health app in progress
+A fullstack health app in progress with a goal to make health tech more LGBTQ2S inclusive and enable health care accesibility. 
 
 Technologies: 
 <div>
