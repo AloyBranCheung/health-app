@@ -121,6 +121,7 @@ export default function LoginModal() {
           label="Confirm Password"
           type="password"
           autoComplete="new-password"
+          value={confirmPassword}
         />
         {passwordError && <FormInputErrMsg text="Passwords do not match." />}
         <div className="flex flex-row gap-5 text-mainFontColor">

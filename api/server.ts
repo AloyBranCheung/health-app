@@ -2,6 +2,7 @@ import "dotenv/config";
 import express, { Request, Response, NextFunction, Errback } from "express";
 import mongoose from "mongoose";
 import cors from "cors";
+import cookieParser from "cookie-parser";
 
 //interfaces
 import { Error } from "./types";
@@ -27,6 +28,7 @@ const connectToMongoose = async () => {
   }
 };
 
+app.use(cookieParser());
 app.use(express.json());
 app.use(cors());
 app.use("/api/user", userRoute);

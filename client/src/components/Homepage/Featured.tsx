@@ -17,7 +17,7 @@ export default function Featured() {
         <div className="flex flex-wrap -m-4">
           <div className="lg:w-full md:w-1/2 p-4">
             <div className="flex relative">
-              <a className="relative block bg-black group" href="">
+              <a className="relative block w-full bg-black group" href="#home">
                 <img
                   className="absolute inset-0 object-cover w-full h-full transition-opacity opacity-75  group-hover:opacity-50"
                   src="https://picsum.photos/1920/1080?random=1"
