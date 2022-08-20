@@ -38,6 +38,9 @@ const UserSchema = new mongoose.Schema(
     preferredPronouns: {
       type: [String],
     },
+    preferredName: {
+      type: String,
+    },
   },
   { timestamps: true }
 );
