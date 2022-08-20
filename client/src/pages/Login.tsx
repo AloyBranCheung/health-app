@@ -9,6 +9,7 @@ export default function Login() {
   const navHome = () => {
     navigate("/");
   };
+
   return (
     <motion.div
       initial={{ opacity: 0 }}

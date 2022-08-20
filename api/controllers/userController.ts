@@ -57,25 +57,22 @@ export const loginUser = async (
         firstName: user?.firstName,
         isProvider: user?.isProvider,
       },
-      JWTKEY
+      JWTKEY,
+      { expiresIn: 900000 }
     );
 
     // give a cookie
-    res
-      .cookie("access_token", token, {
-        httpOnly: true,
-        maxAge: 900000,
-      })
-      .status(200)
-      .json({
-        email: user?.email,
-        displayName: user?.displayName,
-        firstName: user?.firstName,
-        lastName: user?.lastName,
-        isProvider: user?.isProvider,
-        preferredPronouns: user?.preferredPronouns,
-        preferredName: user?.preferredName,
-      });
+    res.status(200).json({
+      token: token,
+      email: user?.email,
+      displayName: user?.displayName,
+      firstName: user?.firstName,
+      lastName: user?.lastName,
+      isProvider: user?.isProvider,
+      preferredPronouns: user?.preferredPronouns,
+      preferredName: user?.preferredName,
+      _id: user?._id,
+    });
   } catch (error) {
     next(error);
   }

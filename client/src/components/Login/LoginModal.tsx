@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import AuthContext from "../../context/authContext";
 import Input from "../UI/Input";
 import { Button } from "@material-tailwind/react";
 import { Link, useNavigate } from "react-router-dom";
@@ -11,6 +12,7 @@ export default function LoginModal() {
     email: "",
     password: "",
   });
+  const { login } = useContext(AuthContext);
 
   // navigate back home
   const navigate = useNavigate();
@@ -35,7 +37,8 @@ export default function LoginModal() {
         password: "",
       });
       setError(false);
-      console.log("Successfully logged in.", response.data);
+      console.log("Successfully logged in.");
+      login(response.data);
     } catch (error) {
       setError(true);
       if (axios.isAxiosError(error)) {
@@ -51,12 +54,14 @@ export default function LoginModal() {
       <h1 className="text-3xl font-bold">Login</h1>
       <form onSubmit={handleSubmit} className="flex flex-col gap-5">
         <Input
+          value={loginForm.email}
           autoComplete="username"
           onChange={handleChange}
           name="email"
           label="Email"
         />
         <Input
+          value={loginForm.password}
           autoComplete="current-password"
           type="password"
           onChange={handleChange}
