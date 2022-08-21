@@ -41,6 +41,12 @@ const UserSchema = new mongoose.Schema(
     preferredName: {
       type: String,
     },
+    bio: {
+      type: String,
+    },
+    appointments: {
+      type: [String],
+    },
   },
   { timestamps: true }
 );
