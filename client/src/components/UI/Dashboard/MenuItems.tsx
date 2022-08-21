@@ -7,7 +7,7 @@ type Props = {
 export default function MenuItems({ fill }: Props) {
   return (
     <div className="flex flex-col justify-center items-center gap-5">
-      <div>
+      <div className="flex flex-row items-center justify-center md:justify-start gap-2 w-full cursor-pointer px-1 py-2 rounded-lg md:hover:bg-gradientVia1 md:hover:transition-all md:hover:duration-300 transition-all duration-300">
         <svg
           className="h-10 w-10"
           viewBox="0 0 48 48"
@@ -21,9 +21,10 @@ export default function MenuItems({ fill }: Props) {
           />
           <path d="M23.1923 27.5397L23.1921 27.5395C21.6033 26.2237 20.297 25.1418 19.3858 24.1243C18.4764 23.1088 17.9766 22.1747 17.9758 21.1568C17.9745 19.5006 19.3937 18.2 21.2042 18.1985C22.2283 18.1977 23.2141 18.6337 23.8572 19.3235L23.9744 19.4492L24.0914 19.3233C24.7334 18.6325 25.7184 18.1948 26.7426 18.194C28.553 18.1925 29.9744 19.4907 29.9758 21.147C29.9766 22.1648 29.4785 23.0998 28.5707 24.1175C27.6642 25.1337 26.3654 26.2153 24.7861 27.5305L24.7702 27.5437L24.7699 27.544L23.982 28.1963L23.1923 27.5397Z" />
         </svg>
+        <h1 className="hidden md:block">My Health</h1>
       </div>
-      <hr className="w-10 border-solid border-1 border-mainFontColor" />
-      <div>
+      <hr className="w-10 border-solid border-1 border-mainFontColor md:hidden" />
+      <div className="flex flex-row items-center justify-center md:justify-start  gap-2 w-full cursor-pointer px-1 py-2 rounded-lg md:hover:bg-gradientVia1 md:hover:transition-all md:hover:duration-300 transition-all duration-300">
         <svg
           className="h-10 w-10"
           viewBox="0 0 48 48"
@@ -42,9 +43,10 @@ export default function MenuItems({ fill }: Props) {
             d="M35.3849 36.3592C38.3881 34.9588 39.6875 31.3889 38.287 28.3856C36.8866 25.3824 33.3167 24.0831 30.3135 25.4835L19.4378 30.5549C16.4345 31.9554 15.1352 35.5252 16.5356 38.5285C17.9361 41.5317 21.5059 42.8311 24.5092 41.4306L35.3849 36.3592ZM29.9426 36.6902L34.5396 34.5466C36.5418 33.613 37.408 31.233 36.4744 29.2309C35.5408 27.2287 33.1609 26.3625 31.1587 27.2961L26.5617 29.4397L29.9426 36.6902Z"
           />
         </svg>
+        <h1 className="hidden md:block">Medications</h1>
       </div>
-      <hr className="w-10 border-solid border-1 border-mainFontColor" />
-      <div>
+      <hr className="w-10 border-solid border-1 border-mainFontColor md:hidden" />
+      <div className="flex flex-row items-center justify-center md:justify-start  gap-2 w-full cursor-pointer px-1 py-2 rounded-lg md:hover:bg-gradientVia1 md:hover:transition-all md:hover:duration-300 transition-all duration-300">
         <svg
           className="h-10 w-10"
           viewBox="0 0 48 48"
@@ -67,9 +69,10 @@ export default function MenuItems({ fill }: Props) {
             d="M8 28C6.89543 28 6 28.8954 6 30V40C6 41.1046 6.89543 42 8 42H18C19.1046 42 20 41.1046 20 40V30C20 28.8954 19.1046 28 18 28H8ZM16 30H18V40H16V30ZM14 34H12V40H14V34ZM10 37H8V40H10V37Z"
           />
         </svg>
+        <h1 className="hidden md:block">Results</h1>
       </div>
-      <hr className="w-10 border-solid border-1 border-mainFontColor" />
-      <div>
+      <hr className="w-10 border-solid border-1 border-mainFontColor md:hidden" />
+      <div className="flex flex-row items-center justify-center md:justify-start  gap-2 w-full cursor-pointer px-1 py-2 rounded-lg md:hover:bg-gradientVia1 md:hover:transition-all md:hover:duration-300 transition-all duration-300">
         <svg
           className="h-10 w-10"
           viewBox="0 0 48 48"
@@ -88,9 +91,10 @@ export default function MenuItems({ fill }: Props) {
             d="M27 34C34.1797 34 40 28.1797 40 21C40 13.8203 34.1797 8 27 8C19.8203 8 14 13.8203 14 21C14 28.1797 19.8203 34 27 34ZM27 36C35.2843 36 42 29.2843 42 21C42 12.7157 35.2843 6 27 6C18.7157 6 12 12.7157 12 21C12 29.2843 18.7157 36 27 36Z"
           />
         </svg>
+        <h1 className="hidden md:block">Find a doctor</h1>
       </div>
-      <hr className="w-10 border-solid border-1 border-mainFontColor" />
-      <div>
+      <hr className="w-10 border-solid border-1 border-mainFontColor md:hidden" />
+      <div className="flex flex-row items-center justify-center md:justify-start  gap-2 w-full cursor-pointer px-1 py-2 rounded-lg md:hover:bg-gradientVia1 md:hover:transition-all md:hover:duration-300 transition-all duration-300">
         <svg
           fill={fill}
           className="h-10 w-10"
@@ -100,6 +104,7 @@ export default function MenuItems({ fill }: Props) {
           <path d="M4 20.0694C4 14.5082 8.50824 10 14.0694 10H21.9306C27.4918 10 32 14.5082 32 20.0694C32 25.6306 27.4918 30.1389 21.9306 30.1389H16V35C16 35 4 32.5694 4 20.0694Z" />
           <path d="M24.4774 31.867C25.925 33.2569 27.8907 34.1111 30.0559 34.1111H33.0003V38C33.0003 38 44.0003 36.0556 44.0003 26.0556C44.0003 21.6066 40.3937 18 35.9448 18H33.7352C33.9079 18.6562 33.9999 19.3451 33.9999 20.0556C33.9999 25.8503 29.9208 30.6923 24.4774 31.867Z" />
         </svg>
+        <h1 className="hidden md:block">Messages</h1>
       </div>
     </div>
   );

@@ -11,12 +11,15 @@ export default function Logout() {
     navigate("/", { replace: true });
   };
   return (
-    <div className="flex items-center justify-center md:justify-between mb-10 text-mainFontColor cursor-pointer">
-      <h1 className="hidden md:block">Logout</h1>
-      <div onClick={handleClick}>
+    <div className="flex items-center justify-center md:justify-start md:gap-5 text-mainFontColor">
+      <h1 onClick={handleClick} className="hidden md:block w-full">
+        <span className="cursor-pointer">Logout</span>
+      </h1>
+
+      <div className="" onClick={handleClick}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="h-8 w-8"
+          className="h-8 w-8 cursor-pointer"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"

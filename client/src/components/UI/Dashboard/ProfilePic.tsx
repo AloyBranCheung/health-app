@@ -2,8 +2,8 @@ import React from "react";
 
 export default function ProfilePic() {
   return (
-    <div className="flex flex-col gap-5 items-center justify-center mt-10 text-mainFontColor">
-      <div>
+    <div className="flex flex-col gap-5 items-center justify-center text-mainFontColor mb-10">
+      <div className="cursor-pointer">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           className="h-8 w-8"
@@ -20,7 +20,7 @@ export default function ProfilePic() {
       <div className="flex">
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="h-4 w-4"
+          className="h-4 w-4 cursor-pointer"
           viewBox="0 0 20 20"
           fill="currentColor"
         >
@@ -28,7 +28,7 @@ export default function ProfilePic() {
         </svg>
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="h-4 w-4"
+          className="h-4 w-4 cursor-pointer"
           viewBox="0 0 20 20"
           fill="currentColor"
         >
@@ -36,7 +36,7 @@ export default function ProfilePic() {
         </svg>
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="h-4 w-4"
+          className="h-4 w-4 cursor-pointer"
           viewBox="0 0 20 20"
           fill="currentColor"
         >

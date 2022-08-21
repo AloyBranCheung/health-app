@@ -10,6 +10,12 @@ module.exports = {
       md: "768px",
       lg: "1200px",
     },
+    backgroundSize: {
+      auto: "auto",
+      cover: "cover",
+      contain: "contain",
+      colorHover: "200% 100%",
+    },
     colors: {
       mainColor: "#F6FFFF",
       secondaryColor: "#FFE7E7",
