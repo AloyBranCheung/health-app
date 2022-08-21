@@ -1,10 +1,9 @@
 import React, { useContext } from "react";
 import AuthContext from "../context/authContext";
 import { Navigate, Outlet } from "react-router-dom";
-
-type Props = {
-  children: JSX.Element;
-};
+import Dashboard from "./UI/Dashboard";
+import MainBoard from "./UI/Dashboard/MainBoard";
+import Sidebar from "./UI/Dashboard/Sidebar";
 
 export default function ProtectRoute() {
   const { isLoggedIn } = useContext(AuthContext);
@@ -12,5 +11,9 @@ export default function ProtectRoute() {
     return <Navigate to="/login" replace />;
   }
 
-  return <Outlet />;
+  return (
+    <Dashboard>
+      <Outlet />
+    </Dashboard>
+  );
 }
