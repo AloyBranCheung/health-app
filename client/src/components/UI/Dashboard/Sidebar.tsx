@@ -9,7 +9,7 @@ export default function Sidebar() {
   console.log(user);
   return (
     <div className="bg-gradient-to-l shadow-xl from-gradientStart fixed h-screen w-20 md:w-48 md:p-5">
-      <div className="flex flex-col h-full justify-between">
+      <div className="flex flex-col h-full justify-between py-10 md:py-5">
         <div className="flex flex-col">
           <ProfilePic />
           <MenuItems fill="#423066" />
