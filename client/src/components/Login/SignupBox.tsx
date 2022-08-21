@@ -26,6 +26,30 @@ export default function LoginModal() {
     navigate("/");
   };
 
+  // disable button if input is empty
+  const [isEmpty, setIsEmpty] = useState(true);
+  useEffect(() => {
+    if (
+      formInput.displayName === "" ||
+      formInput.email === "" ||
+      formInput.password === "" ||
+      formInput.firstName === "" ||
+      formInput.lastName === "" ||
+      passwordError
+    ) {
+      setIsEmpty(true);
+    } else {
+      setIsEmpty(false);
+    }
+  }, [
+    passwordError,
+    formInput.displayName,
+    formInput.email,
+    formInput.password,
+    formInput.firstName,
+    formInput.lastName,
+  ]);
+
   // password/confirmation password form validation
   const passwordSame = (password: string, confirmPassword: string) => {
     if (password !== confirmPassword) {
@@ -157,10 +181,10 @@ export default function LoginModal() {
             Back
           </Button>
           <Button
-            disabled={passwordError}
+            disabled={isEmpty}
             type="submit"
             className={`${
-              passwordError ? "bg-gray-100" : "bg-tertiaryColor"
+              isEmpty ? "bg-gray-100" : "bg-tertiaryColor"
             } text-mainFontColor text-xs w-1/3 shadow transition-all duration-500`}
           >
             Sign Up
