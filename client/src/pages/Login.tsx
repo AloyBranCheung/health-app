@@ -16,7 +16,7 @@ export default function Login() {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
     >
-      <section className="text-mainFontColor bg-mainColor h-screen flex flex-row relative">
+      <section className="text-mainFontColor bg-mainColor min-h-screen flex flex-row relative">
         <div className="hidden md:flex md:flex-col md:gap-10 bg-secondaryColor w-1/2 justify-center items-center">
           <h1 className="text-5xl text-mainFontColor font-bold">
             Welcome Back :&#41;
@@ -32,7 +32,7 @@ export default function Login() {
           <div className="flex p-5 w-full max-w-sm">
             <img
               className="h-7 w-7 self-center mr-3"
-              src="https://cdn-icons.flaticon.com/png/512/1177/premium/1177232.png?token=exp=1660956265~hmac=d965bf48482fcf14909c113d38aeb5dc"
+              src="https://cdn-icons-png.flaticon.com/512/3820/3820205.png"
               alt="brandimg"
             />
             <h1>

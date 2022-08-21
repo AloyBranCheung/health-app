@@ -10,13 +10,15 @@ type data = {
   preferredPronouns: string[];
   preferredName: string;
   _id: string;
+  bio: string;
+  appointments: string[];
 };
 
 const INITIAL_STATE = {
   user: {},
-  isLoggedIn: false,
   login: (data: data) => {},
   logout: () => {},
+  isLoggedIn: () => false,
 };
 
 // createContext
@@ -31,21 +33,33 @@ type Props = {
 // Context.Provider
 export const AuthContextProvider = ({ children }: Props) => {
   const [user, setUser] = useState({});
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const login = ({ token, ...others }: data) => {
     if (token) {
       sessionStorage.setItem("token", token);
-      setIsLoggedIn(true);
       setUser(others);
     }
   };
 
+  const logout = () => {
+    sessionStorage.removeItem("token");
+    setUser({});
+  };
+
+  const isLoggedIn = () => {
+    const token = sessionStorage.getItem("token");
+    if (!token) {
+      return false;
+    }
+
+    return true;
+  };
+
   const value = {
     user: user,
-    isLoggedIn: isLoggedIn,
     login: login,
-    logout: () => {},
+    logout: logout,
+    isLoggedIn: isLoggedIn,
   };
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };
