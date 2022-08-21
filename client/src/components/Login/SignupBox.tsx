@@ -1,11 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import Input from "../UI/Input";
 import { Button } from "@material-tailwind/react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import FormInputErrMsg from "../UI/FormInputErrMsg";
+import AuthContext from "../../context/authContext";
 
 export default function LoginModal() {
+  const { login } = useContext(AuthContext);
   const [error, setError] = useState(false);
   const [formInput, setFormInput] = useState({
     displayName: "",
@@ -59,7 +61,18 @@ export default function LoginModal() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
+      // register user
       const response = await axios.post("user/register", formInput);
+      console.log(response.data);
+
+      //login user
+      const loginResponse = await axios.post("user/login", {
+        email: formInput.email,
+        password: formInput.password,
+      });
+      login(loginResponse.data);
+
+      // reset state and navigate to dashboard(replace: true)
       setFormInput({
         displayName: "",
         email: "",
@@ -70,7 +83,7 @@ export default function LoginModal() {
       });
       setConfirmPassword("");
       setError(false);
-      console.log("Succesfully Registered :)", response.data);
+      navigate("/dashboard", { replace: true });
     } catch (error: any) {
       setError(true);
       console.error(error.response.data.message);
@@ -144,8 +157,11 @@ export default function LoginModal() {
             Back
           </Button>
           <Button
+            disabled={passwordError}
             type="submit"
-            className="bg-tertiaryColor text-mainFontColor text-xs w-1/3 shadow"
+            className={`${
+              passwordError ? "bg-gray-100" : "bg-tertiaryColor"
+            } text-mainFontColor text-xs w-1/3 shadow transition-all duration-500`}
           >
             Sign Up
           </Button>
