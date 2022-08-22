@@ -8,7 +8,7 @@ export default function Footer() {
           <a className="flex title-font font-medium items-center md:justify-start justify-center text-mainFontColor">
             <img
               className="h-7 w-7 self-center mr-3"
-              src="https://cdn-icons.flaticon.com/png/512/1177/premium/1177232.png?token=exp=1660956265~hmac=d965bf48482fcf14909c113d38aeb5dc"
+              src="https://cdn-icons-png.flaticon.com/512/3820/3820205.png"
               alt="brandimg"
             />
             <span className="text-xl">Random Health Tech</span>
@@ -78,9 +78,9 @@ export default function Footer() {
             >
               <svg
                 fill="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
                 className="w-5 h-5"
                 viewBox="0 0 24 24"
               >
@@ -93,9 +93,9 @@ export default function Footer() {
             >
               <svg
                 fill="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
                 className="w-5 h-5"
                 viewBox="0 0 24 24"
               >
@@ -109,9 +109,9 @@ export default function Footer() {
               <svg
                 fill="none"
                 stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
                 className="w-5 h-5"
                 viewBox="0 0 24 24"
               >
@@ -126,9 +126,9 @@ export default function Footer() {
               <svg
                 fill="currentColor"
                 stroke="currentColor"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="0"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="0"
                 className="w-5 h-5"
                 viewBox="0 0 24 24"
               >

@@ -39,6 +39,7 @@ export default function LoginModal() {
       setError(false);
       console.log("Successfully logged in.");
       login(response.data);
+      navigate("/dashboard", { replace: true });
     } catch (error) {
       setError(true);
       if (axios.isAxiosError(error)) {

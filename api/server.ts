@@ -49,6 +49,7 @@ app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
 app.get("/", (req, res) => {
   res.send("Hello from the server :)");
 });
+
 app.listen(3001, () => {
   connectToMongoose();
   console.log("Server started on port 3001");

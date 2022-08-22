@@ -69,8 +69,6 @@ export const loginUser = async (
       firstName: user?.firstName,
       lastName: user?.lastName,
       isProvider: user?.isProvider,
-      preferredPronouns: user?.preferredPronouns,
-      preferredName: user?.preferredName,
       _id: user?._id,
     });
   } catch (error) {

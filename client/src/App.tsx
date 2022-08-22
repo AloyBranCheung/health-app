@@ -9,6 +9,9 @@ import Careers from "./pages/Careers";
 import AboutUs from "./pages/AboutUs";
 import Signup from "./pages/Signup";
 import { AuthContextProvider } from "./context/authContext";
+import ProtectRoute from "./components/ProtectRoute";
+import MainDashboard from "./pages/MainDashboard";
+import WhatsNews from "./pages/WhatsNew";
 
 function App() {
   return (
@@ -21,6 +24,10 @@ function App() {
           <Route path="/contactus" element={<ContactUs />} />
           <Route path="/careers" element={<Careers />} />
           <Route path="/aboutus" element={<AboutUs />} />
+          <Route path="/whatsnew" element={<WhatsNews />} />
+          <Route path="/" element={<ProtectRoute />}>
+            <Route path="/dashboard" element={<MainDashboard />} />
+          </Route>
         </Routes>
       </BrowserRouter>
     </AuthContextProvider>
