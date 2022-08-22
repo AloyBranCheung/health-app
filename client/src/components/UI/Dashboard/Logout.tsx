@@ -11,7 +11,7 @@ export default function Logout() {
     navigate("/", { replace: true });
   };
   return (
-    <div className="flex items-center justify-center md:justify-start md:gap-5 text-mainFontColor">
+    <div className="flex items-center justify-center md:justify-start md:gap-5 text-mainFontColor px-1 py-2">
       <div className="" onClick={handleClick}>
         <svg
           xmlns="http://www.w3.org/2000/svg"

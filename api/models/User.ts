@@ -18,15 +18,19 @@ const UserSchema = new mongoose.Schema(
     },
     firstName: {
       type: String,
+      required: true,
     },
     lastName: {
       type: String,
+      required: true,
     },
     MRN: {
       type: String,
+      default: "00000000",
     },
     familyMembers: {
       type: [String],
+      default: [""],
     },
     isProvider: {
       type: Boolean,
@@ -34,21 +38,27 @@ const UserSchema = new mongoose.Schema(
     },
     patientList: {
       type: [String],
+      default: [""],
     },
     preferredPronouns: {
       type: [String],
+      default: [""],
     },
     preferredName: {
       type: String,
+      default: "",
     },
     bio: {
       type: String,
+      default: "",
     },
     appointments: {
       type: [String],
+      default: [""],
     },
     myGoals: {
       type: [String],
+      default: [""],
     },
   },
   { timestamps: true }
