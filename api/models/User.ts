@@ -47,6 +47,9 @@ const UserSchema = new mongoose.Schema(
     appointments: {
       type: [String],
     },
+    myGoals: {
+      type: [String],
+    },
   },
   { timestamps: true }
 );

@@ -29,7 +29,12 @@ module.exports = {
       gradientVia1: "#ebd4ff",
       gradientTo: "#c9f5ff",
     },
-    extend: {},
+    extend: {
+      backgroundImage: {
+        "card-radial-gradient":
+          "radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,239,250,1) 50%, rgba(230,251,255,0.23573179271708689) 100%)",
+      },
+    },
   },
   plugins: [],
 };

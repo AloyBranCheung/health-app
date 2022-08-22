@@ -15,7 +15,18 @@ type data = {
 };
 
 const INITIAL_STATE = {
-  user: {},
+  user: {
+    email: "",
+    displayName: "",
+    firstName: "",
+    lastName: "",
+    isProvider: false,
+    preferredPronouns: [""],
+    preferredName: "",
+    _id: "",
+    bio: "",
+    appointments: [""],
+  },
   login: (data: data) => {},
   logout: () => {},
   isLoggedIn: () => false,
@@ -32,7 +43,18 @@ type Props = {
 
 // Context.Provider
 export const AuthContextProvider = ({ children }: Props) => {
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState({
+    email: "",
+    displayName: "",
+    firstName: "",
+    lastName: "",
+    isProvider: false,
+    preferredPronouns: [""],
+    preferredName: "",
+    _id: "",
+    bio: "",
+    appointments: [""],
+  });
 
   const login = ({ token, ...others }: data) => {
     if (token) {
@@ -43,7 +65,18 @@ export const AuthContextProvider = ({ children }: Props) => {
 
   const logout = () => {
     sessionStorage.removeItem("token");
-    setUser({});
+    setUser({
+      email: "",
+      displayName: "",
+      firstName: "",
+      lastName: "",
+      isProvider: false,
+      preferredPronouns: [""],
+      preferredName: "",
+      _id: "",
+      bio: "",
+      appointments: [""],
+    });
   };
 
   const isLoggedIn = () => {

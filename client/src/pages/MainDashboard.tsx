@@ -1,10 +1,10 @@
 import React from "react";
+import MainDash from "../components/MainDash";
 
 export default function MainDashboard() {
   return (
-    <div>
-      <div className="flex h-screen">Screen 1</div>
-      <div className="flex h-screen">Screen 1</div>
+    <div className="min-h-full">
+      <MainDash />
     </div>
   );
 }
