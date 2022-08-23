@@ -1,13 +1,14 @@
 import React from "react";
 import Logout from "./Logout";
 import MenuItems from "./MenuItems";
-import ProfilePic from "./ProfilePic";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 export default function Sidebar() {
+  const location = useLocation();
+  const userId = location.pathname.split("/")[3];
   const navigate = useNavigate();
   const navDashboard = () => {
-    navigate("/dashboard");
+    navigate(`/dashboard/${userId}`);
   };
   return (
     <div className="bg-gradient-to-l shadow-2xl from-gradientStart fixed h-screen w-20 md:w-48 md:p-5">
@@ -21,7 +22,6 @@ export default function Sidebar() {
           />
         </div>
         <div className="flex flex-col">
-          {/* <ProfilePic /> */}
           <MenuItems fill="#423066" />
         </div>
         <div>

@@ -26,7 +26,7 @@ function App() {
           <Route path="/aboutus" element={<AboutUs />} />
           <Route path="/whatsnew" element={<WhatsNews />} />
           <Route path="/" element={<ProtectRoute />}>
-            <Route path="/dashboard" element={<MainDashboard />} />
+            <Route path="/dashboard/:userid" element={<MainDashboard />} />
           </Route>
         </Routes>
       </BrowserRouter>
