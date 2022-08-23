@@ -86,8 +86,7 @@ export default function LoginModal() {
     e.preventDefault();
     try {
       // register user
-      const response = await axios.post("user/register", formInput);
-      console.log(response.data);
+      await axios.post("user/register", formInput);
 
       //login user
       const loginResponse = await axios.post("user/login", {
@@ -107,7 +106,10 @@ export default function LoginModal() {
       });
       setConfirmPassword("");
       setError(false);
-      navigate("/dashboard", { replace: true });
+
+      //navigate to dashboard
+      await axios.post(`mrn/healthinformation/${loginResponse.data._id}`);
+      navigate(`/dashboard/${loginResponse.data._id}`, { replace: true });
     } catch (error: any) {
       setError(true);
       console.error(error.response.data.message);

@@ -16,7 +16,6 @@ export default function ProtectRoute() {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
     >
-      {" "}
       <Dashboard>
         <Outlet />
       </Dashboard>

@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
 
 // components
 import Home from "./pages/Home";
@@ -26,7 +26,9 @@ function App() {
           <Route path="/aboutus" element={<AboutUs />} />
           <Route path="/whatsnew" element={<WhatsNews />} />
           <Route path="/" element={<ProtectRoute />}>
-            <Route path="/dashboard" element={<MainDashboard />} />
+            <Route path="/dashboard" element={<Outlet />}>
+              <Route path="/dashboard/:userid" element={<MainDashboard />} />
+            </Route>
           </Route>
         </Routes>
       </BrowserRouter>

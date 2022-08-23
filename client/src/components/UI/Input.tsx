@@ -7,6 +7,7 @@ type Props = {
   type?: string;
   autoComplete?: string;
   onFocus?: () => void;
+  className?: string;
 };
 
 export default function Input({
@@ -17,9 +18,12 @@ export default function Input({
   type,
   autoComplete,
   onFocus,
+  className,
 }: Props) {
   return (
-    <div className="shadow pt-4 bg-white relative flex border-2 border-gray-200 rounded-md transition-all focus-within:border-mainFontColor focus-within:transition-all">
+    <div
+      className={`shadow pt-4 bg-white relative flex border-2 border-gray-200 rounded-md transition-all focus-within:border-mainFontColor focus-within:transition-all ${className}`}
+    >
       <input
         onChange={onChange}
         value={value}

@@ -34,7 +34,9 @@ export const loginUser = async (
   const loginPassword = password;
   try {
     // check user is present
-    const user = await User.findOne({ email: req.body.email });
+    const user = await User.findOne({
+      email: req.body.email,
+    });
     if (!user) {
       next(createError(404, "User not found!"));
     }
@@ -61,14 +63,8 @@ export const loginUser = async (
       { expiresIn: 900000 }
     );
 
-    // give a cookie
     res.status(200).json({
       token: token,
-      email: user?.email,
-      displayName: user?.displayName,
-      firstName: user?.firstName,
-      lastName: user?.lastName,
-      isProvider: user?.isProvider,
       _id: user?._id,
     });
   } catch (error) {

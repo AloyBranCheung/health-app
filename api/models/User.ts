@@ -18,37 +18,75 @@ const UserSchema = new mongoose.Schema(
     },
     firstName: {
       type: String,
+      required: true,
     },
     lastName: {
       type: String,
+      required: true,
     },
     MRN: {
       type: String,
+      default: "00000000",
     },
     familyMembers: {
-      type: [String],
+      type: [
+        {
+          familyId: {
+            type: String,
+            deafult: "",
+          },
+        },
+      ],
+      default: [{}],
     },
     isProvider: {
       type: Boolean,
       default: false,
     },
     patientList: {
-      type: [String],
+      type: [
+        {
+          patientId: {
+            type: String,
+            deafult: "",
+          },
+        },
+      ],
+      default: [{}],
     },
     preferredPronouns: {
       type: [String],
+      default: [""],
     },
     preferredName: {
       type: String,
+      default: "",
     },
     bio: {
       type: String,
+      default: "",
     },
     appointments: {
-      type: [String],
+      type: [
+        {
+          appointmentDate: {
+            type: String,
+            default: "",
+          },
+        },
+      ],
+      default: [{}],
     },
     myGoals: {
-      type: [String],
+      type: [
+        {
+          goal: {
+            type: String,
+            default: "Try adding a goal",
+          },
+        },
+      ],
+      default: [""],
     },
   },
   { timestamps: true }

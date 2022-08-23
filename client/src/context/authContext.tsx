@@ -2,31 +2,41 @@ import React, { useState } from "react";
 
 type data = {
   token: string;
+};
+
+type User = {
+  _id: string;
   email: string;
   displayName: string;
   firstName: string;
   lastName: string;
+  familyMembers: string[];
   isProvider: boolean;
+  patientList: string[];
   preferredPronouns: string[];
   preferredName: string;
-  _id: string;
   bio: string;
   appointments: string[];
+  myGoals: { _id: string; goal: string }[];
 };
 
 const INITIAL_STATE = {
   user: {
+    _id: "",
     email: "",
     displayName: "",
     firstName: "",
     lastName: "",
+    familyMembers: [""],
     isProvider: false,
+    patientList: [""],
     preferredPronouns: [""],
     preferredName: "",
-    _id: "",
     bio: "",
     appointments: [""],
+    myGoals: [{ _id: "", goal: "" }],
   },
+  setUser: (user: User) => {},
   login: (data: data) => {},
   logout: () => {},
   isLoggedIn: () => false,
@@ -43,40 +53,16 @@ type Props = {
 
 // Context.Provider
 export const AuthContextProvider = ({ children }: Props) => {
-  const [user, setUser] = useState({
-    email: "",
-    displayName: "",
-    firstName: "",
-    lastName: "",
-    isProvider: false,
-    preferredPronouns: [""],
-    preferredName: "",
-    _id: "",
-    bio: "",
-    appointments: [""],
-  });
+  const [user, setUser] = useState<User>(INITIAL_STATE.user);
 
-  const login = ({ token, ...others }: data) => {
+  const login = ({ token }: data) => {
     if (token) {
       sessionStorage.setItem("token", token);
-      setUser(others);
     }
   };
 
   const logout = () => {
     sessionStorage.removeItem("token");
-    setUser({
-      email: "",
-      displayName: "",
-      firstName: "",
-      lastName: "",
-      isProvider: false,
-      preferredPronouns: [""],
-      preferredName: "",
-      _id: "",
-      bio: "",
-      appointments: [""],
-    });
   };
 
   const isLoggedIn = () => {
@@ -89,6 +75,7 @@ export const AuthContextProvider = ({ children }: Props) => {
   };
 
   const value = {
+    setUser: setUser,
     user: user,
     login: login,
     logout: logout,
