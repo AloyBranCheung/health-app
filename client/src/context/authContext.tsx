@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
 type data = {
   token: string;
+  _id: string;
 };
 
 type User = {
@@ -40,6 +42,7 @@ const INITIAL_STATE = {
   login: (data: data) => {},
   logout: () => {},
   isLoggedIn: () => false,
+  isLoading: false,
 };
 
 // createContext
@@ -54,10 +57,36 @@ type Props = {
 // Context.Provider
 export const AuthContextProvider = ({ children }: Props) => {
   const [user, setUser] = useState<User>(INITIAL_STATE.user);
+  const [isLoading, setIsLoading] = useState(false);
 
-  const login = ({ token }: data) => {
+  useEffect(() => {
+    setIsLoading(true);
+    const token = sessionStorage.getItem("token");
+    const id = sessionStorage.getItem("_id");
+    const fetchData = async (token: string | null, id: string | null) => {
+      if (token && id) {
+        try {
+          const response = await axios.get(`/dashboard/user/${id}`);
+          setUser(response.data);
+        } catch (error) {
+          console.log(error);
+        }
+      }
+    };
+    fetchData(token, id);
+    setIsLoading(false);
+  }, []);
+
+  const login = async ({ token, _id }: data) => {
     if (token) {
       sessionStorage.setItem("token", token);
+      sessionStorage.setItem("_id", _id);
+      try {
+        const response = await axios.get(`/dashboard/user/${_id}`);
+        setUser(response.data);
+      } catch (error) {
+        console.log(error);
+      }
     }
   };
 
@@ -80,6 +109,7 @@ export const AuthContextProvider = ({ children }: Props) => {
     login: login,
     logout: logout,
     isLoggedIn: isLoggedIn,
+    isLoading: isLoading,
   };
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };

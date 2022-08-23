@@ -109,7 +109,7 @@ export default function LoginModal() {
 
       //navigate to dashboard
       await axios.post(`mrn/healthinformation/${loginResponse.data._id}`);
-      navigate(`/dashboard/${loginResponse.data._id}`, { replace: true });
+      navigate(`/dashboard`, { replace: true });
     } catch (error: any) {
       setError(true);
       console.error(error.response.data.message);
