@@ -34,6 +34,9 @@ module.exports = {
         "card-radial-gradient":
           "radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,239,250,1) 50%, rgba(230,251,255,0.23573179271708689) 100%)",
       },
+      gridTemplateRows: {
+        stopStretching: "auto minmax(0, 1fr)",
+      },
     },
   },
   plugins: [],
