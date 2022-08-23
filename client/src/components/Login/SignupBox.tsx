@@ -86,7 +86,7 @@ export default function LoginModal() {
     e.preventDefault();
     try {
       // register user
-      const response = await axios.post("user/register", formInput);
+      await axios.post("user/register", formInput);
 
       //login user
       const loginResponse = await axios.post("user/login", {

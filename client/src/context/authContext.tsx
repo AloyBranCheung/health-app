@@ -17,7 +17,7 @@ type User = {
   preferredName: string;
   bio: string;
   appointments: string[];
-  myGoals: string[];
+  myGoals: { _id: string; goal: string }[];
 };
 
 const INITIAL_STATE = {
@@ -34,7 +34,7 @@ const INITIAL_STATE = {
     preferredName: "",
     bio: "",
     appointments: [""],
-    myGoals: [""],
+    myGoals: [{ _id: "", goal: "" }],
   },
   setUser: (user: User) => {},
   login: (data: data) => {},

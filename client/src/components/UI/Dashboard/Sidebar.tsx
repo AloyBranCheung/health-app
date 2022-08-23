@@ -1,11 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
+import AuthContext from "../../../context/authContext";
 import Logout from "./Logout";
 import MenuItems from "./MenuItems";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function Sidebar() {
-  const location = useLocation();
-  const userId = location.pathname.split("/")[3];
+  const { user } = useContext(AuthContext);
+  const userId = user._id;
   const navigate = useNavigate();
   const navDashboard = () => {
     navigate(`/dashboard/${userId}`);

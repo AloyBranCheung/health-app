@@ -2,14 +2,15 @@ import React, { useState } from "react";
 import Button from "./Button";
 
 type Props = {
-  addNewGoal: () => void;
+  goal: (goal: string) => void;
 };
 
-export default function GoalInput({ addNewGoal }: Props) {
+export default function GoalInput({ goal }: Props) {
   const [newGoal, setNewGoal] = useState("");
 
   const handleClick = () => {
-    addNewGoal();
+    goal(newGoal);
+    setNewGoal("");
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -26,13 +27,13 @@ export default function GoalInput({ addNewGoal }: Props) {
           name="addGoal"
           id="addGoal"
           className="text-sm w-full rounded-lg px-3 outline-none peer placeholder-transparent"
-          placeholder="Add Goal"
+          placeholder="Add a goal, shoot for the stars"
         />
         <label
           className="transition-all absolute text-xs top-1 left-3 z-10 -mt-6 peer-placeholder-shown:text-gray-400 peer-placeholder-shown:mt-0 peer-focus:-mt-6 peer-focus:text-mainFontColor"
           htmlFor="addGoal"
         >
-          Add Goal
+          Shoot for the stars
         </label>
       </div>
       <div>

@@ -29,16 +29,30 @@ const UserSchema = new mongoose.Schema(
       default: "00000000",
     },
     familyMembers: {
-      type: [String],
-      default: [""],
+      type: [
+        {
+          familyId: {
+            type: String,
+            deafult: "",
+          },
+        },
+      ],
+      default: [{}],
     },
     isProvider: {
       type: Boolean,
       default: false,
     },
     patientList: {
-      type: [String],
-      default: [""],
+      type: [
+        {
+          patientId: {
+            type: String,
+            deafult: "",
+          },
+        },
+      ],
+      default: [{}],
     },
     preferredPronouns: {
       type: [String],
@@ -53,11 +67,25 @@ const UserSchema = new mongoose.Schema(
       default: "",
     },
     appointments: {
-      type: [String],
-      default: [""],
+      type: [
+        {
+          appointmentDate: {
+            type: String,
+            default: "",
+          },
+        },
+      ],
+      default: [{}],
     },
     myGoals: {
-      type: [String],
+      type: [
+        {
+          goal: {
+            type: String,
+            default: "Try adding a goal",
+          },
+        },
+      ],
       default: [""],
     },
   },

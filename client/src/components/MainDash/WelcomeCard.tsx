@@ -20,7 +20,9 @@ export default function WelcomeCard({ className }: Props) {
       <div className="flex flex-col p-5 gap-5 lg:flex-row lg:h-full lg:items-center lg:justify-center">
         <div className="flex flex-col gap-5 md:justify-center">
           <h1 className="text-xl">
-            <strong>{`Welcome ${user?.firstName}.`}</strong>
+            <strong>{`Welcome ${
+              user?.firstName.charAt(0).toUpperCase() + user?.firstName.slice(1)
+            }.`}</strong>
           </h1>
           <p>
             I hope you're having a good day. See what's new with Random Health
