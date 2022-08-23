@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Button from "./Button";
+import Button from "../UI/Button";
 
 type Props = {
   goal: (goal: string) => void;
@@ -33,11 +33,11 @@ export default function GoalInput({ goal }: Props) {
           onChange={handleChange}
           name="addGoal"
           id="addGoal"
-          className="text-sm w-full rounded-lg px-3 outline-none peer placeholder-transparent"
+          className="text-sm w-full rounded-lg px-3 outline-none peer placeholder-transparent p-2"
           placeholder=" "
         />
         <label
-          className="transition-all absolute text-xs top-1 left-3 z-10 -mt-6 peer-placeholder-shown:text-gray-400 peer-placeholder-shown:mt-0 peer-focus:-mt-6 peer-focus:text-mainFontColor"
+          className="transition-all absolute text-xs top-2.5 left-3 z-10 -mt-7 peer-placeholder-shown:text-gray-400 peer-placeholder-shown:mt-0 peer-focus:-mt-7 peer-focus:text-mainFontColor"
           htmlFor="addGoal"
         >
           {isEmpty ? (
@@ -48,7 +48,7 @@ export default function GoalInput({ goal }: Props) {
         </label>
       </div>
       <div>
-        <Button onClick={handleClick} text="Add" className="py-1" />
+        <Button onClick={handleClick} text="Add" className="py-2 px-4" />
       </div>
     </div>
   );

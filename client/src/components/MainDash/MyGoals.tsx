@@ -1,15 +1,16 @@
 import React, { useContext } from "react";
 import AuthContext from "../../context/authContext";
 import Card from "../UI/Card";
-import GoalInput from "../UI/GoalInput";
+import GoalInput from "./GoalInput";
 import axios from "axios";
+import LoadingSpinner from "../UI/LoadingSpinner";
 
 type Props = {
   className?: string;
 };
 
 export default function Goals({ className }: Props) {
-  const { user, setUser } = useContext(AuthContext);
+  const { user, setUser, isLoading } = useContext(AuthContext);
 
   // add goal
   const addGoal = async (goal: string) => {
@@ -45,13 +46,14 @@ export default function Goals({ className }: Props) {
     if (goal._id === "" || goal._id.length === 0) {
       return null;
     }
+
     return (
       <li
         key={goal._id}
         id={goal._id}
-        className="flex flex-row justify-between items-center"
+        className="flex flex-row justify-between items-center bg-white p-2 rounded-xl shadow-xl"
       >
-        <h1>{goal.goal}</h1>
+        <h1 className="break-all">{goal.goal}</h1>
         <button
           onClick={() => {
             handleDelete(goal._id);
@@ -65,17 +67,24 @@ export default function Goals({ className }: Props) {
 
   return (
     <Card className={`${className}`}>
-      <div className="p-5 flex flex-col gap-5 h-full">
-        <div className="flex flex-row justify-between mb-2">
-          <h1>
-            <strong className="">My Goals</strong>
-          </h1>
+      {isLoading ? (
+        <div className="flex h-full items-center justify-center p-5">
+          <LoadingSpinner />
         </div>
-        <ul className="flex flex-col gap-5">{listGoals}</ul>
-        <div className="flex flex-row justify-between pb-5 pt-2">
-          <GoalInput goal={addGoal} />
+      ) : (
+        <div className="p-5 flex flex-col gap-5 h-full">
+          <div className="flex flex-row justify-between mb-2">
+            <h1>
+              <strong className="">My Goals</strong>
+            </h1>
+            <div>🥅</div>
+          </div>
+          <ul className="flex flex-col gap-5">{listGoals}</ul>
+          <div className="flex flex-row justify-between pb-5 pt-2">
+            <GoalInput goal={addGoal} />
+          </div>
         </div>
-      </div>
+      )}
     </Card>
   );
 }

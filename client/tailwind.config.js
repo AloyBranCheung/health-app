@@ -28,6 +28,9 @@ module.exports = {
       gradientStart: "#fbf6ff",
       gradientVia1: "#ebd4ff",
       gradientTo: "#c9f5ff",
+      cardStart: "#c3b4ff",
+      cardMiddle: "#f4e1ff",
+      cardEnd: "#a9f0ff",
     },
     extend: {
       backgroundImage: {
