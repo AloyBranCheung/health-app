@@ -1,32 +1,15 @@
-import React, { useEffect, useContext, useState } from "react";
-import { useLocation } from "react-router-dom";
+import React, { useContext } from "react";
 import AuthContext from "../../context/authContext";
 import Medications from "./Medications";
 import MyGoals from "./MyGoals";
 import ScheduledAppointments from "./ScheduledAppointments";
 import Vitals from "./Vitals";
 import WelcomeCard from "./WelcomeCard";
-import axios from "axios";
 
 export default function MainDash() {
-  const { setUser } = useContext(AuthContext);
-  const [isLoading, setIsLoading] = useState(false);
-  const location = useLocation();
-  const userId = location.pathname.split("/")[2];
-
-  // get user data and it to app state
-  useEffect(() => {
-    setIsLoading(true);
-    const fetchData = async () => {
-      const response = await axios.get(`/dashboard/user/${userId}`);
-      setUser(response.data);
-    };
-    fetchData();
-    setIsLoading(false);
-  }, [userId, setUser]);
-
+  const { isLoading } = useContext(AuthContext);
   return (
-    <div className="max-h-screen lg:min-h-screen lg:max-h-screen p-5 text-mainFontColor grid gap-10 md:grid-cols-12 md:grid-rows-6">
+    <div className="max-h-screen lg:min-h-screen lg:max-h-screen p-5 text-mainFontColor flex flex-col md:grid gap-10 md:grid-cols-12 md:grid-rows-6">
       {isLoading ? (
         <h1>Loading...</h1>
       ) : (

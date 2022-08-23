@@ -36,6 +36,14 @@ const HealthSchema = new mongoose.Schema(
             default: "",
           },
           dose: {
+            type: Number,
+            default: "",
+          },
+          doseUnits: {
+            type: String,
+            default: "",
+          },
+          timing: {
             type: String,
             default: "",
           },

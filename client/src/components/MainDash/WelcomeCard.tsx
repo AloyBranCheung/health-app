@@ -17,8 +17,8 @@ export default function WelcomeCard({ className }: Props) {
 
   return (
     <Card className={className}>
-      <div className="flex flex-col p-5 gap-5 md:flex-row lg:h-full lg:items-center lg:justify-center">
-        <div className="flex flex-col gap-5 md:justify-center">
+      <div className="flex flex-col p-5 gap-5 md:flex-row md:h-full object-fill lg:items-center lg:justify-center">
+        <div className="flex flex-col gap-5 md:justify-center h-full">
           <h1 className="text-xl">
             <strong>{`Welcome ${
               user?.firstName.charAt(0).toUpperCase() + user?.firstName.slice(1)
@@ -33,9 +33,9 @@ export default function WelcomeCard({ className }: Props) {
           </div>
         </div>
 
-        <div className="h-full">
+        <div className="flex items-center justify-center w-full h-full">
           <img
-            className=""
+            className="h-full w-full object-contain"
             src="https://cdn-icons-png.flaticon.com/512/4288/4288960.png"
             alt="welcomeimg"
           />

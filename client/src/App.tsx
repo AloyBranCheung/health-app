@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 // components
 import Home from "./pages/Home";
@@ -12,6 +12,7 @@ import { AuthContextProvider } from "./context/authContext";
 import ProtectRoute from "./components/ProtectRoute";
 import MainDashboard from "./pages/MainDashboard";
 import WhatsNews from "./pages/WhatsNew";
+import MedicationDashboard from "./pages/MedicationDashboard";
 
 function App() {
   return (
@@ -26,9 +27,11 @@ function App() {
           <Route path="/aboutus" element={<AboutUs />} />
           <Route path="/whatsnew" element={<WhatsNews />} />
           <Route path="/" element={<ProtectRoute />}>
-            <Route path="/dashboard" element={<Outlet />}>
-              <Route path="/dashboard/:userid" element={<MainDashboard />} />
-            </Route>
+            <Route path="/dashboard/" element={<MainDashboard />} />
+            <Route
+              path="/dashboard/medication"
+              element={<MedicationDashboard />}
+            />
           </Route>
         </Routes>
       </BrowserRouter>

@@ -1,10 +1,12 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 type Props = {
   fill: string;
 };
 
 export default function MenuItems({ fill }: Props) {
+  const navigate = useNavigate();
   return (
     <div className="flex flex-col justify-center items-center gap-5">
       <div className="flex flex-row items-center justify-center md:justify-start gap-2 w-full cursor-pointer px-1 py-2 rounded-lg md:hover:bg-gradientVia1 md:hover:transition-all md:hover:duration-300 transition-all duration-300">
@@ -24,7 +26,12 @@ export default function MenuItems({ fill }: Props) {
         <h1 className="hidden md:block">My Health</h1>
       </div>
       <hr className="w-10 border-solid border-1 border-mainFontColor md:hidden" />
-      <div className="flex flex-row items-center justify-center md:justify-start  gap-2 w-full cursor-pointer px-1 py-2 rounded-lg md:hover:bg-gradientVia1 md:hover:transition-all md:hover:duration-300 transition-all duration-300">
+      <div
+        onClick={() => {
+          navigate("/dashboard/medication");
+        }}
+        className="flex flex-row items-center justify-center md:justify-start  gap-2 w-full cursor-pointer px-1 py-2 rounded-lg md:hover:bg-gradientVia1 md:hover:transition-all md:hover:duration-300 transition-all duration-300"
+      >
         <svg
           className="h-10 w-10"
           viewBox="0 0 48 48"
