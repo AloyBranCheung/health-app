@@ -6,14 +6,21 @@ type Props = {
 };
 
 export default function GoalInput({ goal }: Props) {
+  const [isEmpty, setIsEmpty] = useState(false);
   const [newGoal, setNewGoal] = useState("");
 
   const handleClick = () => {
+    setIsEmpty(false);
+    if (newGoal === "" || newGoal.length === 0) {
+      setIsEmpty(true);
+      return;
+    }
     goal(newGoal);
     setNewGoal("");
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setIsEmpty(false);
     const newGoal = e.target.value;
     setNewGoal(newGoal);
   };
@@ -33,11 +40,15 @@ export default function GoalInput({ goal }: Props) {
           className="transition-all absolute text-xs top-1 left-3 z-10 -mt-6 peer-placeholder-shown:text-gray-400 peer-placeholder-shown:mt-0 peer-focus:-mt-6 peer-focus:text-mainFontColor"
           htmlFor="addGoal"
         >
-          Shoot for the stars
+          {isEmpty ? (
+            <p className="text-red">You can achieve anything but nothing.</p>
+          ) : (
+            "Shoot for the stars"
+          )}
         </label>
       </div>
       <div>
-        <Button onClick={handleClick} text="Add" />
+        <Button onClick={handleClick} text="Add" className="py-1" />
       </div>
     </div>
   );

@@ -72,7 +72,7 @@ export default function Goals({ className }: Props) {
           </h1>
         </div>
         <ul className="flex flex-col gap-5">{listGoals}</ul>
-        <div className="flex flex-row justify-between pb-5">
+        <div className="flex flex-row justify-between pb-5 pt-2">
           <GoalInput goal={addGoal} />
         </div>
       </div>
