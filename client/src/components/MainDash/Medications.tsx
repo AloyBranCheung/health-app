@@ -90,8 +90,9 @@ export default function Medications({ className }: Props) {
   };
 
   // medications list
-  const medicationsList = DUMMY_DATA.map((medication) => (
+  const medicationsList = DUMMY_DATA.map((medication, index) => (
     <MedicationPreview
+      key={index}
       name={medication.name}
       dose={medication.dose}
       doseUnits={medication.doseUnits}
@@ -109,7 +110,7 @@ export default function Medications({ className }: Props) {
             <Button onClick={navMeds} text="Add More" />
           </div>
         </div>
-        <div className="flex flex-col gap-5 px-10">{medicationsList}</div>
+        <div className="flex flex-col gap-5">{medicationsList}</div>
       </div>
     </Card>
   );

@@ -9,7 +9,7 @@ import WelcomeCard from "./WelcomeCard";
 export default function MainDash() {
   const { isLoading } = useContext(AuthContext);
   return (
-    <div className="max-h-screen lg:min-h-screen lg:max-h-screen p-5 text-mainFontColor grid gap-10 md:grid-cols-12 md:grid-rows-6">
+    <div className="max-h-screen lg:min-h-screen lg:max-h-screen p-5 text-mainFontColor flex flex-col md:grid gap-10 md:grid-cols-12 md:grid-rows-6">
       {isLoading ? (
         <h1>Loading...</h1>
       ) : (

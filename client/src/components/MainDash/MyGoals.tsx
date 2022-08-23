@@ -68,7 +68,7 @@ export default function Goals({ className }: Props) {
       <div className="p-5 flex flex-col gap-5 h-full">
         <div className="flex flex-row justify-between mb-2">
           <h1>
-            <strong className="text-3xl">My Goals</strong>
+            <strong className="">My Goals</strong>
           </h1>
         </div>
         <ul className="flex flex-col gap-5">{listGoals}</ul>

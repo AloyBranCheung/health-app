@@ -23,7 +23,7 @@ export default function MedicationPreview({
         />
       </div>
       <div className="w-full flex flex-col lg:justify-center">
-        <div className="flex flex-row justify-between w-full">
+        <div className="flex flex-row justify-start gap-5 w-full">
           <h1 className="lg:text-xl">{name}</h1>
           <p className="lg:text-xl">{`${dose}${doseUnits}`}</p>
         </div>
