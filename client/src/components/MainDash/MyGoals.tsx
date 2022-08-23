@@ -14,6 +14,7 @@ export default function Goals({ className }: Props) {
   // add goal
   const addGoal = async (goal: string) => {
     // [{goal, _id}, ...]
+
     const currArr = user.myGoals;
     try {
       const response = await axios.put(`/dashboard/updateuser/${user._id}`, {
@@ -63,16 +64,15 @@ export default function Goals({ className }: Props) {
   });
 
   return (
-    <Card className={className}>
-      <div className="p-5 flex flex-col gap-5">
-        <div className="flex flex-row justify-between">
+    <Card className={`${className}`}>
+      <div className="p-5 flex flex-col gap-5 h-full">
+        <div className="flex flex-row justify-between mb-2">
           <h1>
-            <strong className="">My Goals</strong>
+            <strong className="text-3xl">My Goals</strong>
           </h1>
-          <div>🤩</div>
         </div>
         <ul className="flex flex-col gap-5">{listGoals}</ul>
-        <div className="flex flex-row justify-between">
+        <div className="flex flex-row justify-between pb-5">
           <GoalInput goal={addGoal} />
         </div>
       </div>

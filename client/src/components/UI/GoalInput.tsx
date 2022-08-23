@@ -27,7 +27,7 @@ export default function GoalInput({ goal }: Props) {
           name="addGoal"
           id="addGoal"
           className="text-sm w-full rounded-lg px-3 outline-none peer placeholder-transparent"
-          placeholder="Add a goal, shoot for the stars"
+          placeholder=" "
         />
         <label
           className="transition-all absolute text-xs top-1 left-3 z-10 -mt-6 peer-placeholder-shown:text-gray-400 peer-placeholder-shown:mt-0 peer-focus:-mt-6 peer-focus:text-mainFontColor"
