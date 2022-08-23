@@ -1,5 +1,5 @@
 import "dotenv/config";
-import express, { Request, Response, NextFunction, Errback } from "express";
+import express, { Request, Response, NextFunction } from "express";
 import mongoose from "mongoose";
 import cors from "cors";
 import cookieParser from "cookie-parser";
@@ -9,6 +9,8 @@ import { Error } from "./types";
 
 // routes
 import userRoute from "./routes/userRoute";
+import mrnRoute from "./routes/mrnRoute";
+import dashboardRoute from "./routes/dashboardRoute";
 
 const app = express();
 
@@ -32,6 +34,8 @@ app.use(cookieParser());
 app.use(express.json());
 app.use(cors());
 app.use("/api/user", userRoute);
+app.use("/api/mrn", mrnRoute);
+app.use("/api/dashboard", dashboardRoute);
 
 //  error middleware must be at the end
 app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
