@@ -26,7 +26,6 @@ const UserSchema = new mongoose.Schema(
     },
     MRN: {
       type: String,
-      default: "00000000",
     },
     familyMembers: {
       type: [
@@ -52,7 +51,7 @@ const UserSchema = new mongoose.Schema(
           },
         },
       ],
-      default: [{}],
+      default: [],
     },
     preferredPronouns: {
       type: [String],
@@ -69,20 +68,35 @@ const UserSchema = new mongoose.Schema(
     appointments: {
       type: [
         {
-          appointmentDate: {
+          dayOfWeek: {
             type: String,
             default: "",
           },
+          dateOfMonth: {
+            type: Number,
+            default: 1,
+          },
+          service: {
+            type: String,
+            default: "",
+          },
+          date: {
+            type: String,
+            default: "YY-MM-DD",
+          },
+          time: {
+            type: String,
+            default: "23:59",
+          },
         },
       ],
-      default: [{}],
     },
     myGoals: {
       type: [
         {
           goal: {
             type: String,
-            default: "Try adding a goal",
+            default: "Try adding a goal.",
           },
         },
       ],

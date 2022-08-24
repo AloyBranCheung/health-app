@@ -19,7 +19,7 @@ code {
     monospace;
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 768px) {
   ::-webkit-scrollbar {
     width: 10px;
   }
@@ -28,7 +28,6 @@ code {
   ::-webkit-scrollbar-track {
     background: transparent;
     border-radius: 10px;
-    margin: 8px 0;
   }
 
   /* Handle */
@@ -40,5 +39,29 @@ code {
   /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover {
     background: rgba(124, 124, 124, 0.547);
+  }
+}
+
+.loader {
+  border-top-color: #3498db;
+  -webkit-animation: spinner 1.5s linear infinite;
+  animation: spinner 1.5s linear infinite;
+}
+
+@-webkit-keyframes spinner {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }

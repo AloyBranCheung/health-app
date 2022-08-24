@@ -1,25 +1,43 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import type { User, data, UserHealth } from "./authContextType";
 
-type data = {
-  token: string;
-  _id: string;
-};
-
-type User = {
-  _id: string;
-  email: string;
-  displayName: string;
-  firstName: string;
-  lastName: string;
-  familyMembers: string[];
-  isProvider: boolean;
-  patientList: string[];
-  preferredPronouns: string[];
-  preferredName: string;
-  bio: string;
-  appointments: string[];
-  myGoals: { _id: string; goal: string }[];
+const INITIAL_HEALTH = {
+  _id: "",
+  biologicalSex: 0,
+  age: 0,
+  weight: 0.0,
+  pmHx: [""],
+  allergies: [""],
+  medications: [
+    {
+      _id: "",
+      name: "",
+      dose: 0,
+      doseUnits: "",
+      timing: "",
+      lastTaken: "",
+    },
+  ],
+  labWork: [{}],
+  imaging: [{}],
+  heartRate: [
+    {
+      _id: "",
+      date: "",
+      time: "",
+      heartRate: "",
+    },
+  ],
+  bloodPressure: [
+    {
+      _id: "",
+      date: "",
+      time: "",
+      sys: "",
+      dia: "",
+    },
+  ],
 };
 
 const INITIAL_STATE = {
@@ -35,7 +53,15 @@ const INITIAL_STATE = {
     preferredPronouns: [""],
     preferredName: "",
     bio: "",
-    appointments: [""],
+    appointments: [
+      {
+        _id: "",
+        dayOfWeek: "",
+        dateOfMonth: 0,
+        service: "",
+        date: "",
+      },
+    ],
     myGoals: [{ _id: "", goal: "" }],
   },
   setUser: (user: User) => {},
@@ -43,6 +69,7 @@ const INITIAL_STATE = {
   logout: () => {},
   isLoggedIn: () => false,
   isLoading: false,
+  userHealth: INITIAL_HEALTH,
 };
 
 // createContext
@@ -57,24 +84,34 @@ type Props = {
 // Context.Provider
 export const AuthContextProvider = ({ children }: Props) => {
   const [user, setUser] = useState<User>(INITIAL_STATE.user);
+  const [userHealth, setUserHealth] = useState<UserHealth>(INITIAL_HEALTH);
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    setIsLoading(true);
     const token = sessionStorage.getItem("token");
     const id = sessionStorage.getItem("_id");
     const fetchData = async (token: string | null, id: string | null) => {
       if (token && id) {
+        // get user info
         try {
+          setIsLoading(true);
           const response = await axios.get(`/dashboard/user/${id}`);
           setUser(response.data);
+        } catch (error) {
+          console.log(error);
+        }
+
+        // get user health info
+        try {
+          const response = await axios.get(`/mrn/healthinformation/${id}`);
+          setUserHealth(response.data);
+          setIsLoading(false);
         } catch (error) {
           console.log(error);
         }
       }
     };
     fetchData(token, id);
-    setIsLoading(false);
   }, []);
 
   const login = async ({ token, _id }: data) => {
@@ -82,8 +119,17 @@ export const AuthContextProvider = ({ children }: Props) => {
       sessionStorage.setItem("token", token);
       sessionStorage.setItem("_id", _id);
       try {
+        setIsLoading(true);
         const response = await axios.get(`/dashboard/user/${_id}`);
         setUser(response.data);
+      } catch (error) {
+        console.log(error);
+      }
+      // get user health info
+      try {
+        const response = await axios.get(`/mrn/healthinformation/${_id}`);
+        setUserHealth(response.data);
+        setIsLoading(false);
       } catch (error) {
         console.log(error);
       }
@@ -92,6 +138,7 @@ export const AuthContextProvider = ({ children }: Props) => {
 
   const logout = () => {
     sessionStorage.removeItem("token");
+    sessionStorage.removeItem("_id");
   };
 
   const isLoggedIn = () => {
@@ -109,6 +156,7 @@ export const AuthContextProvider = ({ children }: Props) => {
     login: login,
     logout: logout,
     isLoggedIn: isLoggedIn,
+    userHealth: userHealth,
     isLoading: isLoading,
   };
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

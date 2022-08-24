@@ -1,117 +1,74 @@
-import React from "react";
+import React, { useContext, useState, useEffect } from "react";
+import AuthContext from "../../context/authContext";
 import Button from "../UI/Button";
 import Card from "../UI/Card";
 import { useNavigate } from "react-router-dom";
-import MedicationPreview from "../UI/MedicationPreview";
+import MedicationPreview from "./MedicationPreview";
+import LoadingSpinner from "../UI/LoadingSpinner";
 
 type Props = {
   className: string;
 };
 
-const DUMMY_DATA = [
-  {
-    name: "Bisoprolol",
-    dose: 5,
-    doseUnits: "mg",
-    timing: "Once a day",
-  },
-  {
-    name: "Bisoprolol",
-    dose: 5,
-    doseUnits: "mg",
-    timing: "Once a day",
-  },
-  {
-    name: "Bisoprolol",
-    dose: 5,
-    doseUnits: "mg",
-    timing: "Once a day",
-  },
-  {
-    name: "Bisoprolol",
-    dose: 5,
-    doseUnits: "mg",
-    timing: "Once a day",
-  },
-  {
-    name: "Bisoprolol",
-    dose: 5,
-    doseUnits: "mg",
-    timing: "Once a day",
-  },
-  {
-    name: "Bisoprolol",
-    dose: 5,
-    doseUnits: "mg",
-    timing: "Once a day",
-  },
-  {
-    name: "Bisoprolol",
-    dose: 5,
-    doseUnits: "mg",
-    timing: "Once a day",
-  },
-  {
-    name: "Bisoprolol",
-    dose: 5,
-    doseUnits: "mg",
-    timing: "Once a day",
-  },
-  {
-    name: "Bisoprolol",
-    dose: 5,
-    doseUnits: "mg",
-    timing: "Once a day",
-  },
-  {
-    name: "Bisoprolol",
-    dose: 5,
-    doseUnits: "mg",
-    timing: "Once a day",
-  },
-  {
-    name: "Bisoprolol",
-    dose: 5,
-    doseUnits: "mg",
-    timing: "Once a day",
-  },
-  {
-    name: "Bisoprolol",
-    dose: 5,
-    doseUnits: "mg",
-    timing: "Once a day",
-  },
-];
+type ListMedications = {
+  _id: string;
+  name: string;
+  dose: number;
+  doseUnits: string;
+  timing: string;
+  lastTaken: string;
+}[];
 
 export default function Medications({ className }: Props) {
+  const { userHealth, isLoading } = useContext(AuthContext);
+  const [listMedications, setListMedications] = useState<ListMedications>([]);
   const navigate = useNavigate();
   const navMeds = () => {
     navigate("/dashboard/medication");
   };
 
+  useEffect(() => {
+    if (userHealth.medications !== null) {
+      setListMedications(userHealth.medications);
+    }
+  }, [userHealth.medications]);
+
   // medications list
-  const medicationsList = DUMMY_DATA.map((medication, index) => (
-    <MedicationPreview
-      key={index}
-      name={medication.name}
-      dose={medication.dose}
-      doseUnits={medication.doseUnits}
-      timing={medication.timing}
-    />
-  ));
+  const medicationsList = listMedications?.map((medication) => {
+    return (
+      <MedicationPreview
+        key={medication._id}
+        name={medication.name}
+        dose={medication.dose}
+        doseUnits={medication.doseUnits}
+        timing={medication.timing}
+        lastTaken={medication.lastTaken}
+      />
+    );
+  });
+
   return (
     <Card className={`${className}`}>
-      <div className="p-5 flex flex-col gap-5">
-        <div className="flex justify-between flex-row w-full items-center">
-          <h1>
-            <strong className="">My Medications</strong>
-          </h1>
-          <div>
-            <Button onClick={navMeds} text="Add More" />
+      {isLoading ? (
+        <div className="p-5 flex flex-col gap-5 items-center justify-center h-full">
+          <LoadingSpinner />
+        </div>
+      ) : (
+        <div className="p-5 flex flex-col gap-5 h-full">
+          <div className="flex justify-between flex-row w-full items-center">
+            <h1>
+              <strong>My Medications</strong>
+            </h1>
+            <div>
+              <Button className="shadow-lg" onClick={navMeds} text="Add More" />
+            </div>
+          </div>
+
+          <div className="flex flex-col gap-5 md:overflow-y-scroll">
+            {medicationsList}
           </div>
         </div>
-        <div className="flex flex-col gap-5">{medicationsList}</div>
-      </div>
+      )}
     </Card>
   );
 }
