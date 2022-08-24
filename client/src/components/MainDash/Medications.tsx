@@ -5,6 +5,7 @@ import Card from "../UI/Card";
 import { useNavigate } from "react-router-dom";
 import MedicationPreview from "./MedicationPreview";
 import LoadingSpinner from "../UI/LoadingSpinner";
+import { motion } from "framer-motion";
 
 type Props = {
   className: string;
