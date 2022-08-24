@@ -43,9 +43,12 @@ const HealthSchema = new mongoose.Schema(
           timing: {
             type: String,
           },
+          lastTaken: {
+            type: String,
+          },
         },
       ],
-      default: [{}],
+      default: [],
     },
     labWork: {
       type: [
@@ -96,7 +99,7 @@ const HealthSchema = new mongoose.Schema(
           },
         },
       ],
-      default: [{}],
+      default: [],
     },
     imaging: {
       type: [
@@ -115,7 +118,49 @@ const HealthSchema = new mongoose.Schema(
           },
         },
       ],
-      default: [{}],
+      default: [],
+    },
+    heartRate: {
+      type: [
+        {
+          date: {
+            type: String,
+            default: "YY-MM-DD",
+          },
+          time: {
+            type: String,
+            default: "23:59",
+          },
+          heartRate: {
+            type: String,
+            default: "69",
+          },
+        },
+      ],
+      default: [],
+    },
+    bloodPressure: {
+      type: [
+        {
+          date: {
+            type: String,
+            default: "YY-MM-DD",
+          },
+          time: {
+            type: String,
+            default: "23:59",
+          },
+          sys: {
+            type: String,
+            default: "120",
+          },
+          dia: {
+            type: String,
+            default: "80",
+          },
+        },
+      ],
+      default: [],
     },
   },
   { timestamps: true }

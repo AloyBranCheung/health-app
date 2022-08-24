@@ -16,10 +16,28 @@ const INITIAL_HEALTH = {
       dose: 0,
       doseUnits: "",
       timing: "",
+      lastTaken: "",
     },
   ],
   labWork: [{}],
   imaging: [{}],
+  heartRate: [
+    {
+      _id: "",
+      date: "",
+      time: "",
+      heartRate: "",
+    },
+  ],
+  bloodPressure: [
+    {
+      _id: "",
+      date: "",
+      time: "",
+      sys: "",
+      dia: "",
+    },
+  ],
 };
 
 const INITIAL_STATE = {

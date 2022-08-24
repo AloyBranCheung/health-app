@@ -26,7 +26,7 @@ export default function GoalInput({ goal }: Props) {
   };
 
   return (
-    <div className="flex flex-row w-full items-center gap-5">
+    <div className="flex flex-row w-full items-center gap-5 py-2">
       <div className="bg-white relative w-full focus-within:border-mainFontColor focus-within:border-solid focus-within:border-2 focus-within:transition-all rounded-lg">
         <input
           value={newGoal}
@@ -48,7 +48,11 @@ export default function GoalInput({ goal }: Props) {
         </label>
       </div>
       <div>
-        <Button onClick={handleClick} text="Add" className="py-2 px-4" />
+        <Button
+          onClick={handleClick}
+          text="Add"
+          className="py-2 px-4 shadow-xl"
+        />
       </div>
     </div>
   );

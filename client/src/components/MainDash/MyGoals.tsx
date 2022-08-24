@@ -51,7 +51,7 @@ export default function Goals({ className }: Props) {
       <li
         key={goal._id}
         id={goal._id}
-        className="flex flex-row justify-between items-center bg-white p-2 rounded-xl shadow-xl"
+        className="flex flex-row justify-between items-center bg-white p-2 rounded-xl shadow-xl w-full"
       >
         <h1 className="break-all">{goal.goal}</h1>
         <button
@@ -72,14 +72,14 @@ export default function Goals({ className }: Props) {
           <LoadingSpinner />
         </div>
       ) : (
-        <div className="p-5 flex flex-col gap-5 h-full">
+        <div className="p-5 flex flex-col gap-3 h-full">
           <div className="flex flex-row justify-between mb-2">
             <h1>
               <strong className="">My Goals</strong>
             </h1>
             <div>🥅</div>
           </div>
-          <ul className="flex flex-col gap-5 lg:overflow-y-scroll">
+          <ul className="flex flex-col gap-5 lg:overflow-y-scroll w-full">
             {listGoals}
           </ul>
           <div className="flex flex-row justify-between">

@@ -5,6 +5,7 @@ type Props = {
   dose: number;
   doseUnits: string;
   timing: string;
+  lastTaken: string;
 };
 
 export default function MedicationPreview({
@@ -12,6 +13,7 @@ export default function MedicationPreview({
   dose,
   doseUnits,
   timing,
+  lastTaken,
 }: Props) {
   return (
     <div className="flex flex-row gap-2 md:gap-5 w-full p-5 bg-white rounded-xl shadow-xl">
@@ -27,8 +29,9 @@ export default function MedicationPreview({
           <h1 className="lg:text-lg">{name}</h1>
           <p className="lg:text-lg">{`${dose}${doseUnits}`}</p>
         </div>
-        <div className="flex flex-row w-full justify-between">
+        <div className="flex flex-row w-full gap-5">
           <p className="text-xs lg:text-md">{timing}</p>
+          <p className="text-xs lg:text-md">Last Taken: {lastTaken}</p>
         </div>
       </div>
       <div className="flex items-center">

@@ -12,17 +12,22 @@ type Props = {
 export default function ScheduledAppointments({ className }: Props) {
   const { user, isLoading } = useContext(AuthContext);
 
-  const appointments = user.appointments.map((appointment) => {
-    return (
-      <AppointmentsCard
-        key={appointment._id}
-        dayOfWeek={appointment.dayOfWeek}
-        dateOfMonth={appointment.dateOfMonth}
-        service={appointment.service}
-        date={appointment.date}
-      />
+  const appointments =
+    user.appointments.length === 0 ? (
+      <h1>Try finding a doctor.</h1>
+    ) : (
+      user.appointments.map((appointment) => {
+        return (
+          <AppointmentsCard
+            key={appointment._id}
+            dayOfWeek={appointment.dayOfWeek}
+            dateOfMonth={appointment.dateOfMonth}
+            service={appointment.service}
+            date={appointment.date}
+          />
+        );
+      })
     );
-  });
 
   return (
     <Card className={`${className}`}>

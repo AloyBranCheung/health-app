@@ -38,9 +38,23 @@ type UserHealth = {
     dose: number;
     doseUnits: string;
     timing: string;
+    lastTaken: string;
   }[];
   labWork: {}[];
   imaging: {}[];
+  heartRate: {
+    _id: string;
+    date: string;
+    time: string;
+    heartRate: string;
+  }[];
+  bloodPressure: {
+    _id: string;
+    date: string;
+    time: string;
+    sys: string;
+    dia: string;
+  }[];
 };
 
 export type { data, User, UserHealth };

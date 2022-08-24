@@ -29,7 +29,11 @@ export default function WelcomeCard({ className }: Props) {
             Tech.
           </p>
           <div>
-            <Button onClick={handleClick} text="What's new?" />
+            <Button
+              className="shadow-lg"
+              onClick={handleClick}
+              text="What's new?"
+            />
           </div>
         </div>
 
