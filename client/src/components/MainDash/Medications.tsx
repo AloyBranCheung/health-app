@@ -18,15 +18,20 @@ export default function Medications({ className }: Props) {
   };
 
   // medications list
-  const medicationsList = userHealth.medications?.map((medication, index) => (
-    <MedicationPreview
-      key={medication._id}
-      name={medication.name}
-      dose={medication.dose}
-      doseUnits={medication.doseUnits}
-      timing={medication.timing}
-    />
-  ));
+  const medicationsList = userHealth.medications?.map((medication, index) => {
+    if (medication.dose === null) {
+      return <h1>Try adding a medication</h1>;
+    }
+    return (
+      <MedicationPreview
+        key={medication._id}
+        name={medication.name}
+        dose={medication.dose}
+        doseUnits={medication.doseUnits}
+        timing={medication.timing}
+      />
+    );
+  });
   return (
     <Card className={`${className}`}>
       {isLoading ? (
@@ -34,7 +39,7 @@ export default function Medications({ className }: Props) {
           <LoadingSpinner />
         </div>
       ) : (
-        <div className="p-5 flex flex-col gap-5">
+        <div className="p-5 flex flex-col gap-5 h-full">
           <div className="flex justify-between flex-row w-full items-center">
             <h1>
               <strong className="">My Medications</strong>
@@ -44,7 +49,9 @@ export default function Medications({ className }: Props) {
             </div>
           </div>
 
-          <div className="flex flex-col gap-5">{medicationsList}</div>
+          <div className="flex flex-col gap-5 md:overflow-y-scroll">
+            {medicationsList}
+          </div>
         </div>
       )}
     </Card>

@@ -35,7 +35,15 @@ const INITIAL_STATE = {
     preferredPronouns: [""],
     preferredName: "",
     bio: "",
-    appointments: [""],
+    appointments: [
+      {
+        _id: "",
+        dayOfWeek: "",
+        dateOfMonth: 0,
+        service: "",
+        date: "",
+      },
+    ],
     myGoals: [{ _id: "", goal: "" }],
   },
   setUser: (user: User) => {},
@@ -93,8 +101,17 @@ export const AuthContextProvider = ({ children }: Props) => {
       sessionStorage.setItem("token", token);
       sessionStorage.setItem("_id", _id);
       try {
+        setIsLoading(true);
         const response = await axios.get(`/dashboard/user/${_id}`);
         setUser(response.data);
+      } catch (error) {
+        console.log(error);
+      }
+      // get user health info
+      try {
+        const response = await axios.get(`/mrn/healthinformation/${_id}`);
+        setUserHealth(response.data);
+        setIsLoading(false);
       } catch (error) {
         console.log(error);
       }
@@ -103,6 +120,7 @@ export const AuthContextProvider = ({ children }: Props) => {
 
   const logout = () => {
     sessionStorage.removeItem("token");
+    sessionStorage.removeItem("_id");
   };
 
   const isLoggedIn = () => {

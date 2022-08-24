@@ -69,7 +69,19 @@ const UserSchema = new mongoose.Schema(
     appointments: {
       type: [
         {
-          appointmentDate: {
+          dayOfWeek: {
+            type: String,
+            default: "",
+          },
+          dateOfMonth: {
+            type: Number,
+            default: 1,
+          },
+          service: {
+            type: String,
+            default: "",
+          },
+          date: {
             type: String,
             default: "",
           },

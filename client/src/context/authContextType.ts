@@ -15,7 +15,13 @@ type User = {
   preferredPronouns: string[];
   preferredName: string;
   bio: string;
-  appointments: string[];
+  appointments: {
+    _id: string;
+    dayOfWeek: string;
+    dateOfMonth: number;
+    service: string;
+    date: string;
+  }[];
   myGoals: { _id: string; goal: string }[];
 };
 

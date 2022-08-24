@@ -79,8 +79,10 @@ export default function Goals({ className }: Props) {
             </h1>
             <div>🥅</div>
           </div>
-          <ul className="flex flex-col gap-5">{listGoals}</ul>
-          <div className="flex flex-row justify-between pb-5 pt-2">
+          <ul className="flex flex-col gap-5 lg:overflow-y-scroll">
+            {listGoals}
+          </ul>
+          <div className="flex flex-row justify-between">
             <GoalInput goal={addGoal} />
           </div>
         </div>
