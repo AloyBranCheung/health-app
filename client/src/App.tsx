@@ -13,6 +13,7 @@ import ProtectRoute from "./components/ProtectRoute";
 import MainDashboard from "./pages/MainDashboard";
 import WhatsNews from "./pages/WhatsNew";
 import MedicationDashboard from "./pages/MedicationDashboard";
+import SearchMD from "./pages/SearchMD";
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
               path="/dashboard/medication"
               element={<MedicationDashboard />}
             />
+            <Route path="/dashboard/find" element={<SearchMD />} />
           </Route>
         </Routes>
       </BrowserRouter>

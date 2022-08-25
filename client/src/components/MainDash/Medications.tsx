@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext } from "react";
 import AuthContext from "../../context/authContext";
 import Button from "../UI/Button";
 import Card from "../UI/Card";
@@ -10,42 +10,32 @@ type Props = {
   className: string;
 };
 
-type ListMedications = {
-  _id: string;
-  name: string;
-  dose: number;
-  doseUnits: string;
-  timing: string;
-  lastTaken: string;
-}[];
-
 export default function Medications({ className }: Props) {
   const { userHealth, isLoading } = useContext(AuthContext);
-  const [listMedications, setListMedications] = useState<ListMedications>([]);
+
   const navigate = useNavigate();
   const navMeds = () => {
     navigate("/dashboard/medication");
   };
 
-  useEffect(() => {
-    if (userHealth.medications !== null) {
-      setListMedications(userHealth.medications);
-    }
-  }, [userHealth.medications]);
-
   // medications list
-  const medicationsList = listMedications?.map((medication) => {
-    return (
-      <MedicationPreview
-        key={medication._id}
-        name={medication.name}
-        dose={medication.dose}
-        doseUnits={medication.doseUnits}
-        timing={medication.timing}
-        lastTaken={medication.lastTaken}
-      />
+  const medicationsList =
+    userHealth.medications.length === 0 ? (
+      <h1>Try adding a medication.</h1>
+    ) : (
+      userHealth.medications?.map((medication) => {
+        return (
+          <MedicationPreview
+            key={medication._id}
+            name={medication.name}
+            dose={medication.dose}
+            doseUnits={medication.doseUnits}
+            timing={medication.timing}
+            lastTaken={medication.lastTaken}
+          />
+        );
+      })
     );
-  });
 
   return (
     <Card className={`${className}`}>

@@ -44,7 +44,7 @@ export default function ScheduledAppointments({ className }: Props) {
               </strong>
             </h1>
             <div>
-              <Link className="text-xs" to="">
+              <Link className="text-xs" to="/dashboard/find">
                 View all
               </Link>
             </div>
