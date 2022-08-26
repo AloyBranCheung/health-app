@@ -12,7 +12,11 @@ import { AuthContextProvider } from "./context/authContext";
 import ProtectRoute from "./components/ProtectRoute";
 import MainDashboard from "./pages/MainDashboard";
 import WhatsNews from "./pages/WhatsNew";
-import MedicationDashboard from "./pages/MedicationDashboard";
+import PrescriptionDashboard from "./pages/PrescriptionDashboard";
+import SearchMD from "./pages/SearchMD";
+import MyHealth from "./pages/MyHealth";
+import Results from "./pages/Results";
+import Messages from "./pages/Messages";
 
 function App() {
   return (
@@ -28,10 +32,14 @@ function App() {
           <Route path="/whatsnew" element={<WhatsNews />} />
           <Route path="/" element={<ProtectRoute />}>
             <Route path="/dashboard/" element={<MainDashboard />} />
+            <Route path="/dashboard/myhealth" element={<MyHealth />} />
             <Route
               path="/dashboard/medication"
-              element={<MedicationDashboard />}
+              element={<PrescriptionDashboard />}
             />
+            <Route path="/dashboard/results" element={<Results />} />
+            <Route path="/dashboard/find" element={<SearchMD />} />
+            <Route path="/dashboard/messages" element={<Messages />} />
           </Route>
         </Routes>
       </BrowserRouter>

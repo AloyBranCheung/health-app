@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import type { User, data, UserHealth } from "./authContextType";
+import type { User, data, UserHealth, Medications } from "./authContextType";
 
 const INITIAL_HEALTH = {
   _id: "",
@@ -9,16 +9,7 @@ const INITIAL_HEALTH = {
   weight: 0.0,
   pmHx: [""],
   allergies: [""],
-  medications: [
-    {
-      _id: "",
-      name: "",
-      dose: 0,
-      doseUnits: "",
-      timing: "",
-      lastTaken: "",
-    },
-  ],
+  medications: [] as Medications,
   labWork: [{}],
   imaging: [{}],
   heartRate: [
