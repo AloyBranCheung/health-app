@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import AuthContext from "../context/authContext";
 import { motion } from "framer-motion";
 
-export default function MedicationDashboard() {
+export default function PrescriptionDashboard() {
   const { user, setUser } = useContext(AuthContext);
   console.log(user);
 
@@ -12,7 +12,7 @@ export default function MedicationDashboard() {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
     >
-      <div>MedicationDashboard</div>
+      <div>Prescriptions Dashboard</div>
     </motion.div>
   );
 }
