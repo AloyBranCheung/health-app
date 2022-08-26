@@ -6,6 +6,7 @@ type Props = {
   doseUnits: string;
   timing: string;
   lastTaken: string;
+  nextDue: string;
 };
 
 export default function MedicationPreview({
@@ -14,27 +15,35 @@ export default function MedicationPreview({
   doseUnits,
   timing,
   lastTaken,
+  nextDue,
 }: Props) {
   return (
-    <div className="flex flex-row gap-2 md:gap-5 w-full p-5 bg-white rounded-xl shadow-xl">
-      <div className="w-full basis-14 lg:basis-28">
-        <img
-          src="https://cdn-icons-png.flaticon.com/512/2937/2937192.png"
-          alt="pill"
-          className="h-10 w-10 lg:h-16 lg:w-16"
-        />
-      </div>
-      <div className="w-full flex flex-col lg:justify-center">
-        <div className="flex flex-row justify-start gap-5 w-full">
-          <h1 className="lg:text-lg">{name}</h1>
-          <p className="lg:text-lg">{`${dose}${doseUnits}`}</p>
+    <div className="bg-white rounded-xl shadow-xl flex flex-row w-full p-5">
+      <div className="w-full flex flex-col gap-2">
+        <div className="flex flex-row gap-2">
+          <div className="flex items-center justify-center">
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/2937/2937192.png"
+              alt="pill"
+              className="w-5 h-5"
+            />
+          </div>
+          <div className="flex flex-row gap-2 w-full">
+            <h1 className="md:text-lg">{name}</h1>
+            <p className="md:text-lg">{`${dose}${doseUnits}`}</p>
+          </div>
         </div>
-        <div className="flex flex-row w-full gap-5">
-          <p className="text-xs lg:text-md">{timing}</p>
-          <p className="text-xs lg:text-md">Last Taken: {lastTaken}</p>
+
+        <div className="">
+          <p className="text-xs">{timing}</p>
+          <div className="">
+            <p className="text-xs">Last Taken: {lastTaken}</p>
+            <p className="text-xs">Next Due: {nextDue}</p>
+          </div>
         </div>
       </div>
-      <div className="flex items-center">
+
+      <div className="w-full items-center justify-center flex basis-1/12">
         <span>✅</span>
       </div>
     </div>

@@ -9,7 +9,12 @@ export default function MenuItems({ fill }: Props) {
   const navigate = useNavigate();
   return (
     <div className="flex flex-col justify-center items-center gap-5">
-      <div className="flex flex-row items-center justify-center md:justify-start gap-2 w-full cursor-pointer px-1 py-2 rounded-lg md:hover:bg-gradientVia1 md:hover:transition-all md:hover:duration-300 transition-all duration-300">
+      <div
+        onClick={() => {
+          navigate("/dashboard/myhealth");
+        }}
+        className="flex flex-row items-center justify-center md:justify-start gap-2 w-full cursor-pointer px-1 py-2 rounded-lg md:hover:bg-gradientVia1 md:hover:transition-all md:hover:duration-300 transition-all duration-300"
+      >
         <svg
           className="h-10 w-10"
           viewBox="0 0 48 48"
@@ -50,10 +55,15 @@ export default function MenuItems({ fill }: Props) {
             d="M35.3849 36.3592C38.3881 34.9588 39.6875 31.3889 38.287 28.3856C36.8866 25.3824 33.3167 24.0831 30.3135 25.4835L19.4378 30.5549C16.4345 31.9554 15.1352 35.5252 16.5356 38.5285C17.9361 41.5317 21.5059 42.8311 24.5092 41.4306L35.3849 36.3592ZM29.9426 36.6902L34.5396 34.5466C36.5418 33.613 37.408 31.233 36.4744 29.2309C35.5408 27.2287 33.1609 26.3625 31.1587 27.2961L26.5617 29.4397L29.9426 36.6902Z"
           />
         </svg>
-        <h1 className="hidden md:block">Medications</h1>
+        <h1 className="hidden md:block">My Rx</h1>
       </div>
       <hr className="w-10 border-solid border-1 border-mainFontColor md:hidden" />
-      <div className="flex flex-row items-center justify-center md:justify-start  gap-2 w-full cursor-pointer px-1 py-2 rounded-lg md:hover:bg-gradientVia1 md:hover:transition-all md:hover:duration-300 transition-all duration-300">
+      <div
+        onClick={() => {
+          navigate("/dashboard/results");
+        }}
+        className="flex flex-row items-center justify-center md:justify-start  gap-2 w-full cursor-pointer px-1 py-2 rounded-lg md:hover:bg-gradientVia1 md:hover:transition-all md:hover:duration-300 transition-all duration-300"
+      >
         <svg
           className="h-10 w-10"
           viewBox="0 0 48 48"
@@ -106,7 +116,12 @@ export default function MenuItems({ fill }: Props) {
         <h1 className="hidden md:block">Find a doctor</h1>
       </div>
       <hr className="w-10 border-solid border-1 border-mainFontColor md:hidden" />
-      <div className="flex flex-row items-center justify-center md:justify-start  gap-2 w-full cursor-pointer px-1 py-2 rounded-lg md:hover:bg-gradientVia1 md:hover:transition-all md:hover:duration-300 transition-all duration-300">
+      <div
+        onClick={() => {
+          navigate("/dashboard/messages");
+        }}
+        className="flex flex-row items-center justify-center md:justify-start  gap-2 w-full cursor-pointer px-1 py-2 rounded-lg md:hover:bg-gradientVia1 md:hover:transition-all md:hover:duration-300 transition-all duration-300"
+      >
         <svg
           fill={fill}
           className="h-10 w-10"

@@ -1,4 +1,5 @@
 import React, { useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Card from "../UI/Card";
 import AuthContext from "../../context/authContext";
 import LoadingSpinner from "../UI/LoadingSpinner";
@@ -11,12 +12,17 @@ type Props = {
 };
 
 export default function Vitals({ className }: Props) {
+  const navigate = useNavigate();
   const { isLoading } = useContext(AuthContext);
   const [selectedOption, setSelectedOption] = useState("bloodPressure");
 
   const handleSelect = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const selected = e.target.value;
     setSelectedOption(selected);
+  };
+
+  const navMyHealth = () => {
+    navigate("/dashboard/myhealth");
   };
   return (
     <Card className={className}>
@@ -33,7 +39,11 @@ export default function Vitals({ className }: Props) {
               <option value="bloodPressure">Blood Pressure</option>
               <option value="heartRate">Heart Rate</option>
             </select>
-            <Button className="hidden md:block shadow-lg" text="Add Another" />
+            <Button
+              className="hidden md:block shadow-lg"
+              text="Add Another"
+              onClick={navMyHealth}
+            />
           </div>
         </div>
         {isLoading ? (
@@ -41,7 +51,7 @@ export default function Vitals({ className }: Props) {
             <LoadingSpinner />
           </div>
         ) : (
-          <div className="w-full h-full">
+          <div className="w-full h-full bg-white rounded-xl p-5 shadow-xl">
             {selectedOption === "bloodPressure" ? (
               <BloodPressureChart />
             ) : (

@@ -1,9 +1,9 @@
-type data = {
+export type data = {
   token: string;
   _id: string;
 };
 
-type User = {
+export type User = {
   _id: string;
   email: string;
   displayName: string;
@@ -25,7 +25,7 @@ type User = {
   myGoals: { _id: string; goal: string }[];
 };
 
-type UserHealth = {
+export type UserHealth = {
   _id: string;
   biologicalSex: number;
   age: number;
@@ -39,6 +39,7 @@ type UserHealth = {
     doseUnits: string;
     timing: string;
     lastTaken: string;
+    nextDue: string;
   }[];
   labWork: {}[];
   imaging: {}[];
@@ -57,4 +58,12 @@ type UserHealth = {
   }[];
 };
 
-export type { data, User, UserHealth };
+export type Medications = {
+  _id: string;
+  name: string;
+  dose: number;
+  doseUnits: string;
+  timing: string;
+  lastTaken: string;
+  nextDue: string;
+}[];

@@ -32,6 +32,7 @@ export default function Medications({ className }: Props) {
             doseUnits={medication.doseUnits}
             timing={medication.timing}
             lastTaken={medication.lastTaken}
+            nextDue={medication.nextDue}
           />
         );
       })
@@ -54,7 +55,7 @@ export default function Medications({ className }: Props) {
             </div>
           </div>
 
-          <div className="flex flex-col gap-5 md:overflow-y-scroll">
+          <div className="flex flex-col gap-5 md:overflow-y-scroll lg:grid lg:grid-cols-2">
             {medicationsList}
           </div>
         </div>

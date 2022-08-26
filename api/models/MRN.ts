@@ -46,6 +46,9 @@ const HealthSchema = new mongoose.Schema(
           lastTaken: {
             type: String,
           },
+          nextDue: {
+            type: String,
+          },
         },
       ],
       default: [],
