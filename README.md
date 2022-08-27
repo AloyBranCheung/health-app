@@ -18,6 +18,9 @@ Technologies:
   <img width="45px" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original.svg">
 </div>
 
+Sneak Peek: 
+![Screenshot 2022-08-27 001536](https://user-images.githubusercontent.com/104483060/187014008-870ae62c-1fef-49b4-829e-3360ddfae71a.png)
+
 
 Credits:
 Images/Icons from flaticon, heroicons, healthicons
