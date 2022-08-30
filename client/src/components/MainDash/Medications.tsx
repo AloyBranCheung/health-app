@@ -7,7 +7,7 @@ import MedicationPreview from "./MedicationPreview";
 import LoadingSpinner from "../UI/LoadingSpinner";
 
 type Props = {
-  className: string;
+  className?: string;
 };
 
 export default function Medications({ className }: Props) {
