@@ -51,7 +51,7 @@ export default function Medications({ className }: Props) {
               <strong>My Medications</strong>
             </h1>
             <div>
-              <Button className="shadow-lg" onClick={navMeds} text="Add More" />
+              <Button className="shadow-lg" onClick={navMeds} text="Edit" />
             </div>
           </div>
 

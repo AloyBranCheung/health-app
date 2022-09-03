@@ -43,9 +43,9 @@ export default function MedicationPreview({
         </div>
       </div>
 
-      <div className="w-full items-center justify-center flex basis-1/12">
+      {/* <div className="w-full items-center justify-center flex basis-1/12">
         <span>✅</span>
-      </div>
+      </div> */}
     </div>
   );
 }
