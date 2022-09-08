@@ -8,7 +8,7 @@ import BloodPressureChart from "./BloodPressureChart";
 import HeartRateChart from "./HeartRateChart";
 
 type Props = {
-  className: string;
+  className?: string;
 };
 
 export default function Vitals({ className }: Props) {

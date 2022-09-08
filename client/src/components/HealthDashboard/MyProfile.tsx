@@ -16,7 +16,7 @@ export default function MyProfile({ className }: Props) {
       {isLoading ? (
         <LoadingSpinner />
       ) : (
-        <div className="p-5 flex flex-col gap-5 w-full md:h-full md:overflow-y-scroll">
+        <div className="p-5 flex flex-col gap-5 w-full md:h-full">
           <div className="flex flex-row items-center justify-between w-full">
             <h1>
               <strong>My Profile</strong>
@@ -24,7 +24,7 @@ export default function MyProfile({ className }: Props) {
             <Button text="Edit" />
           </div>
 
-          <div className="flex flex-col w-full md:flex-row gap-2">
+          <div className="flex flex-col w-full h-full items-center md:flex-row gap-2 md:overflow-y-scroll">
             <div className="flex flex-col w-full gap-2 justify-center md:justify-around">
               <div className="flex flex-row gap-2 ">
                 <div className="flex w-full items-center justify-center basis-1/12">
@@ -84,6 +84,7 @@ export default function MyProfile({ className }: Props) {
               <img
                 src="https://cdn-icons-png.flaticon.com/512/4825/4825015.png"
                 alt="profileClipboard"
+                className=""
               />
             </div>
           </div>

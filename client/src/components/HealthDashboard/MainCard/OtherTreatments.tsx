@@ -3,12 +3,12 @@ import Button from "../../UI/Button";
 import Card from "../../UI/Card";
 
 const DUMMY_DATA = [
-  "CBT",
-  "Therapy",
-  "Acupuncture",
-  "CBT",
-  "Therapy",
-  "Acupuncture",
+  { id: "1", treatment: "CBT" },
+  { id: "2", treatment: "Therapy" },
+  { id: "3", treatment: "CBT" },
+  { id: "4", treatment: "CBT" },
+  { id: "5", treatment: "CBT" },
+  { id: "6", treatment: "CBT" },
 ];
 
 type Props = {
@@ -18,7 +18,10 @@ type Props = {
 export default function OtherTreatments({ className }: Props) {
   const treatments = DUMMY_DATA.map((treatment) => {
     return (
-      <div className="p-5 bg-white rounded-xl shadow-xl flex flex-row items-center gap-2">
+      <div
+        key={treatment.id}
+        className="p-5 bg-white rounded-xl shadow-xl flex flex-row items-center gap-2"
+      >
         <div className="">
           <img
             className="h-5 w-5"
@@ -27,14 +30,14 @@ export default function OtherTreatments({ className }: Props) {
           />
         </div>
         <div className="w-full">
-          <h1>{treatment}</h1>
+          <h1>{treatment.treatment}</h1>
         </div>
       </div>
     );
   });
 
   return (
-    <Card className={`${className}`}>
+    <Card className={`${className} h-full`}>
       <div className="p-5 gap-5 flex flex-col h-full">
         <div className="flex flex-row w-full items-center justify-between">
           <div>

@@ -1,5 +1,6 @@
 import React from "react";
 import Medications from "../../MainDash/Medications";
+import Vitals from "../../MainDash/Vitals";
 import Card from "../../UI/Card";
 import MyFamily from "./MyFamily";
 import OtherTreatments from "./OtherTreatments";
@@ -11,15 +12,16 @@ type Props = {
 
 export default function index({ className }: Props) {
   return (
-    <Card className={className}>
-      <div className="p-5">
+    <div className={`${className}`}>
+      <div className="h-full flex flex-col">
         <Title />
-        <div className="grid gap-5 md:h-screen md:grid-rows-6">
-          <Medications className="row-span-2" />
-          <OtherTreatments className="row-span-2" />
-          <MyFamily className="row-span-2" />
+        <div className="flex flex-col h-full gap-5 lg:grid lg:grid-cols-2 lg:grid-rows-6 rounded-xl overflow-auto">
+          <Medications className="lg:row-span-3 lg:col-span-1 lg:col-start-1" />
+          <MyFamily className="lg:row-span-3 lg:col-span-1 lg:col-start-2" />
+          <OtherTreatments className="lg:row-span-3 lg:col-span-1 lg:col-start-1" />
+          <Vitals className="lg:row-span-3 lg:col-span-1 lg:col-start-2" />
         </div>
       </div>
-    </Card>
+    </div>
   );
 }

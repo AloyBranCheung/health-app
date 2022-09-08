@@ -11,7 +11,7 @@ type Props = {
 export default function CardScroll({ className, children, title }: Props) {
   return (
     <Card className={`p-5 ${className}`}>
-      <div className="flex flex-col w-full">
+      <div className="flex flex-col w-full gap-5 h-full">
         <div className="flex flex-row w-full items-center justify-between">
           <div>
             <strong>{title}</strong>
@@ -20,9 +20,7 @@ export default function CardScroll({ className, children, title }: Props) {
             <Button text="Edit" />
           </div>
         </div>
-        <div className="flex w-full h-full md:overflow-y-scroll">
-          {children}
-        </div>
+        <div className="flex w-full md:overflow-y-scroll">{children}</div>
       </div>
     </Card>
   );
