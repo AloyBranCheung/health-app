@@ -23,6 +23,8 @@ export type User = {
     date: string;
   }[];
   myGoals: { _id: string; goal: string }[];
+  phoneNumber: string;
+  address: string;
 };
 
 export type UserHealth = {
