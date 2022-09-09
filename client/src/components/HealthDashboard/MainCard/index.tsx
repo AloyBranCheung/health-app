@@ -1,6 +1,7 @@
 import React from "react";
 import Medications from "../../MainDash/Medications";
 import Vitals from "../../MainDash/Vitals";
+import Vitals from "../../MainDash/Vitals";
 import Card from "../../UI/Card";
 import MyFamily from "./MyFamily";
 import OtherTreatments from "./OtherTreatments";
