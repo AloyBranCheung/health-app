@@ -41,7 +41,7 @@ export default function MyProfile({ className }: Props) {
                     />
                   </svg>
                 </div>
-                <h1 className="w-full">123-456-7890</h1>
+                <h1 className="w-full">{user?.phoneNumber}</h1>
               </div>
 
               <div className="flex flex-row gap-2 ">
@@ -75,7 +75,7 @@ export default function MyProfile({ className }: Props) {
                   </svg>
                 </div>
                 <h1 className="w-full">
-                  Unit 123, 12 Street, City, Province, Canada, ABC 234
+                  {user?.address}
                 </h1>
               </div>
             </div>
