@@ -24,7 +24,7 @@ export default function Masthead() {
           className="object-cover max-w-none h-screen w-full"
         >
           <source
-            src="https://cdn.videvo.net/videvo_files/video/free/2022-06/large_watermarked/220509_04_London%20Student_4k_017_preview.mp4"
+            src="https://media.istockphoto.com/videos/getting-ready-for-a-new-running-session-video-id992500148"
             type="video/mp4"
           />
         </video>

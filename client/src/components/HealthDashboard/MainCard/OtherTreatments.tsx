@@ -41,7 +41,9 @@ export default function OtherTreatments({ className }: Props) {
       <div className="p-5 gap-5 flex flex-col h-full">
         <div className="flex flex-row w-full items-center justify-between">
           <div>
-            <h1>Other Treatments</h1>
+            <h1>
+              <strong>Other Treatments</strong>
+            </h1>
           </div>
           <div>
             <Button text="Edit" />

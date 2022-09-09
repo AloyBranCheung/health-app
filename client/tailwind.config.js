@@ -23,6 +23,8 @@ module.exports = {
       mainFontColor: "#423066",
       white: "white",
       red: "red",
+      black: "black",
+      modalBackground: "rgba(0, 0, 0, 0.5)",
       gray: colors.gray,
       transparent: "transparent",
       gradientStart: "#fbf6ff",
