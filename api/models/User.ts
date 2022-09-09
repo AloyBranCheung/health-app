@@ -102,6 +102,12 @@ const UserSchema = new mongoose.Schema(
       ],
       default: [""],
     },
+    phoneNumber: {
+      type: String,
+    },
+    address: {
+      type: String,
+    }
   },
   { timestamps: true }
 );

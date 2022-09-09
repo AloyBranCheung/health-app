@@ -54,6 +54,8 @@ const INITIAL_STATE = {
       },
     ],
     myGoals: [{ _id: "", goal: "" }],
+    phoneNumber: "",
+    address: "",
   },
   setUser: (user: User) => {},
   login: (data: data) => {},
