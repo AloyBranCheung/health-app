@@ -38,6 +38,7 @@ const INITIAL_STATE = {
     displayName: "",
     firstName: "",
     lastName: "",
+    MRN: "",
     familyMembers: [""],
     isProvider: false,
     patientList: [""],

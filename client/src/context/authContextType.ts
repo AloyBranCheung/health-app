@@ -9,6 +9,7 @@ export type User = {
   displayName: string;
   firstName: string;
   lastName: string;
+  MRN: string;
   familyMembers: string[];
   isProvider: boolean;
   patientList: string[];

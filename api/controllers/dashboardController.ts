@@ -47,7 +47,7 @@ export const getUser = async (
 ) => {
   const userId = req.params.userid;
   try {
-    const { password, MRN, patientList, ...others } = await User.findById(
+    const { password, patientList, ...others } = await User.findById(
       userId
     ).lean<User>();
     res.json(others);
