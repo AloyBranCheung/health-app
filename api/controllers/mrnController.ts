@@ -27,7 +27,7 @@ export const assignMRN = async (
   }
 };
 
-// gets MRN collection data from user's MRN
+// gets data from userId converted to MRN
 export const getInformation = async (
   req: Request,
   res: Response,
@@ -43,6 +43,21 @@ export const getInformation = async (
     } catch (error) {
       next(error);
     }
+  } catch (error) {
+    next(error);
+  }
+};
+
+// get data using MRN only
+export const healthInformationMRN = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  const mrn = req.params.mrn;
+  try {
+    const healthInformation = await MRN.findById(mrn);
+    res.json(healthInformation);
   } catch (error) {
     next(error);
   }
