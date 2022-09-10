@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import AuthContext from "../../context/authContext";
 import Button from "../UI/Button";
 import CopyClipboard from "./CopyClipboard";
 
 export default function MRN() {
+  const { user } = useContext(AuthContext);
   const [isVisible, setIsVisible] = useState(false);
   const handleRevealMRN = () => {
     setIsVisible((prev) => !prev);
@@ -63,10 +65,12 @@ export default function MRN() {
         <div className="text-xs md:text-base flex flex-col w-full gap-2">
           <div>
             <h1>
-              <strong>Preferred Pronouns:</strong> He/Him
+              <strong>Preferred Pronouns: </strong>{" "}
+              {user.preferredPronouns.join(", ")}
             </h1>
             <h1>
-              <strong>Preferred Name:</strong> Jabba
+              <strong>Preferred Name: </strong>
+              {user.preferredName}
             </h1>
           </div>
           <div className="flex flex-col md:flex-row w-full">

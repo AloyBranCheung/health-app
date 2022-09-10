@@ -1,4 +1,5 @@
 import React from "react";
+import LoadingSpinner from "../../UI/LoadingSpinner";
 import Button from "../../UI/Button";
 import CardScroll from "../../UI/CardScroll";
 
@@ -37,9 +38,10 @@ const DUMMY_DATA = [
 
 type Props = {
   className?: string;
+  isLoading: boolean;
 };
 
-export default function MyFamily({ className }: Props) {
+export default function MyFamily({ className, isLoading }: Props) {
   const familyMembers = DUMMY_DATA.map((member) => {
     return (
       <div
@@ -82,7 +84,9 @@ export default function MyFamily({ className }: Props) {
 
   return (
     <CardScroll className={`${className}`} title="My Family">
-      <div className="flex flex-col gap-5 w-full">{familyMembers}</div>
+      <div className="flex flex-col gap-5 w-full">
+        {isLoading ? <LoadingSpinner /> : <>{familyMembers}</>}
+      </div>
     </CardScroll>
   );
 }

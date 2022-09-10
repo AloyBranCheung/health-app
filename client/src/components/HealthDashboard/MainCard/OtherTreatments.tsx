@@ -1,4 +1,5 @@
 import React from "react";
+import LoadingSpinner from "../../UI/LoadingSpinner";
 import Button from "../../UI/Button";
 import Card from "../../UI/Card";
 
@@ -13,9 +14,10 @@ const DUMMY_DATA = [
 
 type Props = {
   className: string;
+  isLoading: boolean;
 };
 
-export default function OtherTreatments({ className }: Props) {
+export default function OtherTreatments({ className, isLoading }: Props) {
   const treatments = DUMMY_DATA.map((treatment) => {
     return (
       <div
@@ -39,19 +41,25 @@ export default function OtherTreatments({ className }: Props) {
   return (
     <Card className={`${className} h-full`}>
       <div className="p-5 gap-5 flex flex-col h-full">
-        <div className="flex flex-row w-full items-center justify-between">
-          <div>
-            <h1>
-              <strong>Other Treatments</strong>
-            </h1>
-          </div>
-          <div>
-            <Button text="Edit" />
-          </div>
-        </div>
-        <div className="flex flex-col w-full h-full gap-5 overflow-y-scroll">
-          {treatments}
-        </div>
+        {isLoading ? (
+          <LoadingSpinner />
+        ) : (
+          <>
+            <div className="flex flex-row w-full items-center justify-between">
+              <div>
+                <h1>
+                  <strong>Other Treatments</strong>
+                </h1>
+              </div>
+              <div>
+                <Button text="Edit" />
+              </div>
+            </div>
+            <div className="flex flex-col w-full h-full gap-5 overflow-y-scroll">
+              {treatments}
+            </div>
+          </>
+        )}
       </div>
     </Card>
   );
