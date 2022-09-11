@@ -6,6 +6,7 @@ import type {
   UserHealth,
   Medications,
   OtherTx,
+  FamilyMembers,
 } from "./authContextType";
 
 const INITIAL_HEALTH = {
@@ -22,6 +23,7 @@ const INITIAL_HEALTH = {
   allergies: [""],
   medications: [] as Medications,
   otherTx: [] as OtherTx,
+  familyMembers: [] as FamilyMembers[],
   labWork: [{}],
   imaging: [{}],
   heartRate: [

@@ -53,6 +53,12 @@ export type UserHealth = {
     _id: string;
     treatment: string;
   }[];
+  familyMembers: {
+    _id: string;
+    name: string;
+    MRN: string;
+    primaryIssue: string;
+  }[];
   labWork: {}[];
   imaging: {}[];
   heartRate: {
@@ -84,3 +90,10 @@ export type OtherTx = {
   _id: string;
   treatment: string;
 }[];
+
+export interface FamilyMembers {
+  _id: string;
+  name: string;
+  MRN: string;
+  primaryIssue: string;
+}

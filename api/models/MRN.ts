@@ -79,6 +79,21 @@ const HealthSchema = new mongoose.Schema(
       ],
       default: [{ treatment: "" }],
     },
+    familyMembers: {
+      type: [
+        {
+          name: {
+            type: String,
+          },
+          MRN: {
+            type: String,
+          },
+          primaryIssue: {
+            type: String,
+          },
+        },
+      ],
+    },
     labWork: {
       type: [
         {
