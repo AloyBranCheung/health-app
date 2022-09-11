@@ -4,7 +4,7 @@ import Button from "../UI/Button";
 import CopyClipboard from "./CopyClipboard";
 
 export default function MRN() {
-  const { user } = useContext(AuthContext);
+  const { user, userHealth } = useContext(AuthContext);
   const [isVisible, setIsVisible] = useState(false);
   const handleRevealMRN = () => {
     setIsVisible((prev) => !prev);
@@ -76,21 +76,24 @@ export default function MRN() {
           <div className="flex flex-col md:flex-row w-full">
             <div className="flex w-full flex-col">
               <h1>
-                <strong>Gender:</strong> M
+                <strong>Gender: </strong>
+                {userHealth.gender}
               </h1>
               <h1>
-                <strong>Sex:</strong> M
+                <strong>Sex: </strong>
+                {userHealth.sex}
               </h1>
               <h1>
-                <strong>Blood Group:</strong> O-
+                <strong>Blood Group: </strong>
+                {userHealth.bloodGroup}
               </h1>
             </div>
             <div className="flex flex-col w-full">
               <h1>
-                <strong>Weight:</strong> 92 kg
+                <strong>Weight: </strong> {userHealth.weight} kg
               </h1>
               <h1>
-                <strong>Age:</strong> 29 years old
+                <strong>Age: </strong> {userHealth.age} years old
               </h1>
             </div>
           </div>

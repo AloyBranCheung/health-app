@@ -10,7 +10,7 @@ type Props = {
 };
 
 export default function MyDetails({ className }: Props) {
-  const { isLoading } = useContext(AuthContext);
+  const { isLoading, userHealth } = useContext(AuthContext);
   return (
     <Card className={className}>
       {isLoading ? (
@@ -30,7 +30,7 @@ export default function MyDetails({ className }: Props) {
                   <strong>Primary Concern:</strong>
                 </h1>
                 <div>
-                  <p>CHF</p>
+                  <p>{userHealth.primaryConcern}</p>
                 </div>
               </div>
             </div>

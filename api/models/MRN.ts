@@ -15,12 +15,28 @@ const HealthSchema = new mongoose.Schema(
       min: 0,
       default: 0,
     },
+    gender: {
+      type: String,
+      default: "",
+    },
+    sex: {
+      type: String,
+      default: "",
+    },
+    bloodGroup: {
+      type: String,
+      default: "",
+    },
     weight: {
       type: Number,
       default: 0.0,
       min: 0,
     },
     pmHx: {
+      type: [String],
+      default: [""],
+    },
+    familyHx: {
       type: [String],
       default: [""],
     },
@@ -52,6 +68,16 @@ const HealthSchema = new mongoose.Schema(
         },
       ],
       default: [],
+    },
+    otherTx: {
+      type: [
+        {
+          treatment: {
+            type: String,
+          },
+        },
+      ],
+      default: [{ treatment: "" }],
     },
     labWork: {
       type: [

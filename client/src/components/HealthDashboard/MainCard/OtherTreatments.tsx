@@ -1,16 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
+import AuthContext from "../../../context/authContext";
 import LoadingSpinner from "../../UI/LoadingSpinner";
 import Button from "../../UI/Button";
 import Card from "../../UI/Card";
-
-const DUMMY_DATA = [
-  { id: "1", treatment: "CBT" },
-  { id: "2", treatment: "Therapy" },
-  { id: "3", treatment: "CBT" },
-  { id: "4", treatment: "CBT" },
-  { id: "5", treatment: "CBT" },
-  { id: "6", treatment: "CBT" },
-];
 
 type Props = {
   className: string;
@@ -18,10 +10,12 @@ type Props = {
 };
 
 export default function OtherTreatments({ className, isLoading }: Props) {
-  const treatments = DUMMY_DATA.map((treatment) => {
+  const { userHealth } = useContext(AuthContext);
+
+  const treatments = userHealth.otherTx.map((treatment) => {
     return (
       <div
-        key={treatment.id}
+        key={treatment._id}
         className="p-5 bg-white rounded-xl shadow-xl flex flex-row items-center gap-2"
       >
         <div className="">

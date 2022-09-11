@@ -30,10 +30,15 @@ export type User = {
 
 export type UserHealth = {
   _id: string;
+  primaryConcern: string;
   biologicalSex: number;
   age: number;
+  gender: string;
+  sex: string;
+  bloodGroup: string;
   weight: number;
   pmHx: string[];
+  familyHx: string[];
   allergies: string[];
   medications: {
     _id: string;
@@ -43,6 +48,10 @@ export type UserHealth = {
     timing: string;
     lastTaken: string;
     nextDue: string;
+  }[];
+  otherTx: {
+    _id: string;
+    treatment: string;
   }[];
   labWork: {}[];
   imaging: {}[];
@@ -69,4 +78,9 @@ export type Medications = {
   timing: string;
   lastTaken: string;
   nextDue: string;
+}[];
+
+export type OtherTx = {
+  _id: string;
+  treatment: string;
 }[];
