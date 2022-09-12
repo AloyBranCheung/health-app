@@ -2,6 +2,7 @@ import React, { SyntheticEvent, useContext } from "react";
 import ModalContext from "../../context/modalContext";
 import Card from "./Card";
 import Portal from "./Portal";
+import { motion } from "framer-motion";
 
 type Props = {
   children: JSX.Element;
@@ -21,19 +22,22 @@ export default function Modal({ children, wrapperId }: Props) {
 
   return (
     <Portal wrapperId={wrapperId}>
-      <div
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0, height: 0 }}
         onClick={handleBackdropClick}
-        className="absolute flex items-center justify-center h-full w-full bg-modalBackground"
+        className="absolute flex lg:items-center justify-center h-full w-full bg-modalBackground"
       >
         <div
           onClick={handleContentClick}
-          className="h-4/6 w-4/6 bg-secondaryColor rounded-xl"
+          className="h-5/6 w-5/6 bg-secondaryColor rounded-xl absolute top-5"
         >
           <Card className="h-full w-full">
             <div>{children}</div>
           </Card>
         </div>
-      </div>
+      </motion.div>
     </Portal>
   );
 }
