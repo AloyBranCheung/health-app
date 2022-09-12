@@ -2,6 +2,7 @@ import React from "react";
 import MyProfile from "./MyProfile";
 import MyDetails from "./MyDetails";
 import MainCard from "./MainCard";
+import ModalPortalTarget from "../UI/ModalPortalTarget";
 
 export default function HealthDashboard() {
   return (
@@ -9,6 +10,7 @@ export default function HealthDashboard() {
       <MyProfile className="lg:col-span-3 lg:row-span-2" />
       <MainCard className="lg:col-span-9 lg:row-span-6 lg:col-start-4" />
       <MyDetails className="lg:col-span-3 lg:row-span-4" />
+      <ModalPortalTarget />
     </section>
   );
 }
