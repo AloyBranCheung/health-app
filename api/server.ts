@@ -11,6 +11,7 @@ import { Error } from "./types";
 import userRoute from "./routes/userRoute";
 import mrnRoute from "./routes/mrnRoute";
 import dashboardRoute from "./routes/dashboardRoute";
+import ProfilePicRoute from "./routes/ProfilePicRoute";
 
 const app = express();
 
@@ -36,6 +37,7 @@ app.use(cors());
 app.use("/api/user", userRoute);
 app.use("/api/mrn", mrnRoute);
 app.use("/api/dashboard", dashboardRoute);
+app.use("/api/profilepics", ProfilePicRoute);
 
 //  error middleware must be at the end
 app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
