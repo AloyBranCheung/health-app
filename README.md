@@ -6,7 +6,7 @@ Features to be impleneted:
 - [ ] Schedule an appointment with a doctor
 - [ ] Find a doctor, search function with filter by specialty 
 - [ ] Chat with a doctor, live or leave a message 
-- [ ] Keep track your past medical history, allergies and medications all on one dashboard, ease of access the next time you need to show a new provider your health history in your next visit or send them your "MyHealth" card 
+- [x] Keep track your past medical history, allergies and medications all on one dashboard, ease of access the next time you need to show a new provider your health history in your next visit or send them your "MyHealth" card 
 
 Technologies: 
 <div>
