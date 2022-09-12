@@ -53,6 +53,7 @@ const INITIAL_STATE = {
     firstName: "",
     lastName: "",
     MRN: "",
+    profilePic: "",
     familyMembers: [""],
     isProvider: false,
     patientList: [""],

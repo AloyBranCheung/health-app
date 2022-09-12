@@ -4,39 +4,6 @@ import LoadingSpinner from "../../UI/LoadingSpinner";
 import Button from "../../UI/Button";
 import CardScroll from "../../UI/CardScroll";
 
-const DUMMY_DATA = [
-  {
-    id: "1",
-    name: "Billy Bongwater",
-    MRN: "68686868",
-    primaryIssue: "CHF",
-  },
-  {
-    id: "2",
-    name: "The Kush Bender",
-    MRN: "68686868",
-    primaryIssue: "CHF",
-  },
-  {
-    id: "3",
-    name: "Periwinkle",
-    MRN: "68686868",
-    primaryIssue: "CHF",
-  },
-  {
-    id: "4",
-    name: "Jabber",
-    MRN: "68686868",
-    primaryIssue: "CHF",
-  },
-  {
-    id: "5",
-    name: "Pillowee",
-    MRN: "68686868",
-    primaryIssue: "CHF",
-  },
-];
-
 type Props = {
   className?: string;
   isLoading: boolean;

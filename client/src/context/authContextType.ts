@@ -10,6 +10,7 @@ export type User = {
   firstName: string;
   lastName: string;
   MRN: string;
+  profilePic: string;
   familyMembers: string[];
   isProvider: boolean;
   patientList: string[];
