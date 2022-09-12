@@ -27,6 +27,9 @@ const UserSchema = new mongoose.Schema(
     MRN: {
       type: String,
     },
+    profilePic: {
+      type: String,
+    },
     familyMembers: {
       type: [
         {
@@ -107,7 +110,7 @@ const UserSchema = new mongoose.Schema(
     },
     address: {
       type: String,
-    }
+    },
   },
   { timestamps: true }
 );
