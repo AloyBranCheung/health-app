@@ -6,8 +6,9 @@ type Props = {
   value?: string;
   type?: string;
   autoComplete?: string;
-  onFocus?: () => void;
+  onFocus?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   className?: string;
+  maxLength?: number;
 };
 
 export default function Input({
@@ -19,12 +20,14 @@ export default function Input({
   autoComplete,
   onFocus,
   className,
+  maxLength,
 }: Props) {
   return (
     <div
       className={`shadow pt-4 bg-white relative flex border-2 border-gray-200 rounded-md transition-all focus-within:border-mainFontColor focus-within:transition-all ${className}`}
     >
       <input
+        maxLength={maxLength}
         onChange={onChange}
         value={value}
         className="peer placeholder-transparent appearance-none bg-transparent w-full py-2 px-4 focus:outline-none block z-20"

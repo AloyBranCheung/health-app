@@ -7,6 +7,7 @@ import type {
   Medications,
   OtherTx,
   FamilyMembers,
+  Address,
 } from "./authContextType";
 
 const INITIAL_HEALTH = {
@@ -71,7 +72,7 @@ const INITIAL_STATE = {
     ],
     myGoals: [{ _id: "", goal: "" }],
     phoneNumber: "",
-    address: "",
+    address: {} as Address,
   },
   setUser: (user: User) => {},
   login: (data: data) => {},

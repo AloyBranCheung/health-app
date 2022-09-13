@@ -17,32 +17,35 @@ import SearchMD from "./pages/SearchMD";
 import MyHealth from "./pages/MyHealth";
 import Results from "./pages/Results";
 import Messages from "./pages/Messages";
+import { ModalContextProvider } from "./context/modalContext";
 
 function App() {
   return (
     <AuthContextProvider>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Signup />} />
-          <Route path="/contactus" element={<ContactUs />} />
-          <Route path="/careers" element={<Careers />} />
-          <Route path="/aboutus" element={<AboutUs />} />
-          <Route path="/whatsnew" element={<WhatsNews />} />
-          <Route path="/" element={<ProtectRoute />}>
-            <Route path="/dashboard/" element={<MainDashboard />} />
-            <Route path="/dashboard/myhealth" element={<MyHealth />} />
-            <Route
-              path="/dashboard/medication"
-              element={<PrescriptionDashboard />}
-            />
-            <Route path="/dashboard/results" element={<Results />} />
-            <Route path="/dashboard/find" element={<SearchMD />} />
-            <Route path="/dashboard/messages" element={<Messages />} />
-          </Route>
-        </Routes>
-      </BrowserRouter>
+      <ModalContextProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
+            <Route path="/contactus" element={<ContactUs />} />
+            <Route path="/careers" element={<Careers />} />
+            <Route path="/aboutus" element={<AboutUs />} />
+            <Route path="/whatsnew" element={<WhatsNews />} />
+            <Route path="/" element={<ProtectRoute />}>
+              <Route path="/dashboard/" element={<MainDashboard />} />
+              <Route path="/dashboard/myhealth" element={<MyHealth />} />
+              <Route
+                path="/dashboard/medication"
+                element={<PrescriptionDashboard />}
+              />
+              <Route path="/dashboard/results" element={<Results />} />
+              <Route path="/dashboard/find" element={<SearchMD />} />
+              <Route path="/dashboard/messages" element={<Messages />} />
+            </Route>
+          </Routes>
+        </BrowserRouter>
+      </ModalContextProvider>
     </AuthContextProvider>
   );
 }
