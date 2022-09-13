@@ -30,7 +30,10 @@ export default function Modal({ children, wrapperId }: Props) {
         onClick={handleBackdropClick}
         className="absolute flex lg:items-center justify-center h-full w-full bg-modalBackground p-5"
       >
-        <div onClick={handleContentClick} className="w-full">
+        <div
+          onClick={handleContentClick}
+          className="md:min-w-[75%] lg:min-w-[25%]"
+        >
           <Card className="bg-white">
             <div>{children}</div>
           </Card>
