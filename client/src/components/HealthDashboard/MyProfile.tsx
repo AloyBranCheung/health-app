@@ -4,8 +4,8 @@ import Button from "../UI/Button";
 import Card from "../UI/Card";
 import LoadingSpinner from "../UI/LoadingSpinner";
 import ProfileDeets from "./ProfileDeets";
-import Modal from "../UI/Modal";
 import ModalContext from "../../context/modalContext";
+import EditProfile from "../EditProfile/EditProfile";
 
 type Props = {
   className: string;
@@ -25,11 +25,7 @@ export default function MyProfile({ className }: Props) {
         <LoadingSpinner />
       ) : (
         <>
-          {isVisible && (
-            <Modal wrapperId="dashboardModal">
-              <div>Hello World</div>
-            </Modal>
-          )}
+          {isVisible && <EditProfile />}
           <div className="p-5 flex flex-col gap-5 w-full md:h-full">
             <div className="flex flex-row items-center justify-between w-full">
               <h1>

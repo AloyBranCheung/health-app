@@ -26,7 +26,7 @@ export type User = {
   }[];
   myGoals: { _id: string; goal: string }[];
   phoneNumber: string;
-  address: string;
+  address: Address;
 };
 
 export type UserHealth = {
@@ -97,4 +97,12 @@ export interface FamilyMembers {
   name: string;
   MRN: string;
   primaryIssue: string;
+}
+
+export interface Address {
+  _id?: string;
+  city: string;
+  province: string;
+  country: string;
+  postalCode: string;
 }

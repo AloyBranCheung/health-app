@@ -13,6 +13,7 @@ export default function Modal({ children, wrapperId }: Props) {
   const { onVisible } = useContext(ModalContext);
 
   const handleBackdropClick = () => {
+    console.log("clicked");
     onVisible(false);
   };
 
@@ -27,13 +28,10 @@ export default function Modal({ children, wrapperId }: Props) {
         animate={{ opacity: 1 }}
         exit={{ opacity: 0, height: 0 }}
         onClick={handleBackdropClick}
-        className="absolute flex lg:items-center justify-center h-full w-full bg-modalBackground"
+        className="absolute flex lg:items-center justify-center h-full w-full bg-modalBackground p-5"
       >
-        <div
-          onClick={handleContentClick}
-          className="h-5/6 w-5/6 bg-secondaryColor rounded-xl absolute top-5"
-        >
-          <Card className="h-full w-full">
+        <div onClick={handleContentClick} className="w-full">
+          <Card className="bg-white">
             <div>{children}</div>
           </Card>
         </div>

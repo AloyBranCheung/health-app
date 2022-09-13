@@ -3,6 +3,9 @@ import AuthContext from "../../context/authContext";
 
 export default function ProfileDeets() {
   const { user } = useContext(AuthContext);
+
+  const address = Object.values(user?.address).slice(0, -1).join(", ");
+
   return (
     <div className="flex flex-col w-full gap-2 justify-center md:justify-around">
       <div className="flex flex-row gap-2 ">
@@ -53,7 +56,7 @@ export default function ProfileDeets() {
             <path d="M12 5.432l8.159 8.159c.03.03.06.058.091.086v6.198c0 1.035-.84 1.875-1.875 1.875H15a.75.75 0 01-.75-.75v-4.5a.75.75 0 00-.75-.75h-3a.75.75 0 00-.75.75V21a.75.75 0 01-.75.75H5.625a1.875 1.875 0 01-1.875-1.875v-6.198a2.29 2.29 0 00.091-.086L12 5.43z" />
           </svg>
         </div>
-        <h1 className="w-full">{user?.address}</h1>
+        <h1 className="w-full">{address}</h1>
       </div>
     </div>
   );
