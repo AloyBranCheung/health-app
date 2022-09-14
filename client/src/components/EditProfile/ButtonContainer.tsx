@@ -10,12 +10,12 @@ export default function ButtonContainer({ onClick }: Props) {
   const { onVisible } = useContext(ModalContext);
 
   const handleCancel = () => {
-    onVisible(false);
+    onVisible("");
   };
 
   return (
     <div className="flex flex-row gap-2 justify-end">
-      <Button onClick={handleCancel} text="Cancel" className="" />
+      <Button onClick={handleCancel} text="Cancel" />
       <Button onClick={onClick} text="Submit" />
     </div>
   );

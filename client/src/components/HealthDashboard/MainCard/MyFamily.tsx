@@ -32,7 +32,7 @@ export default function MyFamily({ className, isLoading }: Props) {
             </h1>
           </div>
           <div>
-            <p>
+            <p className="break-all">
               <strong>MRN: </strong>
               {member.MRN}
             </p>

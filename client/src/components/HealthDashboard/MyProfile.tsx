@@ -16,7 +16,7 @@ export default function MyProfile({ className }: Props) {
   const { isVisible, onVisible } = useContext(ModalContext);
 
   const handleClick = () => {
-    onVisible(true);
+    onVisible("editProfile");
   };
 
   return (
@@ -25,7 +25,7 @@ export default function MyProfile({ className }: Props) {
         <LoadingSpinner />
       ) : (
         <>
-          {isVisible && <EditProfile />}
+          {isVisible === "editProfile" && <EditProfile />}
           <div className="p-5 flex flex-col gap-5 w-full md:h-full">
             <div className="flex flex-row items-center justify-between w-full">
               <h1>

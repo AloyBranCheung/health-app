@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 
 const INITIAL_STATE = {
-  isVisible: false,
-  onVisible: (bool: boolean) => {},
+  isVisible: "",
+  onVisible: (type: string) => {},
 };
 
 // createContext
@@ -14,10 +14,10 @@ interface Props {
   children: JSX.Element;
 }
 export const ModalContextProvider = ({ children }: Props) => {
-  const [isVisible, setIsVisible] = useState(false);
+  const [isVisible, setIsVisible] = useState("");
 
-  const onVisible = (bool: boolean) => {
-    setIsVisible(bool);
+  const onVisible = (type: string) => {
+    setIsVisible(type);
   };
 
   const value = {

@@ -13,8 +13,7 @@ export default function Modal({ children, wrapperId }: Props) {
   const { onVisible } = useContext(ModalContext);
 
   const handleBackdropClick = () => {
-    console.log("clicked");
-    onVisible(false);
+    onVisible("");
   };
 
   const handleContentClick = (e: SyntheticEvent) => {
