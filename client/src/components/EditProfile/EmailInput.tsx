@@ -32,6 +32,7 @@ export default function EmailInput({ passedData }: Props) {
         value={email}
         label="Email"
         name="email"
+        type="email"
       />
     </div>
   );
