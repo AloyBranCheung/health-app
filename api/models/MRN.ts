@@ -6,10 +6,6 @@ const HealthSchema = new mongoose.Schema(
       type: String,
       default: "",
     },
-    biologicalSex: {
-      type: Number,
-      default: null,
-    },
     age: {
       type: Number,
       min: 0,

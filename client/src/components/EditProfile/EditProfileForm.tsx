@@ -19,20 +19,13 @@ export default function EditProfileForm() {
   const [isLoading, setIsLoading] = useState(false);
   const { user, setUser } = useContext(AuthContext);
   const [formInput, setFormInput] = useState({
-    phoneNumber: "",
-    email: "",
-    address: {} as Address,
+    phoneNumber: user.phoneNumber,
+    email: user.email,
+    address: user.address,
   });
   const [success, setSuccess] = useState(false);
   const [isError, setIsError] = useState(false);
 
-  useEffect(() => {
-    setFormInput({
-      phoneNumber: user.phoneNumber,
-      email: user.email,
-      address: user.address,
-    });
-  }, [user.phoneNumber, user.email, user.address]);
 
   // state from phone, email
   const handleData = (name: string, text: string) => {
