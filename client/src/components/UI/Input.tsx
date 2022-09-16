@@ -3,7 +3,7 @@ type Props = {
   label: string;
   name: string;
   onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  value?: string;
+  value?: string | number;
   type?: string;
   autoComplete?: string;
   onFocus?: (e: React.ChangeEvent<HTMLInputElement>) => void;

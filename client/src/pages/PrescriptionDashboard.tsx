@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 export default function PrescriptionDashboard() {
   const { user, setUser } = useContext(AuthContext);
-  console.log(user);
+
 
   return (
     <motion.div
@@ -12,7 +12,7 @@ export default function PrescriptionDashboard() {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
     >
-      <div>Prescriptions Dashboard</div>
+      <div >Prescriptions Dashboard</div>
     </motion.div>
   );
 }
