@@ -17,10 +17,12 @@ const HealthSchema = new mongoose.Schema(
     },
     sex: {
       type: String,
+      enum: ["M", "F"],
       default: "",
     },
     bloodGroup: {
       type: String,
+      enum: ["O-", "O+", "A-", "A+", "B-", "B+", "AB-", "AB+"],
       default: "",
     },
     weight: {

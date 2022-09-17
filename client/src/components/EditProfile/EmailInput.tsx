@@ -30,9 +30,10 @@ export default function EmailInput({ passedData }: Props) {
         onFocus={handleFocus}
         onChange={handleEmailChange}
         value={email}
-        label="Email"
+        label="Email (read-only)"
         name="email"
         type="email"
+        readOnly={true}
       />
     </div>
   );

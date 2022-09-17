@@ -26,7 +26,6 @@ export default function EditProfileForm() {
   const [success, setSuccess] = useState(false);
   const [isError, setIsError] = useState(false);
 
-
   // state from phone, email
   const handleData = (name: string, text: string) => {
     setFormInput({ ...formInput, [name]: text });
@@ -64,7 +63,7 @@ export default function EditProfileForm() {
       ) : (
         <>
           {success ? (
-            <div>Successfully Updated.</div>
+            <div>Successfully updated.</div>
           ) : (
             <form className="flex flex-col gap-2">
               <PhoneInput passedData={handleData} />

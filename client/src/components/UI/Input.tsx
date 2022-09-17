@@ -9,6 +9,7 @@ type Props = {
   onFocus?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   className?: string;
   maxLength?: number;
+  readOnly?: boolean;
 };
 
 export default function Input({
@@ -21,6 +22,7 @@ export default function Input({
   onFocus,
   className,
   maxLength,
+  readOnly,
 }: Props) {
   return (
     <div
@@ -37,6 +39,7 @@ export default function Input({
         autoComplete={autoComplete}
         required
         onFocus={onFocus}
+        readOnly={readOnly}
       />
       <label
         className="transition-all absolute left-4 top-2 z-10 text-mainFontColor peer-placeholder-shown:text-gray-300 text-sm peer-placeholder-shown:text-lg peer-placeholder-shown:top-4 peer-focus:top-2 peer-focus:text-sm peer-focus:text-mainFontColor"

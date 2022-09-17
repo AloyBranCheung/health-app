@@ -75,6 +75,7 @@ const INITIAL_STATE = {
     address: {} as Address,
   },
   setUser: (user: User) => {},
+  setUserHealth: (userHealth: UserHealth) => {},
   login: (data: data) => {},
   logout: () => {},
   isLoggedIn: () => false,
@@ -168,6 +169,7 @@ export const AuthContextProvider = ({ children }: Props) => {
     isLoggedIn: isLoggedIn,
     userHealth: userHealth,
     isLoading: isLoading,
+    setUserHealth,
   };
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };
