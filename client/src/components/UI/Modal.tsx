@@ -33,7 +33,7 @@ export default function Modal({ children, wrapperId }: Props) {
           onClick={handleContentClick}
           className="md:min-w-[75%] lg:min-w-[25%]"
         >
-          <Card className="bg-white sticky top-32">
+          <Card className="bg-white sticky top-32 max-h-screen overflow-y-scroll">
             <div>{children}</div>
           </Card>
         </div>

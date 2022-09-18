@@ -1,8 +1,10 @@
 import React, { useState, useContext } from "react";
 import AuthContext from "../../../context/authContext";
+import ModalContext from "../../../context/modalContext";
 import Button from "../../UI/Button";
 import Input from "../../UI/Input";
 import axios from "axios";
+import FormInputErrMsg from "../../UI/FormInputErrMsg";
 
 export default function EditPMHxForm() {
   const [newHistory, setNewHistory] = useState("");
@@ -11,6 +13,7 @@ export default function EditPMHxForm() {
     message: "",
   });
   const { user, userHealth, setUserHealth } = useContext(AuthContext);
+  const { onVisible } = useContext(ModalContext);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
@@ -25,6 +28,8 @@ export default function EditPMHxForm() {
         pmHx: [...userHealth.pmHx, newHistory],
       });
       console.log("Success");
+      // reset Input
+      setNewHistory("");
       // Reset error
       setError({ ...isError, error: false });
     } catch (error: any) {
@@ -39,6 +44,11 @@ export default function EditPMHxForm() {
     setUserHealth({ ...userHealth, pmHx: [...userHealth.pmHx, newHistory] });
   };
 
+  // cancel button click
+  const handleCancel = () => {
+    onVisible("");
+  };
+
   return (
     <form onSubmit={handleSubmit} className="flex flex-col gap-5">
       <Input
@@ -47,8 +57,9 @@ export default function EditPMHxForm() {
         label="New Medical History"
         name="newPMHx"
       />
+      {isError && <FormInputErrMsg text={isError.message} />}
       <div className="flex gap-2 justify-end">
-        <Button text="Cancel" />
+        <Button onClick={handleCancel} text="Cancel" />
         <Button type="submit" text="Add PMHx" />
       </div>
     </form>
