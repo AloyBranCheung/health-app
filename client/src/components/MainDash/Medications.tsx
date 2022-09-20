@@ -2,9 +2,10 @@ import React, { useContext } from "react";
 import AuthContext from "../../context/authContext";
 import Button from "../UI/Button";
 import Card from "../UI/Card";
-import { useNavigate } from "react-router-dom";
 import MedicationPreview from "./MedicationPreview";
 import LoadingSpinner from "../UI/LoadingSpinner";
+import ModalContext from "../../context/modalContext";
+import EditMedications from "./EditMedications";
 
 type Props = {
   className?: string;
@@ -12,10 +13,11 @@ type Props = {
 
 export default function Medications({ className }: Props) {
   const { userHealth, isLoading } = useContext(AuthContext);
+  const { isVisible, onVisible } = useContext(ModalContext);
 
-  const navigate = useNavigate();
-  const navMeds = () => {
-    navigate("/dashboard/medication");
+  // open edit modal
+  const handleEdit = () => {
+    onVisible("editMedications");
   };
 
   // medications list
@@ -46,12 +48,13 @@ export default function Medications({ className }: Props) {
         </div>
       ) : (
         <div className="p-5 flex flex-col gap-5 h-full">
+          {isVisible === "editMedications" && <EditMedications />}
           <div className="flex justify-between flex-row w-full items-center">
             <h1>
               <strong>My Medications</strong>
             </h1>
             <div>
-              <Button className="shadow-lg" onClick={navMeds} text="Edit" />
+              <Button className="shadow-lg" onClick={handleEdit} text="Edit" />
             </div>
           </div>
 

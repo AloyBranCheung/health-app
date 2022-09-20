@@ -27,7 +27,7 @@ export default function MyDetails({ className }: Props) {
             <MRN />
             <div className="bg-white p-5 rounded-xl shadow-xl flex">
               <div className="flex flex-col md:flex-row gap-2 w-full items-center justify-between">
-                <div className="flex flex-row gap-5">
+                <div className="flex flex-row gap-1">
                   <h1>
                     <strong>Primary Concern:</strong>
                   </h1>
