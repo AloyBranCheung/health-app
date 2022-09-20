@@ -1,8 +1,10 @@
 import React, { useContext } from "react";
 import AuthContext from "../../../context/authContext";
+import ModalContext from "../../../context/modalContext";
 import LoadingSpinner from "../../UI/LoadingSpinner";
 import Button from "../../UI/Button";
 import Card from "../../UI/Card";
+import EditOtherTreatments from "./EditOtherTreatments";
 
 type Props = {
   className: string;
@@ -11,7 +13,14 @@ type Props = {
 
 export default function OtherTreatments({ className, isLoading }: Props) {
   const { userHealth } = useContext(AuthContext);
+  const { onVisible, isVisible } = useContext(ModalContext);
 
+  // Button click to open modal
+  const handleClick = () => {
+    onVisible("editOtherTx");
+  };
+
+  // render list of treatments
   const treatments = userHealth.otherTx.map((treatment) => {
     return (
       <div
@@ -40,13 +49,14 @@ export default function OtherTreatments({ className, isLoading }: Props) {
         ) : (
           <>
             <div className="flex flex-row w-full items-center justify-between">
+              {isVisible === "editOtherTx" && <EditOtherTreatments />}
               <div>
                 <h1>
                   <strong>Other Treatments</strong>
                 </h1>
               </div>
               <div>
-                <Button text="Edit" />
+                <Button onClick={handleClick} text="Edit" />
               </div>
             </div>
             <div className="flex flex-col w-full h-full gap-5 overflow-y-scroll">

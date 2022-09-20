@@ -42,6 +42,9 @@ module.exports = {
       gridTemplateRows: {
         stopStretching: "auto minmax(0, 1fr)",
       },
+      spacing: {
+        modal: "22rem",
+      },
     },
   },
   plugins: [],
