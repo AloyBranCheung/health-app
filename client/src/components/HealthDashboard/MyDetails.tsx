@@ -1,10 +1,12 @@
 import React, { useContext } from "react";
 import AuthContext from "../../context/authContext";
+import ModalContext from "../../context/modalContext";
 import LoadingSpinner from "../UI/LoadingSpinner";
 import Card from "../UI/Card";
 import MRN from "./MRN";
 import HealthHistory from "./HealthHistory";
 import Button from "../UI/Button";
+import EditPrimaryConcern from "./EditPrimaryConcern";
 
 type Props = {
   className: string;
@@ -12,12 +14,19 @@ type Props = {
 
 export default function MyDetails({ className }: Props) {
   const { isLoading, userHealth } = useContext(AuthContext);
+  const { onVisible, isVisible } = useContext(ModalContext);
+
+  const handleClick = () => {
+    onVisible("editPrimConc");
+  };
+
   return (
     <Card className={className}>
       {isLoading ? (
         <LoadingSpinner />
       ) : (
         <div className="p-5 flex flex-col w-full gap-5 h-full">
+          {isVisible === "editPrimConc" && <EditPrimaryConcern />}
           <div>
             <h1>
               <strong>My Details</strong>
@@ -35,7 +44,7 @@ export default function MyDetails({ className }: Props) {
                     <p>{userHealth.primaryConcern}</p>
                   </div>
                 </div>
-                <Button text="Change" />
+                <Button onClick={handleClick} text="Change" />
               </div>
             </div>
             <HealthHistory />
