@@ -6,7 +6,7 @@ type Props = {
   value?: string | number;
   type?: string;
   autoComplete?: string;
-  onFocus?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onFocus?: (e: React.FocusEvent<HTMLInputElement>) => void;
   className?: string;
   maxLength?: number;
   readOnly?: boolean;
