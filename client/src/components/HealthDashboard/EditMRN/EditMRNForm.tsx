@@ -50,6 +50,11 @@ export default function EditMRNForm() {
     onVisible("");
   };
 
+  // onFocus select all text
+  const handleFocus = (e: React.FocusEvent<HTMLInputElement>) => {
+    e.target.select();
+  };
+
   // Submit form to DB
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -109,18 +114,21 @@ export default function EditMRNForm() {
                 name="preferredPronouns"
                 onChange={handleChange}
                 value={formValues.preferredPronouns}
+                onFocus={handleFocus}
               />
               <Input
                 label="Preferred Name"
                 name="preferredName"
                 onChange={handleChange}
                 value={formValues.preferredName}
+                onFocus={handleFocus}
               />
               <Input
                 label="Gender"
                 name="gender"
                 onChange={handleChange}
                 value={formValues.gender}
+                onFocus={handleFocus}
               />
               <Dropdown
                 description="Sex"
@@ -141,12 +149,14 @@ export default function EditMRNForm() {
                 name="age"
                 onChange={handleChange}
                 value={formValues.age}
+                onFocus={handleFocus}
               />
               <Input
                 label="Weight (kg)"
                 name="weight"
                 onChange={handleChange}
                 value={formValues.weight}
+                onFocus={handleFocus}
               />
               {isError && <FormInputErrMsg text={errMsg} />}
               <div className="mt-4 flex justify-end gap-2">
