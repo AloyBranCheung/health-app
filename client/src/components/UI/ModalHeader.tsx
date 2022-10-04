@@ -4,9 +4,10 @@ import ModalContext from "../../context/modalContext";
 
 interface Props {
   headerText: string;
+  button?: JSX.Element;
 }
 
-export default function ModalHeader({ headerText }: Props) {
+export default function ModalHeader({ headerText, button }: Props) {
   const { onVisible } = useContext(ModalContext);
 
   // Exit Icon
@@ -15,11 +16,14 @@ export default function ModalHeader({ headerText }: Props) {
   };
 
   return (
-    <div className="flex flex-row justify-between items-center">
+    <div className="flex flex-row justify-between items-center gap-2">
       <h1>
         <strong className="text-xl">{headerText}</strong>
       </h1>
-      <ExitIcon onClick={handleIconClick} />
+      <div className="flex gap-2">
+        {button}
+        <ExitIcon onClick={handleIconClick} />
+      </div>
     </div>
   );
 }

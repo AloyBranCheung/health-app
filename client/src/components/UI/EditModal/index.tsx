@@ -6,13 +6,19 @@ interface Props {
   wrapperId: string;
   headerText: string;
   children: JSX.Element;
+  button?: JSX.Element;
 }
 
-export default function index({ wrapperId, headerText, children }: Props) {
+export default function index({
+  wrapperId,
+  headerText,
+  button,
+  children,
+}: Props) {
   return (
     <Modal wrapperId={wrapperId}>
       <div className="p-5 flex flex-col gap-5">
-        <ModalHeader headerText={headerText} />
+        <ModalHeader button={button} headerText={headerText} />
         {children}
       </div>
     </Modal>
