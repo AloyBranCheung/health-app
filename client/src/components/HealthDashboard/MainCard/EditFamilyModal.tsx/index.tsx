@@ -1,9 +1,10 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import AuthContext from "../../../../context/authContext";
 import Button from "../../../UI/Button";
 import EditModal from "../../../UI/EditModal";
 import FamilyList from "./FamilyList";
 import axios from "axios";
+import AddFamilyForm from "./AddFamilyForm";
 
 export default function EditFamilyModal() {
   const {
@@ -12,6 +13,7 @@ export default function EditFamilyModal() {
     userHealth,
     user,
   } = useContext(AuthContext);
+  const [isAddFamily, setIsAddFamily] = useState(false);
 
   // Remove family Member
   const handleRemove = async (famMemberId: string) => {
@@ -33,7 +35,9 @@ export default function EditFamilyModal() {
   };
 
   // Add family member
-  const handleAdd = () => {};
+  const handleAdd = () => {
+    setIsAddFamily(true);
+  };
 
   // Render family members list
   const familyMembersList = familyMembers.map((famMember) => {
@@ -64,7 +68,11 @@ export default function EditFamilyModal() {
       wrapperId="dashboardModal"
       headerText="Edit Family List"
     >
-      <ul className="flex gap-4 flex-col">{familyMembersList}</ul>
+      {isAddFamily ? (
+        <AddFamilyForm setIsAddFamily={setIsAddFamily} />
+      ) : (
+        <ul className="flex gap-4 flex-col">{familyMembersList}</ul>
+      )}
     </EditModal>
   );
 }
