@@ -3,6 +3,9 @@ import AuthContext from "../../../../../context/authContext";
 import Button from "../../../../UI/Button";
 import Input from "../../../../UI/Input";
 import axios from "axios";
+import LoadingSpinner from "../../../../UI/LoadingSpinner";
+import PreviousMap from "postcss/lib/previous-map";
+import FormInputErrMsg from "../../../../UI/FormInputErrMsg";
 interface Props {
   setIsAddFamily: React.Dispatch<React.SetStateAction<boolean>>;
 }
@@ -14,6 +17,11 @@ export default function AddFamilyForm({ setIsAddFamily }: Props) {
     MRN: "",
     primaryIssue: "",
   });
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState({
+    message: "",
+    state: false,
+  });
 
   // Cancel Button
   const handleCancel = () => {
@@ -24,6 +32,7 @@ export default function AddFamilyForm({ setIsAddFamily }: Props) {
   const handleAdd = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
+      setIsLoading(true);
       const familyArrObj = [...userHealth.familyMembers, familyMembers];
       // update DB PUT /mrn/healthinformation/${user._id}
       const { data } = await axios.put(`/mrn/healthinformation/${user._id}`, {
@@ -31,10 +40,14 @@ export default function AddFamilyForm({ setIsAddFamily }: Props) {
       });
       // update state
       setUserHealth(data);
+      setIsLoading(false);
       setIsAddFamily(false);
+      setError({ message: "", state: false });
       console.log("Success");
-    } catch (error) {
+    } catch (error: any) {
       console.error(error);
+      setError({ message: error.message, state: true });
+      setIsLoading(false);
     }
   };
 
@@ -48,27 +61,39 @@ export default function AddFamilyForm({ setIsAddFamily }: Props) {
   return (
     <form onSubmit={handleAdd} className="flex flex-col gap-5">
       <div className="flex flex-col gap-2">
-        <Input
-          onChange={handleChange}
-          value={familyMembers.name}
-          label="Name"
-          name="name"
-        />
-        <Input
-          onChange={handleChange}
-          value={familyMembers.MRN}
-          label="MRN"
-          name="MRN"
-        />
-        <Input
-          onChange={handleChange}
-          value={familyMembers.primaryIssue}
-          label="Primary Issue"
-          name="primaryIssue"
-        />
+        {isLoading ? (
+          <LoadingSpinner />
+        ) : (
+          <>
+            {error.state ? (
+              <FormInputErrMsg text={error.message} />
+            ) : (
+              <>
+                <Input
+                  onChange={handleChange}
+                  value={familyMembers.name}
+                  label="Name"
+                  name="name"
+                />
+                <Input
+                  onChange={handleChange}
+                  value={familyMembers.MRN}
+                  label="MRN"
+                  name="MRN"
+                />
+                <Input
+                  onChange={handleChange}
+                  value={familyMembers.primaryIssue}
+                  label="Primary Issue"
+                  name="primaryIssue"
+                />
+              </>
+            )}
+          </>
+        )}
       </div>
 
-      <div className="flex flex-row gap-2 justify-end">
+      <div className="flex w-full h-full flex-row gap-2 justify-end items-center">
         <Button onClick={handleCancel} type="button" text="Cancel" />
         <Button type="submit" text="Add" />
       </div>
