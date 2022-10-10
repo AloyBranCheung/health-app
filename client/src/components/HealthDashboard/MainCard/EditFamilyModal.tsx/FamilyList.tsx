@@ -8,7 +8,7 @@ interface Props {
 
 export default function FamilyList({ name, MRN, primaryIssue }: Props) {
   return (
-    <div>
+    <div className="w-full">
       <p>
         <strong>Name: </strong>
         {name}

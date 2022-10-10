@@ -44,7 +44,7 @@ export default function EditFamilyModal() {
     return (
       <li
         key={famMember._id}
-        className="flex flex-col md:flex-row gap-2 items-center rounded-lg bg-white p-2"
+        className="flex flex-col md:flex-row md:space-between gap-2 md:px-5 items-center rounded-lg bg-white p-2"
       >
         <FamilyList
           name={famMember.name}
