@@ -20,7 +20,7 @@ export default function ModalHeader({ headerText, button }: Props) {
       <h1>
         <strong className="text-xl">{headerText}</strong>
       </h1>
-      <div className="flex gap-2">
+      <div className="flex gap-2 items-center">
         {button}
         <ExitIcon onClick={handleIconClick} />
       </div>
