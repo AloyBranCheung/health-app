@@ -63,7 +63,7 @@ export const healthInformationMRN = async (
   }
 };
 
-// update health information by MRN
+// update health information by userid
 export const updateInformation = async (
   req: Request,
   res: Response,
@@ -79,7 +79,7 @@ export const updateInformation = async (
         {
           $set: req.body,
         },
-        { new: true }
+        { new: true, runValidators: true }
       );
       res.json(updatedInformation);
     } catch (error) {

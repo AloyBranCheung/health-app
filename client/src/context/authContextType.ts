@@ -41,15 +41,7 @@ export type UserHealth = {
   pmHx: string[];
   familyHx: string[];
   allergies: string[];
-  medications: {
-    _id: string;
-    name: string;
-    dose: number;
-    doseUnits: string;
-    timing: string;
-    lastTaken: string;
-    nextDue: string;
-  }[];
+  medications: Medications;
   otherTx: {
     _id: string;
     treatment: string;
@@ -60,22 +52,29 @@ export type UserHealth = {
     MRN: string;
     primaryIssue: string;
   }[];
-  labWork: {}[];
-  imaging: {}[];
-  heartRate: {
-    _id: string;
-    date: string;
-    time: string;
-    heartRate: string;
-  }[];
-  bloodPressure: {
-    _id: string;
-    date: string;
-    time: string;
-    sys: string;
-    dia: string;
-  }[];
+  labWork: LabWork[];
+  imaging: Imaging[];
+  heartRate: HeartRate[];
+  bloodPressure: BloodPressure[];
 };
+
+export interface Imaging {}
+
+export interface LabWork {}
+
+export interface HeartRate {
+  _id: string;
+  date: string;
+  time: string;
+  heartRate: string;
+}
+export interface BloodPressure {
+  _id: string;
+  date: string;
+  time: string;
+  sys: string;
+  dia: string;
+}
 
 export type Medications = {
   _id: string;
