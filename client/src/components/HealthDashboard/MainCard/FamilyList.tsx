@@ -1,9 +1,21 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import AuthContext from "../../../context/authContext";
 import Button from "../../UI/Button";
+import ModalContext from "../../../context/modalContext";
+import ViewFamilyProfile from "./ViewFamilyProfile";
 
 export default function FamilyList() {
   const { userHealth } = useContext(AuthContext);
+  const { onVisible, isVisible } = useContext(ModalContext);
+  const [mrn, setMrn] = useState("");
+  const [familyMember, setFamilyMember] = useState("");
+
+  // sets modal's name/mrn
+  const handleModal = (mrn: string, familyMemberName: string) => {
+    setMrn(mrn);
+    setFamilyMember(familyMemberName);
+    onVisible("viewProfile");
+  };
 
   const list = userHealth.familyMembers.map((member) => {
     return (
@@ -39,11 +51,23 @@ export default function FamilyList() {
           </div>
         </div>
         <div className="self-center">
-          <Button text="View Profile" />
+          <Button
+            onClick={() => {
+              handleModal(member.MRN, member.name);
+            }}
+            text="View Profile"
+          />
         </div>
       </div>
     );
   });
 
-  return <>{list}</>;
+  return (
+    <>
+      {list}
+      {isVisible === "viewProfile" && (
+        <ViewFamilyProfile mrn={mrn} familyName={familyMember} />
+      )}
+    </>
+  );
 }
