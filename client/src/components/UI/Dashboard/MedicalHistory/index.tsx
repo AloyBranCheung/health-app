@@ -1,5 +1,4 @@
 import React from "react";
-import { Medications } from "../../../../context/authContextType";
 
 interface Props {
   header: string;
