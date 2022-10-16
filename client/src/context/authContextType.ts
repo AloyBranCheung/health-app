@@ -58,7 +58,11 @@ export type UserHealth = {
   bloodPressure: BloodPressure[];
 };
 
-export interface Imaging {}
+export interface Imaging {
+  name: string;
+  dateCreate: string;
+  url: string;
+}
 
 export interface LabWork {}
 
