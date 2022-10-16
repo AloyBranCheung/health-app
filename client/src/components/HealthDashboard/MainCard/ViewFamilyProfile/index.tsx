@@ -22,12 +22,13 @@ export default function ViewFamilyProfile({ mrn, familyName }: Props) {
         console.error(error.message);
       }
     };
+
     fetchData();
   }, [mrn]);
 
   return (
     <Modal wrapperId="dashboardModal">
-      <div className="p-5 flex flex-col gap-5">
+      <div className="p-5 flex flex-col gap-5 max-h-96">
         <ModalHeader headerText={familyName} />
         <DisplayInformation healthData={data} />
       </div>
