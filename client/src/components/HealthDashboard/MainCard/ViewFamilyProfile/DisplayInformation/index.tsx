@@ -11,6 +11,8 @@ import MedicalHistory from "../../../../UI/Dashboard/MedicalHistory";
 import MedicationsList from "./MedicationsList";
 import OtherTxList from "./OtherTxList";
 import VitalsList from "./VitalsList";
+import RecentImaging from "./RecentImaging";
+import RecentLabwork from "./RecentLabwork";
 export interface HealthData {
   _id: string;
   age: number;
@@ -63,6 +65,8 @@ export default function DisplayInformation({ healthData }: Props) {
       <MedicationsList medications={healthData?.medications} />
       <OtherTxList otherTx={healthData?.otherTx} />
       <VitalsList />
+      <RecentImaging data={healthData?.imaging} />
+      <RecentLabwork />
     </div>
   );
 }

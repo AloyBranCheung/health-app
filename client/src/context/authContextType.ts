@@ -62,6 +62,7 @@ export interface Imaging {
   name: string;
   dateCreate: string;
   url: string;
+  _id: string;
 }
 
 export interface LabWork {}
