@@ -18,9 +18,12 @@ export default function Goals({ className }: Props) {
 
     const currArr = user.myGoals;
     try {
-      const response = await axios.put(`/dashboard/updateuser/${user._id}`, {
-        myGoals: [...currArr, { goal }],
-      });
+      const response = await axios.put(
+        `https://random-health-tech.herokuapp.com/api/dashboard/updateuser/${user._id}`,
+        {
+          myGoals: [...currArr, { goal }],
+        }
+      );
       setUser(response.data);
     } catch (error) {
       console.log(error);
@@ -32,9 +35,12 @@ export default function Goals({ className }: Props) {
     // delete goal in state
     const filteredArr = user.myGoals.filter((goal) => goal._id !== id);
     try {
-      const response = await axios.put(`/dashboard/updateuser/${user._id}`, {
-        myGoals: filteredArr,
-      });
+      const response = await axios.put(
+        `https://random-health-tech.herokuapp.com/api/dashboard/updateuser/${user._id}`,
+        {
+          myGoals: filteredArr,
+        }
+      );
       setUser(response.data);
     } catch (error) {
       console.log(error);

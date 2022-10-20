@@ -86,13 +86,19 @@ export default function LoginModal() {
     e.preventDefault();
     try {
       // register user
-      await axios.post("user/register", formInput);
+      await axios.post(
+        "https://random-health-tech.herokuapp.com/api/user/register",
+        formInput
+      );
 
       //login user
-      const loginResponse = await axios.post("user/login", {
-        email: formInput.email,
-        password: formInput.password,
-      });
+      const loginResponse = await axios.post(
+        "https://random-health-tech.herokuapp.com/api/user/login",
+        {
+          email: formInput.email,
+          password: formInput.password,
+        }
+      );
       login(loginResponse.data);
 
       // reset state and navigate to dashboard(replace: true)
@@ -108,7 +114,9 @@ export default function LoginModal() {
       setError(false);
 
       //navigate to dashboard
-      await axios.post(`mrn/healthinformation/${loginResponse.data._id}`);
+      await axios.post(
+        `https://random-health-tech.herokuapp.com/api/mrn/healthinformation/${loginResponse.data._id}`
+      );
       navigate(`/dashboard`, { replace: true });
     } catch (error: any) {
       setError(true);

@@ -25,9 +25,12 @@ export default function EditFamilyModal() {
 
     // update DB
     try {
-      await axios.put(`/mrn/healthinformation/${user._id}`, {
-        familyMembers: newFamList,
-      });
+      await axios.put(
+        `https://random-health-tech.herokuapp.com/api/mrn/healthinformation/${user._id}`,
+        {
+          familyMembers: newFamList,
+        }
+      );
       console.log("Success");
     } catch (error) {
       console.error(error);

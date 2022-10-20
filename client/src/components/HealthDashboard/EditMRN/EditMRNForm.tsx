@@ -73,9 +73,15 @@ export default function EditMRNForm() {
 
     try {
       // User
-      await axios.put(`/dashboard/updateuser/${user._id}`, userData);
+      await axios.put(
+        `https://random-health-tech.herokuapp.com/api/dashboard/updateuser/${user._id}`,
+        userData
+      );
       //  MRN
-      await axios.put(`/mrn/healthinformation/${user._id}`, mrnData);
+      await axios.put(
+        `https://random-health-tech.herokuapp.com/api/mrn/healthinformation/${user._id}`,
+        mrnData
+      );
       console.log("Success");
 
       // Update state

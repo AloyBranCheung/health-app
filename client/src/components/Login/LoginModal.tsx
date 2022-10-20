@@ -31,7 +31,10 @@ export default function LoginModal() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const response = await axios.post("user/login", loginForm);
+      const response = await axios.post(
+        "https://random-health-tech.herokuapp.com/api/user/login",
+        loginForm
+      );
       setLoginForm({
         email: "",
         password: "",

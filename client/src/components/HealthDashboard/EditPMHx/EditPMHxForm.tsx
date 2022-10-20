@@ -24,9 +24,12 @@ export default function EditPMHxForm() {
     e.preventDefault();
     // PUT to DB
     try {
-      await axios.put(`/mrn/healthinformation/${user._id}`, {
-        pmHx: [...userHealth.pmHx, newHistory],
-      });
+      await axios.put(
+        `https://random-health-tech.herokuapp.com/api/mrn/healthinformation/${user._id}`,
+        {
+          pmHx: [...userHealth.pmHx, newHistory],
+        }
+      );
       console.log("Success");
       // reset Input
       setNewHistory("");

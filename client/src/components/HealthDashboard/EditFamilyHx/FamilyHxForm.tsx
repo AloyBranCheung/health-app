@@ -28,9 +28,12 @@ export default function FamilyHxForm() {
 
     // PUT to DB
     try {
-      await axios.put(`/mrn/healthinformation/${user._id}`, {
-        familyHx: newHx,
-      });
+      await axios.put(
+        `https://random-health-tech.herokuapp.com/api/mrn/healthinformation/${user._id}`,
+        {
+          familyHx: newHx,
+        }
+      );
       console.log("Success");
       // reset error to false
       setError({ ...error, isError: false });
@@ -54,9 +57,12 @@ export default function FamilyHxForm() {
 
     // PUT to DB
     try {
-      await axios.put(`/mrn/healthinformation/${user._id}`, {
-        familyHx: [...userHealth.familyHx, newHx],
-      });
+      await axios.put(
+        `https://random-health-tech.herokuapp.com/api/mrn/healthinformation/${user._id}`,
+        {
+          familyHx: [...userHealth.familyHx, newHx],
+        }
+      );
       // reset error
       setError({ errorMessage: "", isError: false });
       // reset Input

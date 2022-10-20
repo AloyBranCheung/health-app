@@ -21,9 +21,12 @@ export default function CurrPMHx() {
     setUserHealth({ ...userHealth, pmHx: newHx });
     // edit DB
     try {
-      await axios.put(`/mrn/healthinformation/${user._id}`, {
-        pmHx: newHx,
-      });
+      await axios.put(
+        `https://random-health-tech.herokuapp.com/api/mrn/healthinformation/${user._id}`,
+        {
+          pmHx: newHx,
+        }
+      );
       console.log("Success");
     } catch (error: any) {
       setError({ ...error, message: error.response.data.message });

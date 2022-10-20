@@ -107,7 +107,9 @@ export const AuthContextProvider = ({ children }: Props) => {
         // get user info
         try {
           setIsLoading(true);
-          const response = await axios.get(`/dashboard/user/${id}`);
+          const response = await axios.get(
+            `https://random-health-tech.herokuapp.com/api/dashboard/user/${id}`
+          );
           setUser(response.data);
         } catch (error) {
           console.log(error);
@@ -115,7 +117,9 @@ export const AuthContextProvider = ({ children }: Props) => {
 
         // get user health info
         try {
-          const response = await axios.get(`/mrn/healthinformation/${id}`);
+          const response = await axios.get(
+            `https://random-health-tech.herokuapp.com/api/mrn/healthinformation/${id}`
+          );
           setUserHealth(response.data);
           setIsLoading(false);
         } catch (error) {
@@ -132,14 +136,18 @@ export const AuthContextProvider = ({ children }: Props) => {
       sessionStorage.setItem("_id", _id);
       try {
         setIsLoading(true);
-        const response = await axios.get(`/dashboard/user/${_id}`);
+        const response = await axios.get(
+          `https://random-health-tech.herokuapp.com/api/dashboard/user/${_id}`
+        );
         setUser(response.data);
       } catch (error) {
         console.log(error);
       }
       // get user health info
       try {
-        const response = await axios.get(`/mrn/healthinformation/${_id}`);
+        const response = await axios.get(
+          `https://random-health-tech.herokuapp.com/api/mrn/healthinformation/${_id}`
+        );
         setUserHealth(response.data);
         setIsLoading(false);
       } catch (error) {

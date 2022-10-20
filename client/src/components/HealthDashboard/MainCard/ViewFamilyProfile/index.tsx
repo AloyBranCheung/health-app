@@ -15,7 +15,9 @@ export default function ViewFamilyProfile({ mrn, familyName }: Props) {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const { data } = await axios.get(`/mrn/healthinformation/mrn/${mrn}`);
+        const { data } = await axios.get(
+          `https://random-health-tech.herokuapp.com/api/mrn/healthinformation/mrn/${mrn}`
+        );
         setData(data);
         console.log("Success");
       } catch (error: any) {

@@ -35,9 +35,12 @@ export default function AddFamilyForm({ setIsAddFamily }: Props) {
       setIsLoading(true);
       const familyArrObj = [...userHealth.familyMembers, familyMembers];
       // update DB PUT /mrn/healthinformation/${user._id}
-      const { data } = await axios.put(`/mrn/healthinformation/${user._id}`, {
-        familyMembers: familyArrObj,
-      });
+      const { data } = await axios.put(
+        `https://random-health-tech.herokuapp.com/api/mrn/healthinformation/${user._id}`,
+        {
+          familyMembers: familyArrObj,
+        }
+      );
       // update state
       setUserHealth(data);
       setIsLoading(false);

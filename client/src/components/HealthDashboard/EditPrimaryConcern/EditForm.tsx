@@ -48,7 +48,10 @@ export default function EditForm() {
     const data = { primaryConcern };
     // submit to DB
     try {
-      await axios.put(`/mrn/healthinformation/${user._id}`, data);
+      await axios.put(
+        `https://random-health-tech.herokuapp.com/api/mrn/healthinformation/${user._id}`,
+        data
+      );
       console.log("Success");
       setIsSuccess(true);
     } catch (error: any) {
