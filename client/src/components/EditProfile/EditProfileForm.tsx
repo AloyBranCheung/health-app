@@ -38,7 +38,10 @@ export default function EditProfileForm() {
   const handleSubmit = (e: React.FormEvent) => {
     setIsLoading(true);
     try {
-      axios.put(`/dashboard/updateuser/${user._id}`, formInput);
+      axios.put(
+        `https://random-health-tech.herokuapp.com/api/dashboard/updateuser/${user._id}`,
+        formInput
+      );
       setSuccess(true);
       setUser({
         ...user,

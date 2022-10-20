@@ -37,9 +37,12 @@ export default function EditForm() {
 
     // add to DB
     try {
-      const response = await axios.put(`/mrn/healthinformation/${user._id}`, {
-        otherTx: [...userHealth.otherTx, { treatment: addTreatment }],
-      });
+      const response = await axios.put(
+        `https://random-health-tech.herokuapp.com/api/mrn/healthinformation/${user._id}`,
+        {
+          otherTx: [...userHealth.otherTx, { treatment: addTreatment }],
+        }
+      );
       console.log("Success");
       // set state with new response object
       setUserHealth(response.data);
@@ -66,9 +69,12 @@ export default function EditForm() {
 
     // remove from DB
     try {
-      await axios.put(`/mrn/healthinformation/${user._id}`, {
-        otherTx: newTxList,
-      });
+      await axios.put(
+        `https://random-health-tech.herokuapp.com/api/mrn/healthinformation/${user._id}`,
+        {
+          otherTx: newTxList,
+        }
+      );
       console.log("Success");
     } catch (error: any) {
       console.error(error);

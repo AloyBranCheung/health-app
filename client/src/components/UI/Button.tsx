@@ -4,7 +4,7 @@ type Props = {
   text: string;
   onClick?: (e: React.FormEvent) => void;
   className?: string;
-  type?: "button" | "submit" | "reset" | undefined; 
+  type?: "button" | "submit" | "reset" | undefined;
 };
 
 export default function Button({ text, onClick, className, type }: Props) {

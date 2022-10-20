@@ -22,8 +22,8 @@ const HealthSchema = new mongoose.Schema(
     },
     bloodGroup: {
       type: String,
-      enum: ["O-", "O+", "A-", "A+", "B-", "B+", "AB-", "AB+"],
-      default: "",
+      enum: ["O-", "O+", "A-", "A+", "B-", "B+", "AB-", "AB+", "?"],
+      default: "?",
     },
     weight: {
       type: Number,

@@ -14,6 +14,7 @@ import dashboardRoute from "./routes/dashboardRoute";
 import ProfilePicRoute from "./routes/ProfilePicRoute";
 
 const app = express();
+const PORT = process.env.PORT || 3001;
 
 const connectToMongoose = async () => {
   let connection: string;
@@ -56,7 +57,7 @@ app.get("/", (req, res) => {
   res.send("Hello from the server :)");
 });
 
-app.listen(3001, () => {
+app.listen(PORT, () => {
   connectToMongoose();
-  console.log("Server started on port 3001");
+  console.log(`Server started on port ${PORT}.`);
 });
