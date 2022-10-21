@@ -12,9 +12,7 @@ interface Props {
 export default function AddFamilyForm({ setIsAddFamily }: Props) {
   const { user, userHealth, setUserHealth } = useContext(AuthContext);
   const [familyMembers, setFamilyMembers] = useState({
-    name: "",
     MRN: "",
-    primaryIssue: "",
   });
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState({
@@ -73,21 +71,9 @@ export default function AddFamilyForm({ setIsAddFamily }: Props) {
               <>
                 <Input
                   onChange={handleChange}
-                  value={familyMembers.name}
-                  label="Name"
-                  name="name"
-                />
-                <Input
-                  onChange={handleChange}
                   value={familyMembers.MRN}
                   label="MRN"
                   name="MRN"
-                />
-                <Input
-                  onChange={handleChange}
-                  value={familyMembers.primaryIssue}
-                  label="Primary Issue"
-                  name="primaryIssue"
                 />
               </>
             )}

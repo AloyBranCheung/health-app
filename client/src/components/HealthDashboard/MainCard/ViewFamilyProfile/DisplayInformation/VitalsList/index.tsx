@@ -8,9 +8,10 @@ import HeartRateChart from "../../../../../MainDash/HeartRateChart";
 
 type Props = {
   className?: string;
+  editEnabled?: boolean;
 };
 
-export default function Vitals({ className }: Props) {
+export default function Vitals({ className, editEnabled }: Props) {
   const navigate = useNavigate();
   const { isLoading } = useContext(AuthContext);
   const [selectedOption, setSelectedOption] = useState("bloodPressure");
@@ -27,7 +28,7 @@ export default function Vitals({ className }: Props) {
     <div className="flex flex-col h-full gap-5">
       <div className="flex flex-row justify-between">
         <h1 className="text-lg">
-          <strong>My Vitals</strong>
+          <strong>Vitals</strong>
         </h1>
         <div className="flex flex-col md:flex-row gap-5">
           <select
@@ -37,11 +38,13 @@ export default function Vitals({ className }: Props) {
             <option value="bloodPressure">Blood Pressure</option>
             <option value="heartRate">Heart Rate</option>
           </select>
-          <Button
-            className="hidden md:block shadow-lg"
-            text="Add Another"
-            onClick={navMyHealth}
-          />
+          {editEnabled && (
+            <Button
+              className="hidden md:block shadow-lg"
+              text="Add Another"
+              onClick={navMyHealth}
+            />
+          )}
         </div>
       </div>
       {isLoading ? (

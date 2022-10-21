@@ -9,6 +9,7 @@ import type {
   FamilyMembers,
   Address,
   Imaging,
+  LabWork,
 } from "./authContextType";
 
 const INITIAL_HEALTH = {
@@ -26,7 +27,7 @@ const INITIAL_HEALTH = {
   medications: [] as Medications,
   otherTx: [] as OtherTx,
   familyMembers: [] as FamilyMembers[],
-  labWork: [{}],
+  labWork: [] as LabWork[],
   imaging: [] as Imaging[],
   heartRate: [
     {

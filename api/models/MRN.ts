@@ -77,67 +77,38 @@ const HealthSchema = new mongoose.Schema(
       ],
       default: [{ treatment: "" }],
     },
-    familyMembers: {
-      type: [
-        {
-          name: {
-            type: String,
-          },
-          MRN: {
-            type: String,
-          },
-          primaryIssue: {
-            type: String,
-          },
-        },
-      ],
-    },
     labWork: {
       type: [
         {
           dateTested: {
             type: String,
-            default: "",
           },
           sodium: {
             type: Number,
-            default: 0,
           },
           potassium: {
             type: Number,
-            default: 0,
-          },
-          calcium: {
-            type: Number,
-            default: 0,
           },
           chloride: {
             type: Number,
-            default: 0,
           },
-          phos: {
+          creatinine: {
             type: Number,
-            default: 0,
           },
           bloodGlucose: {
             type: Number,
-            default: 0,
-          },
-          cbc: {
-            type: Number,
-            default: 0,
           },
           wbc: {
             type: Number,
-            default: 0,
           },
           plt: {
             type: Number,
-            default: 0,
+          },
+          hgb: {
+            type: Number,
           },
           hct: {
             type: Number,
-            default: 0,
           },
         },
       ],

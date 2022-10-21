@@ -1,13 +1,25 @@
 import React from "react";
 import { Imaging } from "../../../../../../context/authContextType";
+import LoadingSpinner from "../../../../../UI/LoadingSpinner";
 
 interface Props {
   data: Imaging[];
 }
 
 export default function RecentImaging({ data }: Props) {
-  const list = data?.map((image) => {
-    return (
+  if (!data) {
+    return <LoadingSpinner />;
+  }
+
+  const image = data[data.length - 1];
+
+  return (
+    <div>
+      <h1 className="text-lg">
+        <strong>Recent Imaging</strong>
+      </h1>
+      <p className="text-xs mb-3">{image.dateCreate}</p>
+
       <div className="flex flex-col gap-1" key={image._id}>
         <p className="text-md">
           <strong>Description:</strong> {image.name}
@@ -23,17 +35,7 @@ export default function RecentImaging({ data }: Props) {
             {image.url}
           </a>
         </p>
-        <p className="text-xs">{image.dateCreate}</p>
       </div>
-    );
-  });
-
-  return (
-    <div>
-      <h1 className="text-lg">
-        <strong>Recent Imaging</strong>
-      </h1>
-      <ul className="flex flex-col gap-5">{list}</ul>
     </div>
   );
 }

@@ -65,7 +65,18 @@ export interface Imaging {
   _id: string;
 }
 
-export interface LabWork {}
+export interface LabWork {
+  dateTested: string;
+  sodium: number;
+  potassium: number;
+  chloride: number;
+  bloodGlucose: number;
+  creatinine: number;
+  hgb: number;
+  wbc: number;
+  plt: number;
+  hct: number;
+}
 
 export interface HeartRate {
   _id: string;
