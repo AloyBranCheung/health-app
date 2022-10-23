@@ -45,6 +45,10 @@ module.exports = {
       spacing: {
         modal: "22rem",
       },
+      maxHeight: {
+        almostFull: "90vh",
+        mediumFull: "75vh",
+      },
     },
   },
   plugins: [],

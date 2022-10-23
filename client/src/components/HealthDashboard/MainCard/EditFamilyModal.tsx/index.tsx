@@ -8,10 +8,9 @@ import AddFamilyForm from "./AddFamilyForm";
 
 export default function EditFamilyModal() {
   const {
-    userHealth: { familyMembers },
-    setUserHealth,
-    userHealth,
+    user: { familyMembers },
     user,
+    setUser,
   } = useContext(AuthContext);
   const [isAddFamily, setIsAddFamily] = useState(false);
 
@@ -21,12 +20,12 @@ export default function EditFamilyModal() {
     const newFamList = familyMembers.filter((famMember) => {
       return famMember._id !== famMemberId;
     });
-    setUserHealth({ ...userHealth, familyMembers: newFamList });
+    setUser({ ...user, familyMembers: newFamList });
 
     // update DB
     try {
       await axios.put(
-        `https://random-health-tech.herokuapp.com/api/mrn/healthinformation/${user._id}`,
+        `https://random-health-tech.herokuapp.com/api/dashboard/updateuser/${user._id}`,
         {
           familyMembers: newFamList,
         }
@@ -49,11 +48,7 @@ export default function EditFamilyModal() {
         key={famMember._id}
         className="flex flex-col md:flex-row md:space-between gap-2 md:px-5 items-center rounded-lg bg-white p-2"
       >
-        <FamilyList
-          name={famMember.name}
-          MRN={famMember.MRN}
-          primaryIssue={famMember.primaryIssue}
-        />
+        <FamilyList nickname={famMember.nickname} mrn={famMember.mrn} />
         <Button
           onClick={() => {
             handleRemove(famMember._id);

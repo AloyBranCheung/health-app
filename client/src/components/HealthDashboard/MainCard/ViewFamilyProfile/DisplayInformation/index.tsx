@@ -37,6 +37,7 @@ interface Props {
 }
 
 export default function DisplayInformation({ healthData }: Props) {
+  // console.log("Healthdata: ", healthData)
   return (
     <div className="grid grid-cols-1 gap-5 bg-white p-5 rounded-xl h-full overflow-auto">
       <div>
@@ -66,7 +67,7 @@ export default function DisplayInformation({ healthData }: Props) {
       <OtherTxList otherTx={healthData?.otherTx} />
       <VitalsList />
       <RecentImaging data={healthData?.imaging} />
-      <RecentLabwork />
+      <RecentLabwork data={healthData?.labWork} />
     </div>
   );
 }
