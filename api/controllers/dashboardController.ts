@@ -55,3 +55,17 @@ export const getUser = async (
     next(error);
   }
 };
+
+// export const removeUser = async (
+//   req: Request,
+//   res: Response,
+//   next: NextFunction
+// ) => {
+//   try {
+//     const data = req.body;
+//     const updatedFamily = await User.findByIdAndDelete(data._id, { new: true });
+//     res.send(updatedFamily);
+//   } catch (error) {
+//     next(error);
+//   }
+// };

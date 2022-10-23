@@ -10,9 +10,10 @@ interface Props {
 }
 
 export default function AddFamilyForm({ setIsAddFamily }: Props) {
-  const { user, userHealth, setUserHealth } = useContext(AuthContext);
+  const { user, setUser } = useContext(AuthContext);
   const [familyMembers, setFamilyMembers] = useState({
-    MRN: "",
+    mrn: "",
+    nickname: "",
   });
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState({
@@ -30,16 +31,15 @@ export default function AddFamilyForm({ setIsAddFamily }: Props) {
     e.preventDefault();
     try {
       setIsLoading(true);
-      const familyArrObj = [...userHealth.familyMembers, familyMembers];
-      // update DB PUT /mrn/healthinformation/${user._id}
+      // update state
+      // // update DB PUT /mrn/healthinformation/${user._id}
       const { data } = await axios.put(
-        `https://random-health-tech.herokuapp.com/api/mrn/healthinformation/${user._id}`,
+        `https://random-health-tech.herokuapp.com/api/dashboard/updateuser/${user._id}`,
         {
-          familyMembers: familyArrObj,
+          familyMembers: [...user.familyMembers, familyMembers],
         }
       );
-      // update state
-      setUserHealth(data);
+      setUser(data);
       setIsLoading(false);
       setIsAddFamily(false);
       setError({ message: "", state: false });
@@ -71,9 +71,15 @@ export default function AddFamilyForm({ setIsAddFamily }: Props) {
               <>
                 <Input
                   onChange={handleChange}
-                  value={familyMembers.MRN}
+                  value={familyMembers.mrn}
                   label="MRN"
-                  name="MRN"
+                  name="mrn"
+                />
+                <Input
+                  onChange={handleChange}
+                  value={familyMembers.nickname}
+                  label="Nickname"
+                  name="nickname"
                 />
               </>
             )}

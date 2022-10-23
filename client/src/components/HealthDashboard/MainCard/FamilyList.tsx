@@ -5,7 +5,7 @@ import ModalContext from "../../../context/modalContext";
 import ViewFamilyProfile from "./ViewFamilyProfile";
 
 export default function FamilyList() {
-  const { userHealth } = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
   const { onVisible, isVisible } = useContext(ModalContext);
   const [mrn, setMrn] = useState("");
   const [familyMember, setFamilyMember] = useState("");
@@ -17,7 +17,7 @@ export default function FamilyList() {
     onVisible("viewProfile");
   };
 
-  const list = userHealth.familyMembers.map((member) => {
+  const list = user.familyMembers.map((member) => {
     return (
       <div
         key={member._id}
@@ -33,27 +33,21 @@ export default function FamilyList() {
         <div className="w-full">
           <div>
             <h1>
-              <strong>Name: </strong>
-              {member.name}
+              <strong>Nickname: </strong>
+              {member.nickname}
             </h1>
           </div>
           <div>
             <p className="break-all">
               <strong>MRN: </strong>
-              {member.MRN}
-            </p>
-          </div>
-          <div>
-            <p>
-              <strong>Primary Concern: </strong>
-              {member.primaryIssue}
+              {member.mrn}
             </p>
           </div>
         </div>
         <div className="self-center">
           <Button
             onClick={() => {
-              handleModal(member.MRN, member.name);
+              handleModal(member.mrn, member.nickname);
             }}
             text="View Profile"
           />

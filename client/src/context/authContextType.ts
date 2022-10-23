@@ -11,7 +11,7 @@ export type User = {
   lastName: string;
   MRN: string;
   profilePic: string;
-  familyMembers: string[];
+  familyMembers: FamilyMembers[];
   isProvider: boolean;
   patientList: string[];
   preferredPronouns: string[];
@@ -45,12 +45,6 @@ export type UserHealth = {
   otherTx: {
     _id: string;
     treatment: string;
-  }[];
-  familyMembers: {
-    _id: string;
-    name: string;
-    MRN: string;
-    primaryIssue: string;
   }[];
   labWork: LabWork[];
   imaging: Imaging[];
@@ -109,9 +103,8 @@ export type OtherTx = {
 
 export interface FamilyMembers {
   _id: string;
-  name: string;
-  MRN: string;
-  primaryIssue: string;
+  nickname: string;
+  mrn: string;
 }
 
 export interface Address {

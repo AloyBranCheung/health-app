@@ -1,25 +1,20 @@
 import React from "react";
 
 interface Props {
-  name: string;
-  MRN: string;
-  primaryIssue: string;
+  nickname: string;
+  mrn: string;
 }
 
-export default function FamilyList({ name, MRN, primaryIssue }: Props) {
+export default function FamilyList({ nickname, mrn }: Props) {
   return (
     <div className="w-full">
       <p>
-        <strong>Name: </strong>
-        {name}
+        <strong>Nickname: </strong>
+        {nickname}
       </p>
       <p>
         <strong>MRN: </strong>
-        {MRN}
-      </p>
-      <p>
-        <strong>Primary Concern: </strong>
-        {primaryIssue}
+        {mrn}
       </p>
     </div>
   );

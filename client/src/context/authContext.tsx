@@ -26,7 +26,6 @@ const INITIAL_HEALTH = {
   allergies: [""],
   medications: [] as Medications,
   otherTx: [] as OtherTx,
-  familyMembers: [] as FamilyMembers[],
   labWork: [] as LabWork[],
   imaging: [] as Imaging[],
   heartRate: [
@@ -57,7 +56,7 @@ const INITIAL_STATE = {
     lastName: "",
     MRN: "",
     profilePic: "",
-    familyMembers: [""],
+    familyMembers: [] as FamilyMembers[],
     isProvider: false,
     patientList: [""],
     preferredPronouns: [""],

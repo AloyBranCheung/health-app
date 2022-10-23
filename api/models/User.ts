@@ -33,9 +33,11 @@ const UserSchema = new mongoose.Schema(
     familyMembers: {
       type: [
         {
-          familyId: {
+          mrn: {
             type: String,
-            deafult: "",
+          },
+          nickname: {
+            type: String,
           },
         },
       ],
