@@ -5,6 +5,7 @@ import { Button } from "@material-tailwind/react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import FormInputErrMsg from "../UI/FormInputErrMsg";
+import LoadingSpinner from "../UI/LoadingSpinner";
 
 export default function LoginModal() {
   const [error, setError] = useState(false);
@@ -12,6 +13,7 @@ export default function LoginModal() {
     email: "",
     password: "",
   });
+  const [isLoading, setIsLoading] = useState(false);
   const { login } = useContext(AuthContext);
 
   // navigate back home
@@ -31,10 +33,12 @@ export default function LoginModal() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
+      setIsLoading(true);
       const response = await axios.post(
         "https://random-health-tech.herokuapp.com/api/user/login",
         loginForm
       );
+      setIsLoading(false);
       setLoginForm({
         email: "",
         password: "",
@@ -79,12 +83,16 @@ export default function LoginModal() {
           >
             Back
           </Button>
-          <Button
-            type="submit"
-            className="bg-tertiaryColor text-mainFontColor text-xs w-1/3 shadow"
-          >
-            Login
-          </Button>
+          {isLoading ? (
+            <LoadingSpinner />
+          ) : (
+            <Button
+              type="submit"
+              className="bg-tertiaryColor text-mainFontColor text-xs w-1/3 shadow"
+            >
+              Login
+            </Button>
+          )}
         </div>
         {error && (
           <FormInputErrMsg text="Wrong username or password. Please try again." />
