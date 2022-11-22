@@ -34,6 +34,9 @@ module.exports = {
       cardMiddle: "#f4e1ff",
       cardEnd: "#a9f0ff",
     },
+    maxWidth: {
+      profilePics: "20%",
+    },
     extend: {
       backgroundImage: {
         "card-radial-gradient":
@@ -46,7 +49,7 @@ module.exports = {
         modal: "22rem",
       },
       maxHeight: {
-        almostFull: "90vh",
+        almostFull: "90%",
         mediumFull: "75vh",
       },
     },
