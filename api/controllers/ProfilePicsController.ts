@@ -6,8 +6,7 @@ export const getPictures = async (
   res: Response,
   next: NextFunction
 ) => {
-  const allProfilePics = await ProfilePics.find();
-  res.send(allProfilePics);
+  res.send("getPictures reached.");
 };
 
 export const inputPictures = async (

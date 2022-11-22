@@ -6,7 +6,6 @@ import {
 
 const router = express.Router();
 
-// gets all profile pictures
 router.get("/", getPictures);
 router.post("/", inputPictures);
 
