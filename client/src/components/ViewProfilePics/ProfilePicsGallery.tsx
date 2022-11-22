@@ -17,7 +17,7 @@ interface Props {
 export default function ProfilePicsGallery({ data }: Props) {
   const { user, setUser } = useContext(AuthContext);
 
-  const { mutate, isLoading, isSuccess } = useMutation({
+  const { mutate, isLoading, isSuccess, reset } = useMutation({
     mutationFn: (profilePicURL: { profilePic: string }) => {
       return axios.put(
         `https://random-health-tech.herokuapp.com/api/dashboard/updateuser/${user._id}`,
@@ -44,11 +44,25 @@ export default function ProfilePicsGallery({ data }: Props) {
   ));
 
   return (
-    <div className="grid grid-cols-3 gap-5">
+    <div className={`grid grid-cols-3 gap-5 ${isSuccess && "grid-cols-1"}`}>
       {isLoading ? (
         <LoadingSpinner />
       ) : (
-        <>{isSuccess ? <div>Successfully updated.</div> : <>{images}</>}</>
+        <>
+          {isSuccess ? (
+            <div className="flex gap-5 justify-around">
+              <p>Succesfully changed.</p>
+              <Button
+                text="Change your mind?"
+                onClick={() => {
+                  reset();
+                }}
+              />
+            </div>
+          ) : (
+            <>{images}</>
+          )}
+        </>
       )}
     </div>
   );
