@@ -21,7 +21,7 @@ export default function ViewProfilePics() {
 
   return (
     <Modal wrapperId="dashboardModal">
-      <div className="p-5 flex flex-col gap-5 max-h-mediumFull">
+      <div className="p-5 flex flex-col gap-5 max-h-mediumFull overflow-auto">
         {isLoading ? (
           <LoadingSpinner />
         ) : (
