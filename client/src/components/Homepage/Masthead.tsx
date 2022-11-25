@@ -1,11 +1,14 @@
 import React from "react";
 import { Button } from "@material-tailwind/react";
 import { useNavigate } from "react-router-dom";
+import { useTracking } from "react-tracking";
 
 export default function Masthead () {
   const navigate = useNavigate();
+  const { trackEvent } = useTracking();
 
   const navLogin = () => {
+    trackEvent({ action: "login button pressed" });
     navigate("/login");
   };
 

@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { useTracking } from "react-tracking";
 
 // components
 import HomeNavbar from "../components/Homepage/HomeNavbar";
@@ -10,7 +11,13 @@ import Footer from "../components/Homepage/Footer";
 import FeaturedDescriptions from "../components/Homepage/FeaturedDescriptions";
 import ButtonToTop from "../components/Homepage/ButtonToTop";
 
-export default function Home () {
+export default function Home() {
+  const { trackEvent } = useTracking();
+
+  trackEvent({
+    action: "home component mounted",
+  });
+
   return (
     <motion.div
       initial={{ opacity: 0 }}

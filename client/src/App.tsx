@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import track from "react-tracking";
 // contexts
 import { AuthContextProvider } from "./context/authContext";
 import { ModalContextProvider } from "./context/modalContext";
@@ -57,4 +58,11 @@ function App () {
   );
 }
 
-export default App;
+export default track(
+  { app: "health-app name" },
+  {
+    dispatch: (data) => {
+      console.log(data);
+    },
+  }
+)(App);
