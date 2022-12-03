@@ -3,10 +3,10 @@ import { Imaging } from "../../../../../../context/authContextType";
 import LoadingSpinner from "../../../../../UI/LoadingSpinner";
 
 interface Props {
-  data: Imaging[];
+  data: Imaging[]
 }
 
-export default function RecentImaging({ data }: Props) {
+export default function RecentImaging ({ data }: Props) {
   if (!data) {
     return <LoadingSpinner />;
   }

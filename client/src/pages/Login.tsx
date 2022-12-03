@@ -1,10 +1,9 @@
 import React from "react";
 import LoginModal from "../components/Login/LoginModal";
-import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
-export default function Login() {
+export default function Login () {
   const navigate = useNavigate();
   const navHome = () => {
     navigate("/");

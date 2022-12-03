@@ -4,7 +4,7 @@ import MyDetails from "./MyDetails";
 import MainCard from "./MainCard";
 import ModalPortalTarget from "../UI/ModalPortalTarget";
 
-export default function HealthDashboard() {
+export default function HealthDashboard () {
   return (
     <>
       <ModalPortalTarget targetId="dashboardModal" />

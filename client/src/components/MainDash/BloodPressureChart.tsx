@@ -8,11 +8,11 @@ import {
   LineElement,
   Title,
   Tooltip,
-  Legend,
+  Legend
 } from "chart.js";
 import { Line } from "react-chartjs-2";
 
-export default function BloodPressureChart() {
+export default function BloodPressureChart () {
   const { userHealth } = useContext(AuthContext);
   const [bpLabels, setBpLabels] = useState([""]);
   const [bpSys, setBpSys] = useState([""]);
@@ -25,12 +25,12 @@ export default function BloodPressureChart() {
     // blood pressure data
     const sortBp = userHealth.bloodPressure.sort((a, b) => {
       return Number(new Date(b.date)) - Number(new Date(a.date));
-    });
+    })
     sortBp.forEach((dataPoint) => {
       bloodPresLabels.push(dataPoint.date);
       bloodPresSys.push(dataPoint.sys);
       bloodPresDia.push(dataPoint.dia);
-    });
+    })
     setBpLabels(bloodPresLabels.slice(1, 31));
     setBpSys(bloodPresSys.slice(1, 31));
     setBpDia(bloodPresDia.slice(1, 31));
@@ -50,8 +50,8 @@ export default function BloodPressureChart() {
   const options = {
     responsive: true,
     maintainAspectRatio: false,
-    plugins: {},
-  };
+    plugins: {}
+  }
 
   // BP Chart labels/values
   const labels = bpLabels;
@@ -72,9 +72,9 @@ export default function BloodPressureChart() {
         data: dia,
         borderColor: "rgb(130, 255, 99)",
         backgroundColor: "rgba(56, 205, 48, 0.5)",
-      },
-    ],
-  };
+      }
+    ]
+  }
   const bloodPressures = <Line options={options} data={bpData} />;
 
   return <>{bloodPressures}</>;

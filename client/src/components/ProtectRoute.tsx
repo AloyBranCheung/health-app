@@ -4,9 +4,9 @@ import { Navigate, Outlet } from "react-router-dom";
 import Dashboard from "./UI/Dashboard";
 import { motion } from "framer-motion";
 
-export default function ProtectRoute() {
+export default function ProtectRoute () {
   const { isLoggedIn } = useContext(AuthContext);
-  if (isLoggedIn() === false) {
+  if (!isLoggedIn()) {
     return <Navigate to="/login" replace />;
   }
 

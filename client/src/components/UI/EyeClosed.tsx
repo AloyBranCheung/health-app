@@ -1,10 +1,10 @@
 import React from 'react'
 
 interface Props {
-    handleRevealMRN: () => void; 
+  handleRevealMRN: () => void
 }
 
-export default function EyeClosed({handleRevealMRN} : Props) {
+export default function EyeClosed ({ handleRevealMRN }: Props) {
   return (
    <> <svg
    xmlns="http://www.w3.org/2000/svg"

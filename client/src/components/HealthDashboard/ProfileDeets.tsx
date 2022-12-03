@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import AuthContext from "../../context/authContext";
 
-export default function ProfileDeets() {
+export default function ProfileDeets () {
   const { user } = useContext(AuthContext);
 
   const address = Object.values(user?.address).slice(0, -1).join(", ");

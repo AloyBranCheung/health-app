@@ -10,7 +10,7 @@ import Footer from "../components/Homepage/Footer";
 import FeaturedDescriptions from "../components/Homepage/FeaturedDescriptions";
 import ButtonToTop from "../components/Homepage/ButtonToTop";
 
-export default function Home() {
+export default function Home () {
   return (
     <motion.div
       initial={{ opacity: 0 }}

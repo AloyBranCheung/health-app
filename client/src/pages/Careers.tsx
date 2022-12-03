@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-export default function Careers() {
+export default function Careers () {
   return (
     <motion.div
       initial={{ opacity: 0 }}

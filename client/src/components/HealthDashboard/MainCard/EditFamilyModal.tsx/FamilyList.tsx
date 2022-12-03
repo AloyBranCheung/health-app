@@ -1,11 +1,11 @@
 import React from "react";
 
 interface Props {
-  nickname: string;
-  mrn: string;
+  nickname: string
+  mrn: string
 }
 
-export default function FamilyList({ nickname, mrn }: Props) {
+export default function FamilyList ({ nickname, mrn }: Props) {
   return (
     <div className="w-full">
       <p>

@@ -1,11 +1,11 @@
 import React from "react";
 
 interface Props {
-  height?: string;
-  width?: string;
+  height?: string
+  width?: string
 }
 
-export default function LoadingSpinner({ height, width }: Props) {
+export default function LoadingSpinner ({ height, width }: Props) {
   return (
     <div className="flex w-full h-full items-center justify-center">
       <div

@@ -1,13 +1,13 @@
 import React from "react";
 
-type Props = {
-  text: string;
-  onClick?: (e: React.FormEvent) => void;
-  className?: string;
-  type?: "button" | "submit" | "reset" | undefined;
-};
+interface Props {
+  text: string
+  onClick?: (e: React.FormEvent) => void
+  className?: string
+  type?: 'button' | 'submit' | 'reset' | undefined
+}
 
-export default function Button({ text, onClick, className, type }: Props) {
+export default function Button ({ text, onClick, className, type }: Props) {
   return (
     <button
       type={type}

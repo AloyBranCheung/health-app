@@ -7,16 +7,18 @@ import OtherTreatments from "./OtherTreatments";
 import Title from "./Title";
 import LoadingSpinner from "../../UI/LoadingSpinner"
 
-type Props = {
-  className: string;
-};
+interface Props {
+  className: string
+}
 
-export default function MainCard({ className }: Props) {
+export default function MainCard ({ className }: Props) {
   const { isLoading } = useContext(AuthContext);
 
   return (
     <div className={`${className}`}>
-      {isLoading ? <LoadingSpinner /> : <div className="flex flex-col h-full gap-5 lg:grid lg:grid-cols-2 lg:grid-rows-6 rounded-xl">
+      {isLoading
+        ? <LoadingSpinner />
+        : <div className="flex flex-col h-full gap-5 lg:grid lg:grid-cols-2 lg:grid-rows-6 rounded-xl">
         <Title
           isLoading={isLoading}
           className="lg:row-start-1 lg:row-span-1 lg:col-span-2"

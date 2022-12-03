@@ -6,11 +6,11 @@ import FamilyList from "./FamilyList";
 import axios from "axios";
 import AddFamilyForm from "./AddFamilyForm";
 
-export default function EditFamilyModal() {
+export default function EditFamilyModal () {
   const {
     user: { familyMembers },
     user,
-    setUser,
+    setUser
   } = useContext(AuthContext);
   const [isAddFamily, setIsAddFamily] = useState(false);
 
@@ -19,7 +19,7 @@ export default function EditFamilyModal() {
     // update state
     const newFamList = familyMembers.filter((famMember) => {
       return famMember._id !== famMemberId;
-    });
+    })
     setUser({ ...user, familyMembers: newFamList });
 
     // update DB
@@ -27,7 +27,7 @@ export default function EditFamilyModal() {
       await axios.put(
         `https://random-health-tech.herokuapp.com/api/dashboard/updateuser/${user._id}`,
         {
-          familyMembers: newFamList,
+          familyMembers: newFamList
         }
       );
       console.log("Success");
@@ -58,7 +58,7 @@ export default function EditFamilyModal() {
         />
       </li>
     );
-  });
+  })
 
   return (
     <EditModal
@@ -66,11 +66,13 @@ export default function EditFamilyModal() {
       wrapperId="dashboardModal"
       headerText="Edit Family List"
     >
-      {isAddFamily ? (
+      {isAddFamily
+        ? (
         <AddFamilyForm setIsAddFamily={setIsAddFamily} />
-      ) : (
+          )
+        : (
         <ul className="flex gap-4 flex-col">{familyMembersList}</ul>
-      )}
+          )}
     </EditModal>
   );
 }

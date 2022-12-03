@@ -1,5 +1,7 @@
 import React from "react";
-import MyDetails from "../components/HealthDashboard/MyDetails";
+import MyDetails, {
+  MyDetailsProps,
+} from "../components/HealthDashboard/MyDetails";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 
 export default {
@@ -7,6 +9,6 @@ export default {
   component: MyDetails,
 } as ComponentMeta<typeof MyDetails>;
 
-export const Template: ComponentStory<typeof MyDetails> = (args) => (
-  <MyDetails {...args} />
-);
+export const Template: ComponentStory<typeof MyDetails> = (
+  args: MyDetailsProps
+) => <MyDetails {...args} />;

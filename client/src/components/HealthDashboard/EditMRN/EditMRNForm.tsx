@@ -8,7 +8,7 @@ import axios from "axios";
 import FormInputErrMsg from "../../UI/FormInputErrMsg";
 import LoadingSpinner from "../../UI/LoadingSpinner";
 
-export default function EditMRNForm() {
+export default function EditMRNForm () {
   const { user, userHealth, setUser, setUserHealth, isLoading } =
     useContext(AuthContext);
   const [isError, setIsError] = useState(false);
@@ -22,8 +22,8 @@ export default function EditMRNForm() {
     sex: userHealth.sex,
     bloodGroup: userHealth.bloodGroup,
     weight: userHealth.weight,
-    age: userHealth.age,
-  });
+    age: userHealth.age
+  })
 
   // list of blood groups
   const bloodGroups = ["O-", "O+", "B-", "B+", "A-", "A+", "AB-", "AB+"];
@@ -61,15 +61,15 @@ export default function EditMRNForm() {
 
     const userData = {
       preferredPronouns: formValues.preferredPronouns.split(","),
-      preferredName: formValues.preferredName,
-    };
+      preferredName: formValues.preferredName
+    }
     const mrnData = {
       gender: formValues.gender,
       sex: formValues.sex,
       bloodGroup: formValues.bloodGroup,
       weight: formValues.weight,
-      age: formValues.age,
-    };
+      age: formValues.age
+    }
 
     try {
       // User
@@ -88,13 +88,13 @@ export default function EditMRNForm() {
       setUser({
         ...user,
         preferredPronouns: formValues.preferredPronouns.split(","),
-        preferredName: formValues.preferredName,
-      });
+        preferredName: formValues.preferredName
+      })
 
       setUserHealth({
         ...userHealth,
-        ...mrnData,
-      });
+        ...mrnData
+      })
 
       // Success message to user
       setIsSuccess(true);
@@ -107,13 +107,17 @@ export default function EditMRNForm() {
 
   return (
     <div>
-      {isLoading ? (
+      {isLoading
+        ? (
         <LoadingSpinner />
-      ) : (
+          )
+        : (
         <>
-          {isSuccess ? (
+          {isSuccess
+            ? (
             <div>Successfully updated.</div>
-          ) : (
+              )
+            : (
             <form onSubmit={handleSubmit} className="flex flex-col gap-2">
               <Input
                 label="Preferred Pronouns (..., ...)"
@@ -170,9 +174,9 @@ export default function EditMRNForm() {
                 <Button type="submit" text="Submit" />
               </div>
             </form>
-          )}
+              )}
         </>
-      )}
+          )}
     </div>
   );
 }

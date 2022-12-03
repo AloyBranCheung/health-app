@@ -8,22 +8,22 @@ import Button from "../UI/Button";
 import LoadingSpinner from "../UI/LoadingSpinner";
 
 interface Props {
-  data: {
-    url: string;
-    _id: string;
-  }[];
+  data: Array<{
+    url: string
+    _id: string
+  }>
 }
 
-export default function ProfilePicsGallery({ data }: Props) {
+export default function ProfilePicsGallery ({ data }: Props) {
   const { user, setUser } = useContext(AuthContext);
 
   const { mutate, isLoading, isSuccess, reset } = useMutation({
-    mutationFn: (profilePicURL: { profilePic: string }) => {
-      return axios.put(
+    mutationFn: async (profilePicURL: { profilePic: string }) => {
+      return await axios.put(
         `https://random-health-tech.herokuapp.com/api/dashboard/updateuser/${user._id}`,
         profilePicURL
       );
-    },
+    }
   });
 
   const handleClick = (profilePicURL: string) => {
@@ -45,11 +45,14 @@ export default function ProfilePicsGallery({ data }: Props) {
 
   return (
     <div className={`grid grid-cols-3 gap-5 ${isSuccess && "grid-cols-1"}`}>
-      {isLoading ? (
+      {isLoading
+        ? (
         <LoadingSpinner />
-      ) : (
+          )
+        : (
         <>
-          {isSuccess ? (
+          {isSuccess
+            ? (
             <div className="flex gap-5 justify-around">
               <p>Succesfully changed.</p>
               <Button
@@ -59,11 +62,12 @@ export default function ProfilePicsGallery({ data }: Props) {
                 }}
               />
             </div>
-          ) : (
+              )
+            : (
             <>{images}</>
-          )}
+              )}
         </>
-      )}
+          )}
     </div>
   );
 }

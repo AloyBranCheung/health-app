@@ -1,14 +1,14 @@
 import React from "react";
 
 interface Props {
-  header: string;
-  list: string[];
+  header: string
+  list: string[]
 }
 
-export default function MedicalHistory({ header, list }: Props) {
+export default function MedicalHistory ({ header, list }: Props) {
   const history = list?.map((listItem, index) => {
     return <li key={index}>{listItem}</li>;
-  });
+  })
   return (
     <div>
       <h1 className="text-lg">

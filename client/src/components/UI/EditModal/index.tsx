@@ -3,17 +3,17 @@ import Modal from "../Modal";
 import ModalHeader from "../ModalHeader";
 
 interface Props {
-  wrapperId: string;
-  headerText: string;
-  children: JSX.Element;
-  button?: JSX.Element;
+  wrapperId: string
+  headerText: string
+  children: JSX.Element
+  button?: JSX.Element
 }
 
-export default function index({
+export default function index ({
   wrapperId,
   headerText,
   button,
-  children,
+  children
 }: Props) {
   return (
     <Modal wrapperId={wrapperId}>

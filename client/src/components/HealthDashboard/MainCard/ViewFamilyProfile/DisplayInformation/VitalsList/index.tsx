@@ -6,12 +6,11 @@ import Button from "../../../../../UI/Button";
 import BloodPressureChart from "../../../../../MainDash/BloodPressureChart";
 import HeartRateChart from "../../../../../MainDash/HeartRateChart";
 
-type Props = {
-  className?: string;
+interface Props {
   editEnabled?: boolean;
-};
+}
 
-export default function Vitals({ className, editEnabled }: Props) {
+export default function Vitals({ editEnabled }: Props) {
   const navigate = useNavigate();
   const { isLoading } = useContext(AuthContext);
   const [selectedOption, setSelectedOption] = useState("bloodPressure");

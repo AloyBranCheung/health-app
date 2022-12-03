@@ -37,6 +37,7 @@ export default function FamilyHxForm() {
       console.log("Success");
       // reset error to false
       setError({ ...error, isError: false });
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
       console.error(error);
       // set error state to true
@@ -67,6 +68,7 @@ export default function FamilyHxForm() {
       setError({ errorMessage: "", isError: false });
       // reset Input
       setNewHx("");
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
       console.log(error);
       // set error

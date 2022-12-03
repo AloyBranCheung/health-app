@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-export default function AboutUs() {
+export default function AboutUs () {
   return (
     <motion.div
       initial={{ opacity: 0 }}

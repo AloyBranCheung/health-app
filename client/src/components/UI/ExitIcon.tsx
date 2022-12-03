@@ -1,15 +1,15 @@
 import React from "react";
 
 interface Props {
-  classNameSVG?: string;
-  containerClassName?: string;
-  onClick?: () => void;
+  classNameSVG?: string
+  containerClassName?: string
+  onClick?: () => void
 }
 
-export default function ExitIcon({
+export default function ExitIcon ({
   classNameSVG,
   containerClassName,
-  onClick,
+  onClick
 }: Props) {
   return (
     <div className={`${containerClassName}`}>

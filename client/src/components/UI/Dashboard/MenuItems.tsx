@@ -1,11 +1,11 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-type Props = {
-  fill: string;
-};
+interface Props {
+  fill: string
+}
 
-export default function MenuItems({ fill }: Props) {
+export default function MenuItems ({ fill }: Props) {
   const navigate = useNavigate();
   return (
     <div className="flex flex-col justify-center items-center gap-5">

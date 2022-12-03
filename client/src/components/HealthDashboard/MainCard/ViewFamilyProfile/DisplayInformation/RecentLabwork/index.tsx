@@ -3,10 +3,10 @@ import { LabWork } from "../../../../../../context/authContextType";
 import LoadingSpinner from "../../../../../UI/LoadingSpinner";
 
 interface Props {
-  data: LabWork[];
+  data: LabWork[]
 }
 
-export default function RecentLabwork({ data }: Props) {
+export default function RecentLabwork ({ data }: Props) {
   if (!data) {
     return <LoadingSpinner />;
   }

@@ -2,7 +2,7 @@ import React from "react";
 import { Button } from "@material-tailwind/react";
 import { useNavigate } from "react-router-dom";
 
-export default function Masthead() {
+export default function Masthead () {
   const navigate = useNavigate();
 
   const navLogin = () => {

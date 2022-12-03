@@ -2,13 +2,13 @@ import React from "react";
 import { OtherTx } from "../../../../../../context/authContextType";
 
 interface Props {
-  otherTx: OtherTx;
+  otherTx: OtherTx
 }
 
-export default function MedicationsList({ otherTx }: Props) {
+export default function MedicationsList ({ otherTx }: Props) {
   const otherTxs = otherTx?.map((treatment) => {
     return <li key={treatment._id}>{treatment.treatment}</li>;
-  });
+  })
 
   return (
     <div>

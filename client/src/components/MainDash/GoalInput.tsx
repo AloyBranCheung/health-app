@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import Button from "../UI/Button";
 
-type Props = {
-  goal: (goal: string) => void;
-};
+interface Props {
+  goal: (goal: string) => void
+}
 
-export default function GoalInput({ goal }: Props) {
+export default function GoalInput ({ goal }: Props) {
   const [isEmpty, setIsEmpty] = useState(false);
   const [newGoal, setNewGoal] = useState("");
 
@@ -40,11 +40,13 @@ export default function GoalInput({ goal }: Props) {
           className="transition-all absolute text-xs top-2.5 left-3 z-10 -mt-7 peer-placeholder-shown:text-gray-400 peer-placeholder-shown:mt-0 peer-focus:-mt-7 peer-focus:text-mainFontColor"
           htmlFor="addGoal"
         >
-          {isEmpty ? (
+          {isEmpty
+            ? (
             <p className="text-red">You can achieve anything but nothing.</p>
-          ) : (
-            "Shoot for the stars"
-          )}
+              )
+            : (
+                'Shoot for the stars'
+              )}
         </label>
       </div>
       <div>

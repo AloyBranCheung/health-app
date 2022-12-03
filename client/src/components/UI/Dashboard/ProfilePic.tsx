@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function ProfilePic() {
+export default function ProfilePic () {
   return (
     <div className="flex flex-col gap-5 items-center justify-center text-mainFontColor mb-10 -mt-20">
       <div className="cursor-pointer">

@@ -5,7 +5,7 @@ import {
   LabWork,
   Imaging,
   Medications,
-  OtherTx,
+  OtherTx
 } from "../../../../../context/authContextType";
 import MedicalHistory from "../../../../UI/Dashboard/MedicalHistory";
 import MedicationsList from "./MedicationsList";
@@ -14,29 +14,29 @@ import VitalsList from "./VitalsList";
 import RecentImaging from "./RecentImaging";
 import RecentLabwork from "./RecentLabwork";
 export interface HealthData {
-  _id: string;
-  age: number;
-  primaryConcern: string;
-  allergies: string[];
+  _id: string
+  age: number
+  primaryConcern: string
+  allergies: string[]
   sex: "M" | "F";
-  gender: string;
+  gender: string
   bloodGroup: "O-" | "O+" | "A-" | "A+" | "B-" | "B+" | "AB-" | "AB+";
-  bloodPressure: BloodPressure[];
-  heartRate: HeartRate[];
-  pmHx: string[];
-  familyHx: string[];
-  imaging: Imaging[];
-  labWork: LabWork[];
-  medications: Medications;
-  updatedAt: string;
-  otherTx: OtherTx;
+  bloodPressure: BloodPressure[]
+  heartRate: HeartRate[]
+  pmHx: string[]
+  familyHx: string[]
+  imaging: Imaging[]
+  labWork: LabWork[]
+  medications: Medications
+  updatedAt: string
+  otherTx: OtherTx
 }
 
 interface Props {
-  healthData: HealthData;
+  healthData: HealthData
 }
 
-export default function DisplayInformation({ healthData }: Props) {
+export default function DisplayInformation ({ healthData }: Props) {
   // console.log("Healthdata: ", healthData)
   return (
     <div className="grid grid-cols-1 gap-5 bg-white p-5 rounded-xl h-full overflow-auto">

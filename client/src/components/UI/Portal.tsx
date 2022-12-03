@@ -9,6 +9,7 @@ interface Props {
 export default function Portal({ children, wrapperId }: Props) {
   return createPortal(
     <div>{children}</div>,
+    // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     document.getElementById(wrapperId)!
   );
 }
