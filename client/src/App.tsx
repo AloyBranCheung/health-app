@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import track from "react-tracking";
+import LogRocket from "logrocket";
 // contexts
 import { AuthContextProvider } from "./context/authContext";
 import { ModalContextProvider } from "./context/modalContext";
@@ -24,6 +25,7 @@ import Messages from "./pages/Messages";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 const queryClient = new QueryClient();
+LogRocket.init("zrcdeu/health-app-tracking");
 
 function App () {
   return (
