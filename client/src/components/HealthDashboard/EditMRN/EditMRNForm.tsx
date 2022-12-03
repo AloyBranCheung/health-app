@@ -79,7 +79,7 @@ export default function EditMRNForm() {
       );
       //  MRN
       await axios.put(
-        `${process.env.REACT_APP_BACKEND_URL}/healthinformation/${user._id}`,
+        `${process.env.REACT_APP_BACKEND_URL}/mrn/healthinformation/${user._id}`,
         mrnData
       );
       console.log("Success");
