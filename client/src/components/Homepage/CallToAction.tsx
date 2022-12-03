@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-export default function Newsletter() {
+export default function Newsletter () {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
 
@@ -11,7 +11,7 @@ export default function Newsletter() {
   };
 
   const navSignUp = () => {
-    navigate("/signup", { state: { email: email } });
+    navigate("/signup", { state: { email } });
   };
 
   return (

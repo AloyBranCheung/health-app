@@ -1,18 +1,18 @@
 import React from "react";
-type Props = {
-  label: string;
-  name: string;
-  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  value?: string | number;
-  type?: string;
-  autoComplete?: string;
-  onFocus?: (e: React.FocusEvent<HTMLInputElement>) => void;
-  className?: string;
-  maxLength?: number;
-  readOnly?: boolean;
-};
+interface Props {
+  label: string
+  name: string
+  onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void
+  value?: string | number
+  type?: string
+  autoComplete?: string
+  onFocus?: (e: React.FocusEvent<HTMLInputElement>) => void
+  className?: string
+  maxLength?: number
+  readOnly?: boolean
+}
 
-export default function Input({
+export default function Input ({
   label,
   onChange,
   value,
@@ -22,7 +22,7 @@ export default function Input({
   onFocus,
   className,
   maxLength,
-  readOnly,
+  readOnly
 }: Props) {
   return (
     <div

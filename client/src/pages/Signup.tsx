@@ -3,7 +3,7 @@ import SignupBox from "../components/Login/SignupBox";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 
-export default function Login() {
+export default function Login () {
   const navigate = useNavigate();
   const navHome = () => {
     navigate("/");

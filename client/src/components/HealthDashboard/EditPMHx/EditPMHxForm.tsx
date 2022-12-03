@@ -6,7 +6,7 @@ import Input from "../../UI/Input";
 import axios from "axios";
 import FormInputErrMsg from "../../UI/FormInputErrMsg";
 
-export default function EditPMHxForm() {
+export default function EditPMHxForm () {
   const [newHistory, setNewHistory] = useState("");
   const [isError, setError] = useState({
     error: false,
@@ -27,7 +27,7 @@ export default function EditPMHxForm() {
       await axios.put(
         `https://random-health-tech.herokuapp.com/api/mrn/healthinformation/${user._id}`,
         {
-          pmHx: [...userHealth.pmHx, newHistory],
+          pmHx: [...userHealth.pmHx, newHistory]
         }
       );
       console.log("Success");
@@ -39,8 +39,8 @@ export default function EditPMHxForm() {
       setError({
         ...isError,
         error: true,
-        message: error.response.data.message,
-      });
+        message: error.response.data.message
+      })
       console.error(error);
     }
     // setState

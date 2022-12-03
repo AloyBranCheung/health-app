@@ -7,7 +7,7 @@ import axios from "axios";
 import FormInputErrMsg from "../../UI/FormInputErrMsg";
 import LoadingSpinner from "../../UI/LoadingSpinner";
 
-export default function EditForm() {
+export default function EditForm () {
   const { userHealth, setUserHealth, isLoading, user } =
     useContext(AuthContext);
   const { onVisible } = useContext(ModalContext);
@@ -16,8 +16,8 @@ export default function EditForm() {
   );
   const [error, setIsError] = useState({
     errorMessage: "",
-    isError: false,
-  });
+    isError: false
+  })
   const [isSuccess, setIsSuccess] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -41,8 +41,8 @@ export default function EditForm() {
     if (primaryConcern === "") {
       setIsError({
         errorMessage: "Please enter your primary concern.",
-        isError: true,
-      });
+        isError: true
+      })
     }
 
     const data = { primaryConcern };
@@ -78,11 +78,13 @@ export default function EditForm() {
         name="primaryConcern"
       />
       {error.isError && <FormInputErrMsg text={error.errorMessage} />}
-      {isLoading ? (
+      {isLoading
+        ? (
         <LoadingSpinner />
-      ) : (
+          )
+        : (
         <>{isSuccess && <h1>Successfully changed.</h1>}</>
-      )}
+          )}
       <div className="flex flex-row gap-2 justify-end">
         <Button onClick={handleCancel} type="button" text="Cancel" />
         <Button type="submit" text="Change" />

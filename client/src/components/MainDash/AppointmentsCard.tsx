@@ -1,17 +1,17 @@
 import React from "react";
 
-type Props = {
-  dayOfWeek: string;
-  dateOfMonth: number;
-  service: string;
-  date: string;
-};
+interface Props {
+  dayOfWeek: string
+  dateOfMonth: number
+  service: string
+  date: string
+}
 
-export default function AppointmentsCard({
+export default function AppointmentsCard ({
   dayOfWeek,
   dateOfMonth,
   service,
-  date,
+  date
 }: Props) {
   return (
     <div className="flex flex-row w-full shadow-xl">

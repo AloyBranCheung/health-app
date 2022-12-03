@@ -3,10 +3,10 @@ import Input from "../UI/Input";
 import AuthContext from "../../context/authContext";
 
 interface Props {
-  passedData: (name: string, text: string) => void;
+  passedData: (name: string, text: string) => void
 }
 
-export default function PhoneInput({ passedData }: Props) {
+export default function PhoneInput ({ passedData }: Props) {
   const { user } = useContext(AuthContext);
   const [phoneNumber, setPhoneNumber] = useState("");
 

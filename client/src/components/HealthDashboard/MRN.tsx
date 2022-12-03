@@ -7,16 +7,16 @@ import EyeClosed from "../UI/EyeClosed";
 import EyeOpen from "../UI/EyeOpen";
 import EditMRN from "./EditMRN"
 
-export default function MRN() {
+export default function MRN () {
   const { user, userHealth } = useContext(AuthContext);
-  const {isVisible, onVisible} = useContext(ModalContext); 
+  const { isVisible, onVisible } = useContext(ModalContext); 
   const [mrnVisible, setMrnVisible] = useState(false);
   const handleRevealMRN = () => {
     setMrnVisible((prev) => !prev);
   };
 
   const modalIsVisible = () => {
-    onVisible("editMRN"); 
+    onVisible("editMRN");
   }
 
   return (
@@ -27,11 +27,13 @@ export default function MRN() {
           <h1>
             <strong>MRN</strong>
           </h1>
-          {mrnVisible ? (
+          {mrnVisible
+            ? (
            <EyeClosed handleRevealMRN={handleRevealMRN} />
-          ) : (
-           <EyeOpen handleRevealMRN={handleRevealMRN} /> 
-          )}
+              )
+            : (
+           <EyeOpen handleRevealMRN={handleRevealMRN} />
+              )}
         </div>
         <div>
           <Button onClick={modalIsVisible} text="Edit" />

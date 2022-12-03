@@ -2,10 +2,10 @@ import React, { useContext } from "react";
 import ModalContext from "../../context/modalContext";
 
 interface Props {
-  targetId: string;
+  targetId: string
 }
 
-export default function ModalPortalTarget({ targetId }: Props) {
+export default function ModalPortalTarget ({ targetId }: Props) {
   const { isVisible } = useContext(ModalContext);
   return (
     <div

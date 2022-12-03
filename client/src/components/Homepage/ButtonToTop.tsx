@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from "react";
 
-export default function ButtonToTop() {
+export default function ButtonToTop () {
   const [isVisible, setIsVisible] = useState(false);
   const [prevScrollPos, setPrevScrollPos] = useState(0);
 
@@ -29,7 +29,7 @@ export default function ButtonToTop() {
     <a
       href="#home"
       className={`fixed right-5 bottom-10 transition-all duration-500  ${
-        !isVisible ? `opacity-100` : "opacity-0"
+        !isVisible ? 'opacity-100' : "opacity-0"
       }`}
     >
       <svg

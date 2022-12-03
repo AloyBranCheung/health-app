@@ -5,19 +5,21 @@ import { Link } from "react-router-dom";
 import AppointmentsCard from "./AppointmentsCard";
 import LoadingSpinner from "../UI/LoadingSpinner";
 
-type Props = {
-  className: string;
-};
+interface Props {
+  className: string
+}
 
-export default function ScheduledAppointments({ className }: Props) {
+export default function ScheduledAppointments ({ className }: Props) {
   const { user, isLoading } = useContext(AuthContext);
 
   const appointments =
-    user.appointments.length === 0 ? (
+    user.appointments.length === 0
+      ? (
       <h1>Try finding a doctor.</h1>
-    ) : (
-      user.appointments.map((appointment) => {
-        return (
+        )
+      : (
+          user.appointments.map((appointment) => {
+            return (
           <AppointmentsCard
             key={appointment._id}
             dayOfWeek={appointment.dayOfWeek}
@@ -25,17 +27,19 @@ export default function ScheduledAppointments({ className }: Props) {
             service={appointment.service}
             date={appointment.date}
           />
+            );
+          })
         );
-      })
-    );
 
   return (
     <Card className={`${className}`}>
-      {isLoading ? (
+      {isLoading
+        ? (
         <div className="flex flex-col items-center justify-center h-full w-full">
           <LoadingSpinner />
         </div>
-      ) : (
+          )
+        : (
         <div className="flex flex-col p-5 h-full gap-1 lg:gap-5 overflow-y-scroll lg:overflow-hidden">
           <div className="flex flex-row justify-between md:flex-col mb-5 md:mb-0">
             <h1>
@@ -62,7 +66,7 @@ export default function ScheduledAppointments({ className }: Props) {
             </div>
           </div>
         </div>
-      )}
+          )}
     </Card>
   );
 }

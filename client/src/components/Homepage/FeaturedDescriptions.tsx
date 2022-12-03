@@ -2,7 +2,7 @@ import React from "react";
 import { Button } from "@material-tailwind/react";
 import { useNavigate } from "react-router-dom";
 
-export default function FeaturedDescriptions() {
+export default function FeaturedDescriptions () {
   const navigate = useNavigate();
 
   const navLogin = () => {

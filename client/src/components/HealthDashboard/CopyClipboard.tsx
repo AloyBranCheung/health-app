@@ -2,10 +2,10 @@ import React, { useContext, useState, useEffect } from "react";
 import AuthContext from "../../context/authContext";
 
 interface Props {
-  isVisible: boolean;
+  isVisible: boolean
 }
 
-export default function CopyClipboard({ isVisible }: Props) {
+export default function CopyClipboard ({ isVisible }: Props) {
   const { userHealth } = useContext(AuthContext);
   const [textMRN, setTextMRN] = useState("");
   const [isCopied, setIsCopied] = useState(false);

@@ -3,10 +3,10 @@ import ModalContext from "../../context/modalContext";
 import Button from "../UI/Button";
 
 interface Props {
-  onClick: (e: React.FormEvent) => void;
+  onClick: (e: React.FormEvent) => void
 }
 
-export default function ButtonContainer({ onClick }: Props) {
+export default function ButtonContainer ({ onClick }: Props) {
   const { onVisible } = useContext(ModalContext);
 
   const handleCancel = () => {

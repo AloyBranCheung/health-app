@@ -5,7 +5,7 @@ import ScheduledAppointments from "./ScheduledAppointments";
 import Vitals from "./Vitals";
 import WelcomeCard from "./WelcomeCard";
 
-export default function MainDash() {
+export default function MainDash () {
   return (
     <div className="max-h-screen lg:min-h-screen lg:max-h-screen p-5 text-mainFontColor flex flex-col md:grid gap-10 md:gap-5 md:grid-cols-12 md:grid-rows-6">
       <WelcomeCard className="md:col-span-12 md:row-span-2 lg:col-span-5 lg:row-span-3" />

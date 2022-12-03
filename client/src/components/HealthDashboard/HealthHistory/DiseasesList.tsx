@@ -1,11 +1,11 @@
 import React from "react";
 
-type Props = {
-  className?: string;
-  diseases: string[];
-};
+interface Props {
+  className?: string
+  diseases: string[]
+}
 
-export default function DiseasesList({ className, diseases }: Props) {
+export default function DiseasesList ({ className, diseases }: Props) {
   const listDiseases = diseases.map((disease, index) => (
     <li key={index}>{disease}</li>
   ));

@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-empty-function */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import type {
@@ -89,9 +91,9 @@ const AuthContext = React.createContext(INITIAL_STATE);
 
 export default AuthContext;
 
-type Props = {
+interface Props {
   children: JSX.Element;
-};
+}
 
 // Context.Provider
 export const AuthContextProvider = ({ children }: Props) => {
@@ -171,13 +173,13 @@ export const AuthContextProvider = ({ children }: Props) => {
   };
 
   const value = {
-    setUser: setUser,
-    user: user,
-    login: login,
-    logout: logout,
-    isLoggedIn: isLoggedIn,
-    userHealth: userHealth,
-    isLoading: isLoading,
+    setUser,
+    user,
+    login,
+    logout,
+    isLoggedIn,
+    userHealth,
+    isLoading,
     setUserHealth,
   };
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

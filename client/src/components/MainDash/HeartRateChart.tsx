@@ -8,11 +8,11 @@ import {
   LineElement,
   Title,
   Tooltip,
-  Legend,
+  Legend
 } from "chart.js";
 import { Line } from "react-chartjs-2";
 
-export default function Linechart() {
+export default function Linechart () {
   const { userHealth } = useContext(AuthContext);
   const [heartRateLabels, setHeartRateLabels] = useState([""]);
   const [heartRate, setHeartRate] = useState([""]);
@@ -24,11 +24,11 @@ export default function Linechart() {
     // heart rate data
     const sorted = userHealth.heartRate.sort((a, b) => {
       return Number(new Date(b.date)) - Number(new Date(a.date));
-    });
+    })
     sorted.forEach((dataPoint) => {
       hrLabels.push(dataPoint.date);
       hr.push(dataPoint.heartRate);
-    });
+    })
 
     setHeartRateLabels(hrLabels.slice(1, 31));
     setHeartRate(hr.slice(1, 31));
@@ -48,8 +48,8 @@ export default function Linechart() {
   const options = {
     responsive: true,
     maintainAspectRatio: false,
-    plugins: {},
-  };
+    plugins: {}
+  }
 
   // hr chart labels/values
   const labels = heartRateLabels;
@@ -63,9 +63,9 @@ export default function Linechart() {
         data: hrValues,
         borderColor: "rgb(255, 99, 132)",
         backgroundColor: "rgba(255, 99, 132, 0.5)",
-      },
-    ],
-  };
+      }
+    ]
+  }
 
   const vitals = <Line options={options} data={data} />;
 

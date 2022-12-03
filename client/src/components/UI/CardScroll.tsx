@@ -2,18 +2,18 @@ import React from "react";
 import Button from "./Button";
 import Card from "./Card";
 
-type Props = {
-  className?: string;
-  title: string;
-  children: JSX.Element;
-  onEdit?: () => void;
-};
+interface Props {
+  className?: string
+  title: string
+  children: JSX.Element
+  onEdit?: () => void
+}
 
-export default function CardScroll({
+export default function CardScroll ({
   className,
   children,
   title,
-  onEdit,
+  onEdit
 }: Props) {
   return (
     <Card className={`p-5 ${className}`}>

@@ -1,20 +1,20 @@
 import React, { useState } from "react";
 interface Props {
-  className?: string;
-  description: string;
-  selectName: string;
-  options: string[] | number[];
-  defaultValue: string | number;
-  passData: (name: string, selectedValue: string | number) => void;
+  className?: string
+  description: string
+  selectName: string
+  options: string[] | number[]
+  defaultValue: string | number
+  passData: (name: string, selectedValue: string | number) => void
 }
 
-export default function Dropdown({
+export default function Dropdown ({
   className,
   description,
   selectName,
   options,
   passData,
-  defaultValue,
+  defaultValue
 }: Props) {
   const [selectedValue, setSelectedValue] = useState(defaultValue);
 
@@ -24,7 +24,7 @@ export default function Dropdown({
         {element}
       </option>
     );
-  });
+  })
 
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     const value = e.target.value;

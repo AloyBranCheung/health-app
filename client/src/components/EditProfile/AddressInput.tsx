@@ -3,17 +3,17 @@ import Input from "../UI/Input";
 import AuthContext from "../../context/authContext";
 
 interface Address {
-  city: string;
-  province: string;
-  country: string;
-  postalCode: string;
+  city: string
+  province: string
+  country: string
+  postalCode: string
 }
 
 interface Props {
-  passedData: (name: string, value: Address) => void;
+  passedData: (name: string, value: Address) => void
 }
 
-export default function AddressInput({ passedData }: Props) {
+export default function AddressInput ({ passedData }: Props) {
   const { user } = useContext(AuthContext);
   const [address, setAddress] = useState<Address>({
     city: "",

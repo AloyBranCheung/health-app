@@ -8,11 +8,11 @@ import HealthHistory from "./HealthHistory";
 import Button from "../UI/Button";
 import EditPrimaryConcern from "./EditPrimaryConcern";
 
-type Props = {
-  className: string;
-};
+export interface MyDetailsProps {
+  className: string
+}
 
-export default function MyDetails({ className }: Props) {
+export default function MyDetails ({ className }: MyDetailsProps) {
   const { isLoading, userHealth } = useContext(AuthContext);
   const { onVisible, isVisible } = useContext(ModalContext);
 
@@ -22,9 +22,11 @@ export default function MyDetails({ className }: Props) {
 
   return (
     <Card className={className}>
-      {isLoading ? (
+      {isLoading
+        ? (
         <LoadingSpinner />
-      ) : (
+          )
+        : (
         <div className="p-5 flex flex-col w-full gap-5 h-full">
           {isVisible === "editPrimConc" && <EditPrimaryConcern />}
           <div>
@@ -50,7 +52,7 @@ export default function MyDetails({ className }: Props) {
             <HealthHistory />
           </div>
         </div>
-      )}
+          )}
     </Card>
   );
 }

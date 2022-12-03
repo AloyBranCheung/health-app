@@ -4,11 +4,11 @@ import Card from "../UI/Card";
 import Button from "../UI/Button";
 import { useNavigate } from "react-router-dom";
 
-type Props = {
-  className?: string;
-};
+interface Props {
+  className?: string
+}
 
-export default function WelcomeCard({ className }: Props) {
+export default function WelcomeCard ({ className }: Props) {
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
   const handleClick = () => {

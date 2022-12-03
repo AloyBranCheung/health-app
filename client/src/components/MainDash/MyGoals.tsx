@@ -5,11 +5,11 @@ import GoalInput from "./GoalInput";
 import axios from "axios";
 import LoadingSpinner from "../UI/LoadingSpinner";
 
-type Props = {
-  className?: string;
-};
+interface Props {
+  className?: string
+}
 
-export default function Goals({ className }: Props) {
+export default function Goals ({ className }: Props) {
   const { user, setUser, isLoading } = useContext(AuthContext);
 
   // add goal
@@ -21,7 +21,7 @@ export default function Goals({ className }: Props) {
       const response = await axios.put(
         `https://random-health-tech.herokuapp.com/api/dashboard/updateuser/${user._id}`,
         {
-          myGoals: [...currArr, { goal }],
+          myGoals: [...currArr, { goal }]
         }
       );
       setUser(response.data);
@@ -38,7 +38,7 @@ export default function Goals({ className }: Props) {
       const response = await axios.put(
         `https://random-health-tech.herokuapp.com/api/dashboard/updateuser/${user._id}`,
         {
-          myGoals: filteredArr,
+          myGoals: filteredArr
         }
       );
       setUser(response.data);
@@ -69,15 +69,17 @@ export default function Goals({ className }: Props) {
         </button>
       </li>
     );
-  });
+  })
 
   return (
     <Card className={`${className}`}>
-      {isLoading ? (
+      {isLoading
+        ? (
         <div className="flex h-full items-center justify-center p-5">
           <LoadingSpinner />
         </div>
-      ) : (
+          )
+        : (
         <div className="p-5 flex flex-col gap-3 h-full">
           <div className="flex flex-row justify-between mb-2">
             <h1>
@@ -92,7 +94,7 @@ export default function Goals({ className }: Props) {
             <GoalInput goal={addGoal} />
           </div>
         </div>
-      )}
+          )}
     </Card>
   );
 }

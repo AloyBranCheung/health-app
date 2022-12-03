@@ -5,8 +5,8 @@ import Button from "../../UI/Button";
 import DiseasesList from "./DiseasesList";
 import EditPMHx from "../EditPMHx";
 
-export default function PastMedicalHistory() {
-  const { userHealth, isLoading } = useContext(AuthContext);
+export default function PastMedicalHistory () {
+  const { userHealth } = useContext(AuthContext);
   const { isVisible, onVisible } = useContext(ModalContext);
 
   const handleModalClick = () => {

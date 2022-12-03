@@ -3,7 +3,7 @@ import Modal from "../../UI/Modal";
 import ModalHeader from "../../UI/ModalHeader";
 import FamilyHxForm from "./FamilyHxForm";
 
-export default function index() {
+export default function index () {
   return (
     <Modal wrapperId="dashboardModal">
       <div className="p-5 flex flex-col gap-5">

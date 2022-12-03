@@ -5,12 +5,12 @@ import CardScroll from "../../UI/CardScroll";
 import FamilyList from "./FamilyList";
 import EditFamilyModal from "./EditFamilyModal.tsx";
 
-type Props = {
-  className?: string;
-  isLoading: boolean;
-};
+interface Props {
+  className?: string
+  isLoading: boolean
+}
 
-export default function MyFamily({ className, isLoading }: Props) {
+export default function MyFamily ({ className, isLoading }: Props) {
   const { onVisible, isVisible } = useContext(ModalContext);
 
   // open modal

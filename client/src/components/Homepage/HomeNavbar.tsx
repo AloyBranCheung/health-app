@@ -4,11 +4,11 @@ import {
   MobileNav,
   Typography,
   Button,
-  IconButton,
+  IconButton
 } from "@material-tailwind/react";
 import { Link, useNavigate } from "react-router-dom";
 
-export default function HomeNavbar() {
+export default function HomeNavbar () {
   const navigate = useNavigate();
   const [openNav, setOpenNav] = useState(false);
 
@@ -108,7 +108,8 @@ export default function HomeNavbar() {
           ripple={true}
           onClick={() => setOpenNav(!openNav)}
         >
-          {openNav ? (
+          {openNav
+            ? (
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -123,7 +124,8 @@ export default function HomeNavbar() {
                 d="M6 18L18 6M6 6l12 12"
               />
             </svg>
-          ) : (
+              )
+            : (
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-6 w-6"
@@ -137,7 +139,7 @@ export default function HomeNavbar() {
                 d="M4 6h16M4 12h16M4 18h16"
               />
             </svg>
-          )}
+              )}
         </IconButton>
       </div>
       <MobileNav

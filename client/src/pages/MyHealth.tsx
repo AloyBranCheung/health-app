@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import HealthDashboard from "../components/HealthDashboard";
 
-export default function MyHealth() {
+export default function MyHealth () {
   return (
     <motion.div
       initial={{ opacity: 0 }}

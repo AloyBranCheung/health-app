@@ -1,10 +1,10 @@
 import React from "react";
 
-type Props = {
-  text: string;
-};
+interface Props {
+  text: string
+}
 
-export default function FormInputErrMsg({ text }: Props) {
+export default function FormInputErrMsg ({ text }: Props) {
   return (
     <div>
       <h1 className="text-red">

@@ -1,21 +1,21 @@
 import React from "react";
 
-type Props = {
-  name: string;
-  dose: number;
-  doseUnits: string;
-  timing: string;
-  lastTaken: string;
-  nextDue: string;
-};
+interface Props {
+  name: string
+  dose: number
+  doseUnits: string
+  timing: string
+  lastTaken: string
+  nextDue: string
+}
 
-export default function MedicationPreview({
+export default function MedicationPreview ({
   name,
   dose,
   doseUnits,
   timing,
   lastTaken,
-  nextDue,
+  nextDue
 }: Props) {
   return (
     <div className="bg-white rounded-xl shadow-xl flex flex-row w-full p-5">

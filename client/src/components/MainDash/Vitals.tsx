@@ -7,11 +7,11 @@ import Button from "../UI/Button";
 import BloodPressureChart from "./BloodPressureChart";
 import HeartRateChart from "./HeartRateChart";
 
-type Props = {
-  className?: string;
-};
+interface Props {
+  className?: string
+}
 
-export default function Vitals({ className }: Props) {
+export default function Vitals ({ className }: Props) {
   const navigate = useNavigate();
   const { isLoading } = useContext(AuthContext);
   const [selectedOption, setSelectedOption] = useState("bloodPressure");
@@ -46,19 +46,22 @@ export default function Vitals({ className }: Props) {
             />
           </div>
         </div>
-        {isLoading ? (
+        {isLoading
+          ? (
           <div className="h-full w-full flex items-center justify-center">
             <LoadingSpinner />
           </div>
-        ) : (
+            )
+          : (
           <div className="w-full h-full bg-white rounded-xl p-5 shadow-xl">
             {selectedOption === "bloodPressure" ? (
               <BloodPressureChart />
-            ) : (
+            )
+              : (
               <HeartRateChart />
-            )}
+                )}
           </div>
-        )}
+            )}
       </div>
     </Card>
   );

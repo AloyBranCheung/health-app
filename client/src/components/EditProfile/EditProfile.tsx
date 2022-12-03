@@ -3,7 +3,7 @@ import Modal from "../UI/Modal";
 import ModalHeader from "../UI/ModalHeader";
 import EditProfileForm from "./EditProfileForm";
 
-export default function EditProfile() {
+export default function EditProfile () {
   return (
     <Modal wrapperId="dashboardModal">
       <div className="p-5 flex flex-col gap-5">

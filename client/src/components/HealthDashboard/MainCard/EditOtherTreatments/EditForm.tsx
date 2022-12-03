@@ -6,14 +6,14 @@ import Input from "../../../UI/Input";
 import axios from "axios";
 import FormInputErrMsg from "../../../UI/FormInputErrMsg";
 
-export default function EditForm() {
+export default function EditForm () {
   const [addTreatment, setAddTreatment] = useState("");
   const { userHealth, setUserHealth, user } = useContext(AuthContext);
   const { onVisible } = useContext(ModalContext);
   const [error, setError] = useState({
     errorMessage: "",
-    isError: true,
-  });
+    isError: true
+  })
 
   // set state for add treatment
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -40,7 +40,7 @@ export default function EditForm() {
       const response = await axios.put(
         `https://random-health-tech.herokuapp.com/api/mrn/healthinformation/${user._id}`,
         {
-          otherTx: [...userHealth.otherTx, { treatment: addTreatment }],
+          otherTx: [...userHealth.otherTx, { treatment: addTreatment }]
         }
       );
       console.log("Success");
@@ -72,7 +72,7 @@ export default function EditForm() {
       await axios.put(
         `https://random-health-tech.herokuapp.com/api/mrn/healthinformation/${user._id}`,
         {
-          otherTx: newTxList,
+          otherTx: newTxList
         }
       );
       console.log("Success");
@@ -99,7 +99,7 @@ export default function EditForm() {
         />
       </li>
     );
-  });
+  })
 
   return (
     <>

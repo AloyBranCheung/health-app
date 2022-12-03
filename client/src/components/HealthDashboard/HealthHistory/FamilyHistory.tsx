@@ -5,7 +5,7 @@ import Button from "../../UI/Button";
 import DiseasesList from "./DiseasesList";
 import EditFamilyHx from "../EditFamilyHx";
 
-export default function FamilyHistory() {
+export default function FamilyHistory () {
   const { userHealth } = useContext(AuthContext);
   const { isVisible, onVisible } = useContext(ModalContext);
 

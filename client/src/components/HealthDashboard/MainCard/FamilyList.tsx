@@ -4,7 +4,7 @@ import Button from "../../UI/Button";
 import ModalContext from "../../../context/modalContext";
 import ViewFamilyProfile from "./ViewFamilyProfile";
 
-export default function FamilyList() {
+export default function FamilyList () {
   const { user } = useContext(AuthContext);
   const { onVisible, isVisible } = useContext(ModalContext);
   const [mrn, setMrn] = useState("");
@@ -54,7 +54,7 @@ export default function FamilyList() {
         </div>
       </div>
     );
-  });
+  })
 
   return (
     <>

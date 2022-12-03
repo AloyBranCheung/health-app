@@ -35,7 +35,7 @@ export default function EditProfileForm() {
     setFormInput({ ...formInput, [name]: address });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = () => {
     setIsLoading(true);
     try {
       axios.put(
@@ -51,6 +51,7 @@ export default function EditProfileForm() {
       });
       setIsError(false);
       console.log("Success");
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (error: any) {
       setIsError(true);
       console.error(error.response.data.message);

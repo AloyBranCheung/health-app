@@ -8,11 +8,11 @@ import ModalContext from "../../context/modalContext";
 import EditProfile from "../EditProfile/EditProfile";
 import ViewProfilePics from "../ViewProfilePics";
 
-type Props = {
-  className: string;
-};
+interface Props {
+  className: string
+}
 
-export default function MyProfile({ className }: Props) {
+export default function MyProfile ({ className }: Props) {
   const { user, isLoading } = useContext(AuthContext);
   const { isVisible, onVisible } = useContext(ModalContext);
 
@@ -26,9 +26,11 @@ export default function MyProfile({ className }: Props) {
 
   return (
     <Card className={className}>
-      {isLoading ? (
+      {isLoading
+        ? (
         <LoadingSpinner />
-      ) : (
+          )
+        : (
         <>
           {isVisible === "editProfile" && <EditProfile />}
           {isVisible === "viewProfilePics" && <ViewProfilePics />}
@@ -57,7 +59,7 @@ export default function MyProfile({ className }: Props) {
             </div>
           </div>
         </>
-      )}
+          )}
     </Card>
   );
 }

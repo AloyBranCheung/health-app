@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import Find from "../components/Find";
 
-export default function SearchMD() {
+export default function SearchMD () {
   return (
     <motion.div
       initial={{ opacity: 0 }}

@@ -2,14 +2,14 @@ import React, { useEffect, useState } from "react";
 import Modal from "../../../UI/Modal";
 import ModalHeader from "../../../UI/ModalHeader";
 import axios from "axios";
-import DisplayInformation from "./DisplayInformation";
-import { HealthData } from "./DisplayInformation";
+import DisplayInformation, { HealthData } from './DisplayInformation';
+
 interface Props {
-  familyName: string;
-  mrn: string;
+  familyName: string
+  mrn: string
 }
 
-export default function ViewFamilyProfile({ mrn, familyName }: Props) {
+export default function ViewFamilyProfile ({ mrn, familyName }: Props) {
   const [data, setData] = useState({} as HealthData);
   // /api/mrn/healthinformation/mrn/:mrn - gets health information by mrn
   useEffect(() => {

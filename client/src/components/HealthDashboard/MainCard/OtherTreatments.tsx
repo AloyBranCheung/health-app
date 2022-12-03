@@ -6,12 +6,12 @@ import Button from "../../UI/Button";
 import Card from "../../UI/Card";
 import EditOtherTreatments from "./EditOtherTreatments";
 
-type Props = {
-  className: string;
-  isLoading: boolean;
-};
+interface Props {
+  className: string
+  isLoading: boolean
+}
 
-export default function OtherTreatments({ className, isLoading }: Props) {
+export default function OtherTreatments ({ className, isLoading }: Props) {
   const { userHealth } = useContext(AuthContext);
   const { onVisible, isVisible } = useContext(ModalContext);
 
@@ -39,14 +39,16 @@ export default function OtherTreatments({ className, isLoading }: Props) {
         </div>
       </div>
     );
-  });
+  })
 
   return (
     <Card className={`${className} h-full`}>
       <div className="p-5 gap-5 flex flex-col h-full">
-        {isLoading ? (
+        {isLoading
+          ? (
           <LoadingSpinner />
-        ) : (
+            )
+          : (
           <>
             <div className="flex flex-row w-full items-center justify-between">
               {isVisible === "editOtherTx" && <EditOtherTreatments />}
@@ -63,7 +65,7 @@ export default function OtherTreatments({ className, isLoading }: Props) {
               {treatments}
             </div>
           </>
-        )}
+            )}
       </div>
     </Card>
   );

@@ -3,10 +3,10 @@ import Logout from "./Logout";
 import MenuItems from "./MenuItems";
 import { useNavigate } from "react-router-dom";
 
-export default function Sidebar() {
+export default function Sidebar () {
   const navigate = useNavigate();
   const navDashboard = () => {
-    navigate(`/dashboard`);
+    navigate('/dashboard');
   };
   return (
     <div className="bg-gradient-to-l shadow-2xl from-gradientStart fixed h-screen w-20 md:w-48 md:p-5">

@@ -2,10 +2,10 @@ import React from "react";
 import { Medications } from "../../../../../../context/authContextType";
 
 interface Props {
-  medications: Medications;
+  medications: Medications
 }
 
-export default function MedicationsList({ medications }: Props) {
+export default function MedicationsList ({ medications }: Props) {
   const meds = medications?.map((medication) => {
     return (
       <li key={medication._id}>
@@ -17,7 +17,7 @@ export default function MedicationsList({ medications }: Props) {
         <p className="text-xs">{medication.timing}</p>
       </li>
     );
-  });
+  })
 
   return (
     <div>
