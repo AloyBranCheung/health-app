@@ -14,11 +14,11 @@ jobs:
       with:
         node-version: 16
     - name: Install dependencies
-      run: cd client && npm ci --prefix client 
+      run: cd client && npm ci 
     - name: Install Playwright Browsers
-      run: npx playwright install --with-deps --prefix client
+      run: cd client && npx playwright install --with-deps --prefix client
     - name: Run Playwright tests
-      run: npx playwright test --prefix client
+      run: cd client && npx playwright test --prefix client
     - uses: actions/upload-artifact@v3
       if: always()
       with:
