@@ -46,7 +46,6 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: "16"
-          cache: ${{ github.workspace }}/client/package.json" }}
       - name: Setup Pages
         uses: actions/configure-pages@v2
         with:
