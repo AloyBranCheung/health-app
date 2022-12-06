@@ -16,9 +16,9 @@ jobs:
     - name: Install dependencies
       run: cd client && npm ci 
     - name: Install Playwright Browsers
-      run: cd client && npx playwright install --with-deps --prefix client
+      run: cd client && npx playwright install --with-deps 
     - name: Run Playwright tests
-      run: cd client && npx playwright test --prefix client
+      run: cd client && npx playwright test
     - uses: actions/upload-artifact@v3
       if: always()
       with:
