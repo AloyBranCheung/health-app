@@ -6,7 +6,7 @@ import axios from "axios";
 import FormInputErrMsg from "../UI/FormInputErrMsg";
 import AuthContext from "../../context/authContext";
 
-export default function LoginModal () {
+export default function LoginModal() {
   const { login } = useContext(AuthContext);
   const [error, setError] = useState(false);
   const [formInput, setFormInput] = useState({
@@ -15,8 +15,8 @@ export default function LoginModal () {
     password: "",
     firstName: "",
     lastName: "",
-    isProvider: false
-  })
+    isProvider: false,
+  });
 
   const [confirmPassword, setConfirmPassword] = useState("");
   const [passwordError, setPasswordError] = useState(false);
@@ -47,8 +47,8 @@ export default function LoginModal () {
     formInput.email,
     formInput.password,
     formInput.firstName,
-    formInput.lastName
-  ])
+    formInput.lastName,
+  ]);
 
   // password/confirmation password form validation
   const passwordSame = (password: string, confirmPassword: string) => {
@@ -87,16 +87,16 @@ export default function LoginModal () {
     try {
       // register user
       await axios.post(
-        "https://random-health-tech.herokuapp.com/api/user/register",
+        `${process.env.REACT_APP_BACKEND_URL}/user/register`,
         formInput
       );
 
       // login user
       const loginResponse = await axios.post(
-        "https://random-health-tech.herokuapp.com/api/user/login",
+        `${process.env.REACT_APP_BACKEND_URL}/user/login`,
         {
           email: formInput.email,
-          password: formInput.password
+          password: formInput.password,
         }
       );
       login(loginResponse.data);
@@ -108,16 +108,16 @@ export default function LoginModal () {
         password: "",
         firstName: "",
         lastName: "",
-        isProvider: false
-      })
+        isProvider: false,
+      });
       setConfirmPassword("");
       setError(false);
 
       // navigate to dashboard
       await axios.post(
-        `https://random-health-tech.herokuapp.com/api/mrn/healthinformation/${loginResponse.data._id}`
+        `${process.env.REACT_APP_BACKEND_URL}/mrn/healthinformation/${loginResponse.data._id}`
       );
-      navigate('/dashboard', { replace: true });
+      navigate("/dashboard", { replace: true });
     } catch (error: any) {
       setError(true);
       console.error(error.response.data.message);

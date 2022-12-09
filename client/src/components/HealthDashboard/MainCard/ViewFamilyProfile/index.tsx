@@ -2,21 +2,21 @@ import React, { useEffect, useState } from "react";
 import Modal from "../../../UI/Modal";
 import ModalHeader from "../../../UI/ModalHeader";
 import axios from "axios";
-import DisplayInformation, { HealthData } from './DisplayInformation';
+import DisplayInformation, { HealthData } from "./DisplayInformation";
 
 interface Props {
-  familyName: string
-  mrn: string
+  familyName: string;
+  mrn: string;
 }
 
-export default function ViewFamilyProfile ({ mrn, familyName }: Props) {
+export default function ViewFamilyProfile({ mrn, familyName }: Props) {
   const [data, setData] = useState({} as HealthData);
   // /api/mrn/healthinformation/mrn/:mrn - gets health information by mrn
   useEffect(() => {
     const fetchData = async () => {
       try {
         const { data } = await axios.get(
-          `https://random-health-tech.herokuapp.com/api/mrn/healthinformation/mrn/${mrn}`
+          `${process.env.REACT_APP_BACKEND_URL}/mrn/healthinformation/mrn/${mrn}`
         );
         setData(data);
         console.log("Success");

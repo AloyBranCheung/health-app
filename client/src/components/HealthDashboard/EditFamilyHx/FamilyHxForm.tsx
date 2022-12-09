@@ -29,7 +29,7 @@ export default function FamilyHxForm() {
     // PUT to DB
     try {
       await axios.put(
-        `https://random-health-tech.herokuapp.com/api/mrn/healthinformation/${user._id}`,
+        `${process.env.REACT_APP_BACKEND_URL}/mrn/healthinformation/${user._id}`,
         {
           familyHx: newHx,
         }
@@ -59,7 +59,7 @@ export default function FamilyHxForm() {
     // PUT to DB
     try {
       await axios.put(
-        `https://random-health-tech.herokuapp.com/api/mrn/healthinformation/${user._id}`,
+        `${process.env.REACT_APP_BACKEND_URL}/mrn/healthinformation/${user._id}`,
         {
           familyHx: [...userHealth.familyHx, newHx],
         }

@@ -39,7 +39,7 @@ export default function EditProfileForm() {
     setIsLoading(true);
     try {
       axios.put(
-        `https://random-health-tech.herokuapp.com/api/dashboard/updateuser/${user._id}`,
+        `${process.env.REACT_APP_BACKEND_URL}/dashboard/updateuser/${user._id}`,
         formInput
       );
       setSuccess(true);

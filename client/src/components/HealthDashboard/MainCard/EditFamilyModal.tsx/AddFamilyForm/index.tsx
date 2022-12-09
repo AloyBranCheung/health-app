@@ -6,10 +6,10 @@ import axios from "axios";
 import LoadingSpinner from "../../../../UI/LoadingSpinner";
 import FormInputErrMsg from "../../../../UI/FormInputErrMsg";
 interface Props {
-  setIsAddFamily: React.Dispatch<React.SetStateAction<boolean>>
+  setIsAddFamily: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export default function AddFamilyForm ({ setIsAddFamily }: Props) {
+export default function AddFamilyForm({ setIsAddFamily }: Props) {
   const { user, setUser } = useContext(AuthContext);
   const [familyMembers, setFamilyMembers] = useState({
     mrn: "",
@@ -18,8 +18,8 @@ export default function AddFamilyForm ({ setIsAddFamily }: Props) {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState({
     message: "",
-    state: false
-  })
+    state: false,
+  });
 
   // Cancel Button
   const handleCancel = () => {
@@ -34,9 +34,9 @@ export default function AddFamilyForm ({ setIsAddFamily }: Props) {
       // update state
       // // update DB PUT /mrn/healthinformation/${user._id}
       const { data } = await axios.put(
-        `https://random-health-tech.herokuapp.com/api/dashboard/updateuser/${user._id}`,
+        `${process.env.REACT_APP_BACKEND_URL}/dashboard/updateuser/${user._id}`,
         {
-          familyMembers: [...user.familyMembers, familyMembers]
+          familyMembers: [...user.familyMembers, familyMembers],
         }
       );
       setUser(data);
@@ -61,17 +61,13 @@ export default function AddFamilyForm ({ setIsAddFamily }: Props) {
   return (
     <form onSubmit={handleAdd} className="flex flex-col gap-5">
       <div className="flex flex-col gap-2">
-        {isLoading
-          ? (
+        {isLoading ? (
           <LoadingSpinner />
-            )
-          : (
+        ) : (
           <>
-            {error.state
-              ? (
+            {error.state ? (
               <FormInputErrMsg text={error.message} />
-                )
-              : (
+            ) : (
               <>
                 <Input
                   onChange={handleChange}
@@ -86,9 +82,9 @@ export default function AddFamilyForm ({ setIsAddFamily }: Props) {
                   name="nickname"
                 />
               </>
-                )}
-          </>
             )}
+          </>
+        )}
       </div>
 
       <div className="flex w-full h-full flex-row gap-2 justify-end items-center">

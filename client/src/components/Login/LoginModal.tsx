@@ -7,7 +7,7 @@ import axios from "axios";
 import FormInputErrMsg from "../UI/FormInputErrMsg";
 import LoadingSpinner from "../UI/LoadingSpinner";
 
-export default function LoginModal () {
+export default function LoginModal() {
   const [error, setError] = useState(false);
   const [loginForm, setLoginForm] = useState({
     email: "",
@@ -35,7 +35,7 @@ export default function LoginModal () {
     try {
       setIsLoading(true);
       const response = await axios.post(
-        "https://random-health-tech.herokuapp.com/api/user/login",
+        `${process.env.REACT_APP_BACKEND_URL}/user/login`,
         loginForm
       );
       setIsLoading(false);
@@ -46,7 +46,7 @@ export default function LoginModal () {
       setError(false);
       console.log("Successfully logged in.");
       login(response.data);
-      navigate('/dashboard', { replace: true });
+      navigate("/dashboard", { replace: true });
     } catch (error) {
       setError(true);
       if (axios.isAxiosError(error)) {
@@ -83,18 +83,16 @@ export default function LoginModal () {
           >
             Back
           </Button>
-          {isLoading
-            ? (
+          {isLoading ? (
             <LoadingSpinner />
-              )
-            : (
+          ) : (
             <Button
               type="submit"
               className="bg-tertiaryColor text-mainFontColor text-xs w-1/3 shadow"
             >
               Login
             </Button>
-              )}
+          )}
         </div>
         {error && (
           <FormInputErrMsg text="Wrong username or password. Please try again." />

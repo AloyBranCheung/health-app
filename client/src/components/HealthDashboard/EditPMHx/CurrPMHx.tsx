@@ -4,27 +4,27 @@ import Button from "../../UI/Button";
 import axios from "axios";
 import LoadingSpinner from "../../UI/LoadingSpinner";
 
-export default function CurrPMHx () {
+export default function CurrPMHx() {
   const { user, userHealth, setUserHealth, isLoading } =
     useContext(AuthContext);
   const [error, setError] = useState({
     message: "",
-    isError: false
-  })
+    isError: false,
+  });
 
   // remove history
   const handleRemove = async (index: number) => {
     const newHx = userHealth.pmHx.filter((value, i) => {
       return index !== i;
-    })
+    });
     // set state
     setUserHealth({ ...userHealth, pmHx: newHx });
     // edit DB
     try {
       await axios.put(
-        `https://random-health-tech.herokuapp.com/api/mrn/healthinformation/${user._id}`,
+        `${process.env.REACT_APP_BACKEND_URL}/mrn/healthinformation/${user._id}`,
         {
-          pmHx: newHx
+          pmHx: newHx,
         }
       );
       console.log("Success");
@@ -38,17 +38,15 @@ export default function CurrPMHx () {
     return (
       <li key={index} className="flex flex-row justify-between">
         <div>{condition}</div>
-        {isLoading
-          ? (
+        {isLoading ? (
           <LoadingSpinner />
-            )
-          : (
+        ) : (
           <Button
             onClick={async () => await handleRemove(index)}
             text="Remove"
             className="p-1"
           />
-            )}
+        )}
         {error.isError && (
           <div>
             <h1>{error.message}</h1>
@@ -56,7 +54,7 @@ export default function CurrPMHx () {
         )}
       </li>
     );
-  })
+  });
 
   return (
     <ul className="flex flex-col">

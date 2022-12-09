@@ -110,7 +110,7 @@ export const AuthContextProvider = ({ children }: Props) => {
         try {
           setIsLoading(true);
           const response = await axios.get(
-            `https://random-health-tech.herokuapp.com/api/dashboard/user/${id}`
+            `${process.env.REACT_APP_BACKEND_URL}/dashboard/user/${id}`
           );
           setUser(response.data);
         } catch (error) {
@@ -120,7 +120,7 @@ export const AuthContextProvider = ({ children }: Props) => {
         // get user health info
         try {
           const response = await axios.get(
-            `https://random-health-tech.herokuapp.com/api/mrn/healthinformation/${id}`
+            `${process.env.REACT_APP_BACKEND_URL}/mrn/healthinformation/${id}`
           );
           setUserHealth(response.data);
           setIsLoading(false);
@@ -139,7 +139,7 @@ export const AuthContextProvider = ({ children }: Props) => {
       try {
         setIsLoading(true);
         const response = await axios.get(
-          `https://random-health-tech.herokuapp.com/api/dashboard/user/${_id}`
+          `${process.env.REACT_APP_BACKEND_URL}/dashboard/user/${_id}`
         );
         setUser(response.data);
       } catch (error) {
@@ -148,7 +148,7 @@ export const AuthContextProvider = ({ children }: Props) => {
       // get user health info
       try {
         const response = await axios.get(
-          `https://random-health-tech.herokuapp.com/api/mrn/healthinformation/${_id}`
+          `${process.env.REACT_APP_BACKEND_URL}/mrn/healthinformation/${_id}`
         );
         setUserHealth(response.data);
         setIsLoading(false);
