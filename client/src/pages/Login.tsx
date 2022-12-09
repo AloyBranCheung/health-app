@@ -1,10 +1,14 @@
 import React from "react";
 import LoginModal from "../components/Login/LoginModal";
-import { Link, useNavigate } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
+import { useTracking } from "react-tracking";
 
-export default function Login () {
+export default function Login() {
+  const { trackEvent } = useTracking();
   const navigate = useNavigate();
+  trackEvent({ action: "/login page loaded" });
   const navHome = () => {
     navigate("/");
   };
