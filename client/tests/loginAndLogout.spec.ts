@@ -62,7 +62,5 @@ test("test", async ({ page }) => {
           "consequat nisl vellorem ipsum dolor sit amet, consectetur adipiscing elit, sed d",
       })
       .getByRole("button", { name: "Login" })
-  ).toContainText(
-    "consequat nisl vellorem ipsum dolor sit amet, consectetur adipiscing elit, sed d"
-  );
+  ).toContainText("Login");
 });

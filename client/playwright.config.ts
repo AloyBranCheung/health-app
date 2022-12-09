@@ -2,7 +2,7 @@ import type { PlaywrightTestConfig } from "@playwright/test";
 import { devices } from "@playwright/test";
 import * as dotenv from "dotenv";
 
-dotenv.config("/client");
+dotenv.config();
 /**
  * Read environment variables from file.
  * https://github.com/motdotla/dotenv
@@ -100,10 +100,10 @@ const config: PlaywrightTestConfig = {
   // outputDir: 'test-results/',
 
   /* Run your local dev server before starting the tests */
-  // webServer: {
-  //   command: 'npm run start',
-  //   port: 3000,
-  // },
+  webServer: {
+    command: "npm run start",
+    port: 3000,
+  },
 };
 
 export default config;
