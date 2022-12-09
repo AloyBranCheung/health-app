@@ -17,11 +17,6 @@ jobs:
         run: cd client && ls && npm ci
       - name: Install Playwright Browsers
         run: cd client && ls && npx playwright install --with-deps
-      - name: Create .env file
-        uses: SpicyPizza/create-envfile@v1.3.0
-        with:
-          envKey_TEST_USER: ${{secrets.TEST_USER}}
-          envKey_TEST_USER_PASS: ${{secrets.TEST_USER_PASS}}
       - name: Run Playwright tests
         run: cd client && ls -a && npx playwright test
         env:
