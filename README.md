@@ -31,5 +31,21 @@ landing page made with tailwindblocks and hyperui
 Disclaimer: this is a for fun project, not to be used for actual health-related purposes
 
 To Start in Developer Mode:
-Server `npm run dev`
-Client `npm run start`
+
+Server
+
+```
+npm run dev --prefix api
+```
+
+Client
+
+```
+npm run start --prefix client
+```
+
+Concurrently
+
+```
+concurrently 'npm run dev --prefix api' 'npm run start --prefix client'
+```
