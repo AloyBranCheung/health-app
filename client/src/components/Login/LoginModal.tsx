@@ -70,6 +70,7 @@ export default function LoginModal() {
           <InputForm
             label="Password"
             name="password"
+            type="password"
             control={control}
             errorMessage={errors?.password?.message}
           />
