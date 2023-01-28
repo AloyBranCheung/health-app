@@ -27,7 +27,7 @@ jobs:
         env:
           TEST_USER: ${{secrets.TEST_USER}}
           TEST_USER_PASS: ${{secrets.TEST_USER_PASS}}
-          REACT_APP_BACKEND_URL: ${{secrets.REACT_APP_BACKEND_URL}}
+          REACT_APP_BACKEND_URL: http://localhost:3001/api
       - uses: actions/upload-artifact@v3
         if: always()
         with:
