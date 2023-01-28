@@ -8,6 +8,8 @@ import LoadingSpinner from "../UI/LoadingSpinner";
 import Button from "../UI/Button";
 import BloodPressureChart from "./BloodPressureChart";
 import HeartRateChart from "./HeartRateChart";
+import { ModalVisibilityKeys } from "../../utils/modalVisibilityStrings";
+import AddAnotherVital from "./AddAnotherVital";
 
 interface Props {
   className?: string;
@@ -23,12 +25,16 @@ export default function Vitals({ className }: Props) {
     setSelectedOption(selected);
   };
 
-  const navMyHealth = () => {
+  const handleAddAnotherVital = () => {
+    onVisible(ModalVisibilityKeys.AddAnotherVitals);
     console.log("hello");
   };
   return (
     <Card className={className}>
       <div className="flex flex-col h-full p-5 gap-5">
+        {isVisible === ModalVisibilityKeys.AddAnotherVitals && (
+          <AddAnotherVital />
+        )}
         <div className="flex flex-row justify-between">
           <h1 className="">
             <strong>My Vitals</strong>
@@ -44,7 +50,7 @@ export default function Vitals({ className }: Props) {
             <Button
               className="hidden md:block shadow-lg"
               text="Add Another"
-              onClick={navMyHealth}
+              onClick={handleAddAnotherVital}
             />
           </div>
         </div>

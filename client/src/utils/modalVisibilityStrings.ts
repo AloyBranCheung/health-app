@@ -10,4 +10,5 @@ export enum ModalVisibilityKeys {
   ViewProfile = "ViewProfile",
   EditOtherTx = "EditOtherTx",
   EditMedications = "EditMedications",
+  AddAnotherVitals = "AddAnotherVitals",
 }
