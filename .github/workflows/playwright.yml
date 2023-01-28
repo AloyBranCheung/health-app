@@ -18,7 +18,7 @@ jobs:
       - name: Install Playwright Browsers
         run: cd client && npx playwright install --with-deps
       - name: Run Playwright tests
-        run: cd client && ls -a && npx playwright test
+        run: cd client && npx playwright test
         env:
           TEST_USER: ${{secrets.TEST_USER}}
           TEST_USER_PASS: ${{secrets.TEST_USER_PASS}}
