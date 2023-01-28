@@ -13,11 +13,6 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 16
-      - name: Start local backend
-        run: cd api && npm install && npm run start
-        env:
-          MONGO_URL: ${{secrets.MONGO_URL}}
-          JWTKEY: ${{secrets.JWTKEY}}
       - name: Install dependencies
         run: cd client && npm ci
       - name: Install Playwright Browsers
@@ -27,7 +22,7 @@ jobs:
         env:
           TEST_USER: ${{secrets.TEST_USER}}
           TEST_USER_PASS: ${{secrets.TEST_USER_PASS}}
-          REACT_APP_BACKEND_URL: http://localhost:3001/api
+          REACT_APP_BACKEND_URL: ${{secrets.REACT_APP_BACKEND_URL}}
       - uses: actions/upload-artifact@v3
         if: always()
         with:
