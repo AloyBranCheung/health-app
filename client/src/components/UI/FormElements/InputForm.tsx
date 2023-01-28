@@ -35,10 +35,7 @@ export default function InputForm<FV extends FieldValues>({
         <Controller
           control={control}
           name={name}
-          render={({
-            field: { onChange, value, name },
-            fieldState: { error },
-          }) => (
+          render={({ field: { onChange, value, name } }) => (
             <>
               <input
                 value={value}
