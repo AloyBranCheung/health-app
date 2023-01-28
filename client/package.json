@@ -11,7 +11,7 @@
     "@types/react": "^18.0.17",
     "@types/react-dom": "^18.0.6",
     "@typescript-eslint/typescript-estree": "^5.45.0",
-    "axios": "^1.2.1",
+    "axios": "^1.2.5",
     "chart.js": "^3.9.1",
     "dotenv": "^16.0.3",
     "framer-motion": "^7.2.0",
