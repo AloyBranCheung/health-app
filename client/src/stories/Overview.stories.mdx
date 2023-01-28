@@ -1,0 +1,63 @@
+import { Meta } from "@storybook/addon-docs";
+
+<Meta title="Docs/Overview" />
+
+# General Overview
+
+<hr />
+<br />
+
+## Getting Started
+
+### Install
+
+```
+npm install --prefix api && npm install --prefix client
+```
+
+## To run
+
+- target `/client`'s `.env` to `REACT_APP_BACKEND_URL='http://localhost:3001/api'`
+- connect backend to MongoDB with as per `.env.example` in `/api`
+  - You can generate a JWT key yourself
+
+### Server
+
+```
+npm run dev --prefix api
+```
+
+### Client
+
+```
+npm run start --prefix client
+```
+
+### Or, Concurrently
+
+```
+concurrently 'npm run dev --prefix api' 'npm run start --prefix client'
+```
+
+## Tech
+
+**Frontend**
+
+- React with `react-router`
+- Tailwind CSS
+- Zod data validator
+- React-hook-forms for form validation with zod adapter
+- Tanstack react-query and axios
+- Playwright/react-testing-library/jest for testing
+- Framer motion for animation
+- React Chartjs2 for charting
+- Activity logging setup, probably not used/needed with react-tracking
+- Future: tRPC, socketio
+
+**Backend**
+
+- Typical node/express server with Typescript
+- Authentication done from scratch... probably not safe
+  - `bcrypt`, `JWT`, `cookie-parser`
+- MongoDB/Mongoose for DB
+- Future: tRPC, socketio

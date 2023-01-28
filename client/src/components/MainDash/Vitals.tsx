@@ -1,18 +1,22 @@
 import React, { useContext, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import Card from "../UI/Card";
+// context
 import AuthContext from "../../context/authContext";
+import ModalContext from "../../context/modalContext";
+// components
+import Card from "../UI/Card";
 import LoadingSpinner from "../UI/LoadingSpinner";
 import Button from "../UI/Button";
 import BloodPressureChart from "./BloodPressureChart";
 import HeartRateChart from "./HeartRateChart";
+import { ModalVisibilityKeys } from "../../utils/modalVisibilityStrings";
+import AddAnotherVital from "./AddAnotherVital";
 
 interface Props {
-  className?: string
+  className?: string;
 }
 
-export default function Vitals ({ className }: Props) {
-  const navigate = useNavigate();
+export default function Vitals({ className }: Props) {
+  const { onVisible, isVisible } = useContext(ModalContext);
   const { isLoading } = useContext(AuthContext);
   const [selectedOption, setSelectedOption] = useState("bloodPressure");
 
@@ -21,12 +25,16 @@ export default function Vitals ({ className }: Props) {
     setSelectedOption(selected);
   };
 
-  const navMyHealth = () => {
-    navigate("/dashboard/myhealth");
+  const handleAddAnotherVital = () => {
+    onVisible(ModalVisibilityKeys.AddAnotherVitals);
+    console.log("hello");
   };
   return (
     <Card className={className}>
       <div className="flex flex-col h-full p-5 gap-5">
+        {isVisible === ModalVisibilityKeys.AddAnotherVitals && (
+          <AddAnotherVital />
+        )}
         <div className="flex flex-row justify-between">
           <h1 className="">
             <strong>My Vitals</strong>
@@ -42,26 +50,23 @@ export default function Vitals ({ className }: Props) {
             <Button
               className="hidden md:block shadow-lg"
               text="Add Another"
-              onClick={navMyHealth}
+              onClick={handleAddAnotherVital}
             />
           </div>
         </div>
-        {isLoading
-          ? (
+        {isLoading ? (
           <div className="h-full w-full flex items-center justify-center">
             <LoadingSpinner />
           </div>
-            )
-          : (
+        ) : (
           <div className="w-full h-full bg-white rounded-xl p-5 shadow-xl">
             {selectedOption === "bloodPressure" ? (
               <BloodPressureChart />
-            )
-              : (
+            ) : (
               <HeartRateChart />
-                )}
-          </div>
             )}
+          </div>
+        )}
       </div>
     </Card>
   );

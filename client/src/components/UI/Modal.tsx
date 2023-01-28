@@ -4,12 +4,12 @@ import Card from "./Card";
 import Portal from "./Portal";
 import { motion } from "framer-motion";
 
-interface Props {
-  children: JSX.Element
-  wrapperId: string
+interface ModalProps {
+  children: JSX.Element;
+  wrapperId: string;
 }
 
-export default function Modal ({ children, wrapperId }: Props) {
+export default function Modal({ children, wrapperId }: ModalProps) {
   const { onVisible } = useContext(ModalContext);
 
   const handleBackdropClick = () => {
@@ -27,7 +27,7 @@ export default function Modal ({ children, wrapperId }: Props) {
         animate={{ opacity: 1 }}
         exit={{ opacity: 0, height: 0 }}
         onClick={handleBackdropClick}
-        className="absolute flex lg:items-center justify-center h-full w-full bg-modalBackground p-5"
+        className="absolute top-0 z-50 flex lg:items-center justify-center h-full w-full bg-modalBackground p-5"
       >
         <div
           onClick={handleContentClick}

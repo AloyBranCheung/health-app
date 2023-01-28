@@ -1,0 +1,69 @@
+import { Meta } from "@storybook/addon-docs";
+
+<Meta title="Docs/General Components" />
+
+# General Components
+
+<hr />
+<br />
+
+## Modal/Dialog
+
+- uses `context/modalContext` with React `useContext`
+- modal is visible if `isVisible` is not an empty string and is equal to whatever the desginated reveal string is
+
+e.g.
+
+```jsx
+// will reveal modal if the string is set to 'editPMHx'
+<div className="flex flex-col w-full">
+  {isVisible === "editPMHx" && <EditPMHx />}
+  <div className="flex flex-row w-full justify-between items-center">
+    <h1>
+      <strong>Past Medical History</strong>
+    </h1>
+    <Button onClick={handleModalClick} text="Edit" />
+  </div>
+  <DiseasesList diseases={userHealth.pmHx} />
+</div>
+```
+
+### `<ModalPortalTarget .../>`
+
+- use if you want to portal within the app
+- uses react portal to 'portal' the modal outside component the modal is located in
+- paired with `<Modal .../>`
+
+```jsx
+// ModalPortalTarget
+interface Props {
+  targetId: string; // name of the target for Modals to connect to
+}
+```
+
+Current Target iDs
+
+- `popupModal` (portals to `/index.html` of the app a.k.a outisde of `root`)
+
+### `<Modal .../>`
+
+- paired with `<ModalPortalTarget. .../>`
+- pair it with `<ModalHeader .../>` for a styled modal header if need be
+
+```jsx
+interface ModalProps {
+  children: JSX.Element;
+  wrapperId: string; // same as targetId of <ModalPortalTarget .../>
+}
+```
+
+### `<ModalHeader .../>`
+
+- exit icon will set the context to an empty string
+
+```jsx
+interface ModalHeaderProps {
+  headerText: string; // header text to display
+  button?: JSX.Element; // if you want a button next to the exit icon
+}
+```

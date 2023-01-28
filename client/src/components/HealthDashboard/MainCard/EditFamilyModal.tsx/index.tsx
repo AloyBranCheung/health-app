@@ -63,7 +63,7 @@ export default function EditFamilyModal() {
   return (
     <EditModal
       button={<Button onClick={handleAdd} text="Add" />}
-      wrapperId="dashboardModal"
+      wrapperId="popupModal"
       headerText="Edit Family List"
     >
       {isAddFamily ? (

@@ -27,7 +27,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 const queryClient = new QueryClient();
 LogRocket.init("zrcdeu/health-app-tracking");
 
-function App () {
+function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <AuthContextProvider>

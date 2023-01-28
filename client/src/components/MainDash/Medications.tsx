@@ -1,34 +1,36 @@
 import React, { useContext } from "react";
+// context
 import AuthContext from "../../context/authContext";
+import ModalContext from "../../context/modalContext";
+// components
 import Button from "../UI/Button";
 import Card from "../UI/Card";
 import MedicationPreview from "./MedicationPreview";
 import LoadingSpinner from "../UI/LoadingSpinner";
-import ModalContext from "../../context/modalContext";
 import EditMedications from "./EditMedications";
+// utils
+import { ModalVisibilityKeys } from "../../utils/modalVisibilityStrings";
 
 interface Props {
-  className?: string
+  className?: string;
 }
 
-export default function Medications ({ className }: Props) {
+export default function Medications({ className }: Props) {
   const { userHealth, isLoading } = useContext(AuthContext);
   const { isVisible, onVisible } = useContext(ModalContext);
 
   // open edit modal
   const handleEdit = () => {
-    onVisible("editMedications");
+    onVisible(ModalVisibilityKeys.EditMedications);
   };
 
   // medications list
   const medicationsList =
-    userHealth.medications.length === 0
-      ? (
+    userHealth.medications.length === 0 ? (
       <h1>Try adding a medication.</h1>
-        )
-      : (
-          userHealth.medications?.map((medication) => {
-            return (
+    ) : (
+      userHealth.medications?.map((medication) => {
+        return (
           <MedicationPreview
             key={medication._id}
             name={medication.name}
@@ -38,21 +40,21 @@ export default function Medications ({ className }: Props) {
             lastTaken={medication.lastTaken}
             nextDue={medication.nextDue}
           />
-            );
-          })
         );
+      })
+    );
 
   return (
     <Card className={`${className}`}>
-      {isLoading
-        ? (
+      {isLoading ? (
         <div className="p-5 flex flex-col gap-5 items-center justify-center h-full">
           <LoadingSpinner />
         </div>
-          )
-        : (
+      ) : (
         <div className="p-5 flex flex-col gap-5 h-full">
-          {isVisible === "editMedications" && <EditMedications />}
+          {isVisible === ModalVisibilityKeys.EditMedications && (
+            <EditMedications />
+          )}
           <div className="flex justify-between flex-row w-full items-center">
             <h1>
               <strong>My Medications</strong>
@@ -66,7 +68,7 @@ export default function Medications ({ className }: Props) {
             {medicationsList}
           </div>
         </div>
-          )}
+      )}
     </Card>
   );
 }

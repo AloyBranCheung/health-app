@@ -29,7 +29,7 @@ export default function ViewFamilyProfile({ mrn, familyName }: Props) {
   }, [mrn]);
 
   return (
-    <Modal wrapperId="dashboardModal">
+    <Modal wrapperId="popupModal">
       <div className="p-5 flex flex-col gap-5 max-h-96 md:max-h-mediumFull">
         <ModalHeader headerText={familyName} />
         <DisplayInformation healthData={data} />

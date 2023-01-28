@@ -1,8 +1,10 @@
 import React from "react";
-import MainDash from "../components/MainDash";
+// framer
 import { motion } from "framer-motion";
+// components
+import MainDash from "../components/MainDash";
 
-export default function MainDashboard () {
+export default function MainDashboard() {
   return (
     <motion.div
       initial={{ opacity: 0 }}

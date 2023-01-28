@@ -1,18 +1,43 @@
-import React, { useState } from "react";
+import React from "react";
 import { Button } from "@material-tailwind/react";
 import { Link, useNavigate } from "react-router-dom";
+// react-hook-form
+import { useForm } from "react-hook-form";
 //
 import useLogin from "../../hooks/react-query/useLogin";
 // components
-import Input from "../UI/Input";
+import InputForm from "../UI/FormElements/InputForm";
 import FormInputErrMsg from "../UI/FormInputErrMsg";
 import LoadingSpinner from "../UI/LoadingSpinner";
+// data validation
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+
+interface FormValues {
+  email: string;
+  password: string;
+}
+
+const loginFormDataValidationSchema = z.object({
+  email: z.string().email({ message: "Please enter a valid email." }),
+  password: z
+    .string()
+    .min(5, { message: "Password length must be at least 5 characters long." }),
+});
 
 export default function LoginModal() {
-  const [loginForm, setLoginForm] = useState({
-    email: "",
-    password: "",
+  const {
+    control,
+    handleSubmit: formSubmit,
+    formState: { errors },
+  } = useForm<FormValues>({
+    defaultValues: {
+      email: "",
+      password: "",
+    },
+    resolver: zodResolver(loginFormDataValidationSchema),
   });
+
   const { mutate, isError, isLoading } = useLogin();
 
   // navigate back home
@@ -21,17 +46,9 @@ export default function LoginModal() {
     navigate("/");
   };
 
-  // handle login input fields
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const name = e.target.name;
-    const value = e.target.value;
-    setLoginForm({ ...loginForm, [name]: value });
-  };
-
   // submit to db for authentication, receive JWT and cookie
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    mutate(loginForm);
+  const handleSubmit = (data: FormValues) => {
+    mutate(data);
   };
 
   return (
@@ -40,21 +57,21 @@ export default function LoginModal() {
       {isLoading ? (
         <LoadingSpinner />
       ) : (
-        <form onSubmit={handleSubmit} className="flex flex-col gap-5">
-          <Input
-            value={loginForm.email}
-            autoComplete="username"
-            onChange={handleChange}
-            name="email"
+        <form
+          onSubmit={formSubmit(handleSubmit)}
+          className="flex flex-col gap-5"
+        >
+          <InputForm
             label="Email"
+            name="email"
+            control={control}
+            errorMessage={errors?.email?.message}
           />
-          <Input
-            value={loginForm.password}
-            autoComplete="current-password"
-            type="password"
-            onChange={handleChange}
-            name="password"
+          <InputForm
             label="Password"
+            name="password"
+            control={control}
+            errorMessage={errors?.password?.message}
           />
           <div className="flex flex-row justify-around">
             <Button
