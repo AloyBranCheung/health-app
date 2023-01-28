@@ -1,7 +1,9 @@
 import React, { useContext, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import Card from "../UI/Card";
+// context
 import AuthContext from "../../context/authContext";
+import ModalContext from "../../context/modalContext";
+// components
+import Card from "../UI/Card";
 import LoadingSpinner from "../UI/LoadingSpinner";
 import Button from "../UI/Button";
 import BloodPressureChart from "./BloodPressureChart";
@@ -12,7 +14,7 @@ interface Props {
 }
 
 export default function Vitals({ className }: Props) {
-  const navigate = useNavigate();
+  const { onVisible, isVisible } = useContext(ModalContext);
   const { isLoading } = useContext(AuthContext);
   const [selectedOption, setSelectedOption] = useState("bloodPressure");
 

@@ -1,39 +1,41 @@
 import React, { useState, useContext } from "react";
+// context
 import ModalContext from "../../context/modalContext";
 import AuthContext from "../../context/authContext";
+// components
 import Button from "../UI/Button";
 import CopyClipboard from "./CopyClipboard";
 import EyeClosed from "../UI/EyeClosed";
 import EyeOpen from "../UI/EyeOpen";
-import EditMRN from "./EditMRN"
+import EditMRN from "./EditMRN";
+// utils
+import { ModalVisibilityKeys } from "../../utils/modalVisibilityStrings";
 
-export default function MRN () {
+export default function MRN() {
   const { user, userHealth } = useContext(AuthContext);
-  const { isVisible, onVisible } = useContext(ModalContext); 
+  const { isVisible, onVisible } = useContext(ModalContext);
   const [mrnVisible, setMrnVisible] = useState(false);
   const handleRevealMRN = () => {
     setMrnVisible((prev) => !prev);
   };
 
   const modalIsVisible = () => {
-    onVisible("editMRN");
-  }
+    onVisible(ModalVisibilityKeys.EditMRN);
+  };
 
   return (
     <div className="flex w-full flex-col bg-white rounded-xl shadow-xl p-5 gap-2">
-      {isVisible === "editMRN" && <EditMRN /> }
+      {isVisible === ModalVisibilityKeys.EditMRN && <EditMRN />}
       <div className="flex flex-row w-full justify-between items-center">
         <div className="flex gap-2">
           <h1>
             <strong>MRN</strong>
           </h1>
-          {mrnVisible
-            ? (
-           <EyeClosed handleRevealMRN={handleRevealMRN} />
-              )
-            : (
-           <EyeOpen handleRevealMRN={handleRevealMRN} />
-              )}
+          {mrnVisible ? (
+            <EyeClosed handleRevealMRN={handleRevealMRN} />
+          ) : (
+            <EyeOpen handleRevealMRN={handleRevealMRN} />
+          )}
         </div>
         <div>
           <Button onClick={modalIsVisible} text="Edit" />

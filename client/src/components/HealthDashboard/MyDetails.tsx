@@ -1,34 +1,38 @@
 import React, { useContext } from "react";
+// context
 import AuthContext from "../../context/authContext";
 import ModalContext from "../../context/modalContext";
+// components
 import LoadingSpinner from "../UI/LoadingSpinner";
 import Card from "../UI/Card";
 import MRN from "./MRN";
 import HealthHistory from "./HealthHistory";
 import Button from "../UI/Button";
 import EditPrimaryConcern from "./EditPrimaryConcern";
+// utils
+import { ModalVisibilityKeys } from "../../utils/modalVisibilityStrings";
 
 export interface MyDetailsProps {
-  className: string
+  className: string;
 }
 
-export default function MyDetails ({ className }: MyDetailsProps) {
+export default function MyDetails({ className }: MyDetailsProps) {
   const { isLoading, userHealth } = useContext(AuthContext);
   const { onVisible, isVisible } = useContext(ModalContext);
 
   const handleClick = () => {
-    onVisible("editPrimConc");
+    onVisible(ModalVisibilityKeys.EditPrimaryConcern);
   };
 
   return (
     <Card className={className}>
-      {isLoading
-        ? (
+      {isLoading ? (
         <LoadingSpinner />
-          )
-        : (
+      ) : (
         <div className="p-5 flex flex-col w-full gap-5 h-full">
-          {isVisible === "editPrimConc" && <EditPrimaryConcern />}
+          {isVisible === ModalVisibilityKeys.EditPrimaryConcern && (
+            <EditPrimaryConcern />
+          )}
           <div>
             <h1>
               <strong>My Details</strong>
@@ -52,7 +56,7 @@ export default function MyDetails ({ className }: MyDetailsProps) {
             <HealthHistory />
           </div>
         </div>
-          )}
+      )}
     </Card>
   );
 }

@@ -1,23 +1,27 @@
 import React, { useContext } from "react";
+// context
 import AuthContext from "../../../context/authContext";
 import ModalContext from "../../../context/modalContext";
+// components
 import LoadingSpinner from "../../UI/LoadingSpinner";
 import Button from "../../UI/Button";
 import Card from "../../UI/Card";
 import EditOtherTreatments from "./EditOtherTreatments";
+// utils
+import { ModalVisibilityKeys } from "../../../utils/modalVisibilityStrings";
 
 interface Props {
-  className: string
-  isLoading: boolean
+  className: string;
+  isLoading: boolean;
 }
 
-export default function OtherTreatments ({ className, isLoading }: Props) {
+export default function OtherTreatments({ className, isLoading }: Props) {
   const { userHealth } = useContext(AuthContext);
   const { onVisible, isVisible } = useContext(ModalContext);
 
   // Button click to open modal
   const handleClick = () => {
-    onVisible("editOtherTx");
+    onVisible(ModalVisibilityKeys.EditOtherTx);
   };
 
   // render list of treatments
@@ -39,19 +43,19 @@ export default function OtherTreatments ({ className, isLoading }: Props) {
         </div>
       </div>
     );
-  })
+  });
 
   return (
     <Card className={`${className} h-full`}>
       <div className="p-5 gap-5 flex flex-col h-full">
-        {isLoading
-          ? (
+        {isLoading ? (
           <LoadingSpinner />
-            )
-          : (
+        ) : (
           <>
             <div className="flex flex-row w-full items-center justify-between">
-              {isVisible === "editOtherTx" && <EditOtherTreatments />}
+              {isVisible === ModalVisibilityKeys.EditOtherTx && (
+                <EditOtherTreatments />
+              )}
               <div>
                 <h1>
                   <strong>Other Treatments</strong>
@@ -65,7 +69,7 @@ export default function OtherTreatments ({ className, isLoading }: Props) {
               {treatments}
             </div>
           </>
-            )}
+        )}
       </div>
     </Card>
   );

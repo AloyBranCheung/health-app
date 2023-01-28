@@ -1,10 +1,13 @@
 import React, { useContext, useState } from "react";
+// context
 import AuthContext from "../../../context/authContext";
-import Button from "../../UI/Button";
 import ModalContext from "../../../context/modalContext";
+// components
+import Button from "../../UI/Button";
 import ViewFamilyProfile from "./ViewFamilyProfile";
+import { ModalVisibilityKeys } from "../../../utils/modalVisibilityStrings";
 
-export default function FamilyList () {
+export default function FamilyList() {
   const { user } = useContext(AuthContext);
   const { onVisible, isVisible } = useContext(ModalContext);
   const [mrn, setMrn] = useState("");
@@ -14,7 +17,7 @@ export default function FamilyList () {
   const handleModal = (mrn: string, familyMemberName: string) => {
     setMrn(mrn);
     setFamilyMember(familyMemberName);
-    onVisible("viewProfile");
+    onVisible(ModalVisibilityKeys.ViewProfile);
   };
 
   const list = user.familyMembers.map((member) => {
@@ -54,12 +57,12 @@ export default function FamilyList () {
         </div>
       </div>
     );
-  })
+  });
 
   return (
     <>
       {list}
-      {isVisible === "viewProfile" && (
+      {isVisible === ModalVisibilityKeys.ViewProfile && (
         <ViewFamilyProfile mrn={mrn} familyName={familyMember} />
       )}
     </>

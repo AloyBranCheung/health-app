@@ -1,39 +1,43 @@
 import React, { useContext } from "react";
+// context
 import AuthContext from "../../context/authContext";
+import ModalContext from "../../context/modalContext";
+// components
 import Button from "../UI/Button";
 import Card from "../UI/Card";
 import LoadingSpinner from "../UI/LoadingSpinner";
 import ProfileDeets from "./ProfileDeets";
-import ModalContext from "../../context/modalContext";
 import EditProfile from "../EditProfile/EditProfile";
 import ViewProfilePics from "../ViewProfilePics";
+// utils
+import { ModalVisibilityKeys } from "../../utils/modalVisibilityStrings";
 
 interface Props {
-  className: string
+  className: string;
 }
 
-export default function MyProfile ({ className }: Props) {
+export default function MyProfile({ className }: Props) {
   const { user, isLoading } = useContext(AuthContext);
   const { isVisible, onVisible } = useContext(ModalContext);
 
   const handleClick = () => {
-    onVisible("editProfile");
+    onVisible(ModalVisibilityKeys.EditProfile);
   };
 
   const handleViewProfilePics = () => {
-    onVisible("viewProfilePics");
+    onVisible(ModalVisibilityKeys.ViewProfilePics);
   };
 
   return (
     <Card className={className}>
-      {isLoading
-        ? (
+      {isLoading ? (
         <LoadingSpinner />
-          )
-        : (
+      ) : (
         <>
-          {isVisible === "editProfile" && <EditProfile />}
-          {isVisible === "viewProfilePics" && <ViewProfilePics />}
+          {isVisible === ModalVisibilityKeys.EditProfile && <EditProfile />}
+          {isVisible === ModalVisibilityKeys.ViewProfilePics && (
+            <ViewProfilePics />
+          )}
           <div className="p-5 flex flex-col gap-5 w-full md:h-full">
             <div className="flex flex-row items-center justify-between w-full">
               <h1>
@@ -59,7 +63,7 @@ export default function MyProfile ({ className }: Props) {
             </div>
           </div>
         </>
-          )}
+      )}
     </Card>
   );
 }
