@@ -4,12 +4,12 @@ import Card from "./Card";
 import Portal from "./Portal";
 import { motion } from "framer-motion";
 
-interface Props {
-  children: JSX.Element
-  wrapperId: string
+interface ModalProps {
+  children: JSX.Element;
+  wrapperId: string;
 }
 
-export default function Modal ({ children, wrapperId }: Props) {
+export default function Modal({ children, wrapperId }: ModalProps) {
   const { onVisible } = useContext(ModalContext);
 
   const handleBackdropClick = () => {

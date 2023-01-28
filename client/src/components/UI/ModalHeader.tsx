@@ -2,12 +2,12 @@ import React, { useContext } from "react";
 import ExitIcon from "../UI/ExitIcon";
 import ModalContext from "../../context/modalContext";
 
-interface Props {
-  headerText: string
-  button?: JSX.Element
+interface ModalHeaderProps {
+  headerText: string;
+  button?: JSX.Element;
 }
 
-export default function ModalHeader ({ headerText, button }: Props) {
+export default function ModalHeader({ headerText, button }: ModalHeaderProps) {
   const { onVisible } = useContext(ModalContext);
 
   // Exit Icon
