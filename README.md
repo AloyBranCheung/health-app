@@ -30,7 +30,19 @@ landing page made with tailwindblocks and hyperui
 
 Disclaimer: this is a for fun project, not to be used for actual health-related purposes
 
+Docs
+
+```
+npm run storybook --prefix client
+```
+
 To Start in Developer Mode:
+
+Install
+
+```
+npm install --prefix api && npm install --prefix client
+```
 
 Server
 
