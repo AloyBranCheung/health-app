@@ -13,8 +13,10 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 16
+      - name: Start local backend
+        run: cd api && npm install && npm run start
       - name: Install dependencies
-        run: cd client && ls && npm ci
+        run: cd client && npm ci
       - name: Install Playwright Browsers
         run: cd client && npx playwright install --with-deps
       - name: Run Playwright tests
