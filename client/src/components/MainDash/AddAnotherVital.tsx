@@ -1,15 +1,14 @@
 import React from "react";
 // components
-import Modal from "../UI/Modal";
-import ModalHeader from "../UI/ModalHeader";
+import EditModal from "../UI/EditModal";
+import PrimaryDropdown from "../UI/FormElements/PrimaryDropdown";
 
 export default function AddAnotherVital() {
   return (
-    <Modal wrapperId="popupModal">
-      <div>
-        <ModalHeader headerText="Add Vital Sign" />
-        <div>Hello World</div>
-      </div>
-    </Modal>
+    <EditModal wrapperId="popupModal" headerText="Add Vital Sign">
+      <form>
+        <PrimaryDropdown options={["alpha", "beta", "charlie"]} />
+      </form>
+    </EditModal>
   );
 }

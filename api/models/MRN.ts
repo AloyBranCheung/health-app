@@ -137,16 +137,16 @@ const HealthSchema = new mongoose.Schema(
       type: [
         {
           date: {
-            type: String,
-            default: "YY-MM-DD",
+            type: Number,
+            required: true,
           },
           time: {
-            type: String,
-            default: "23:59",
+            type: Number,
+            required: true,
           },
           heartRate: {
-            type: String,
-            default: "69",
+            type: Number,
+            required: true,
           },
         },
       ],
@@ -156,20 +156,20 @@ const HealthSchema = new mongoose.Schema(
       type: [
         {
           date: {
-            type: String,
-            default: "YY-MM-DD",
+            type: Number,
+            required: true,
           },
           time: {
-            type: String,
-            default: "23:59",
+            type: Number,
+            required: true,
           },
           sys: {
-            type: String,
-            default: "120",
+            type: Number,
+            required: true,
           },
           dia: {
-            type: String,
-            default: "80",
+            type: Number,
+            required: true,
           },
         },
       ],
