@@ -1,8 +1,6 @@
 import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import PrimaryDropdown, {
-  PrimaryDropdownProps,
-} from "../../components/UI/FormElements/PrimaryDropdown";
+import PrimaryDropdown from "../../components/UI/FormElements/PrimaryDropdown";
 
 export default {
   title: "Components/Primary Dropdown",
@@ -10,12 +8,16 @@ export default {
 } as ComponentMeta<typeof PrimaryDropdown>;
 
 //👇 We create a “template” of how args map to rendering
-const Template: ComponentStory<typeof PrimaryDropdown> = (
-  args: PrimaryDropdownProps
-) => <PrimaryDropdown {...args} />;
+const Template: ComponentStory<typeof PrimaryDropdown> = (args) => (
+  <PrimaryDropdown {...args} />
+);
 
 export const Example = Template.bind({});
 
 Example.args = {
-  options: ["alpha", "beta", "charlie"],
+  options: [
+    { id: "alpha", name: "alpha" },
+    { id: "beta", name: "beta" },
+    { id: "charlie", name: "charlie" },
+  ],
 };

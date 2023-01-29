@@ -27,8 +27,8 @@ export default function Vitals({ className }: Props) {
 
   const handleAddAnotherVital = () => {
     onVisible(ModalVisibilityKeys.AddAnotherVitals);
-    console.log("hello");
   };
+
   return (
     <Card className={className}>
       <div className="flex flex-col h-full p-5 gap-5">

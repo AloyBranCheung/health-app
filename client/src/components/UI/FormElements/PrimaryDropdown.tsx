@@ -1,37 +1,47 @@
-import { useState, ChangeEvent } from "react";
-
-export interface PrimaryDropdownProps {
-  options: string[];
+import { Control, Controller, FieldValues, Path } from "react-hook-form";
+import FormInputErrMsg from "../FormInputErrMsg";
+export interface PrimaryDropdownProps<FV extends FieldValues> {
+  options: { id: string; name: string }[];
+  name: Path<FV>;
+  control: Control<FV>;
   required?: boolean;
 }
 
-export default function PrimaryDropdown({
+export default function PrimaryDropdown<FV extends FieldValues>({
   options,
   required,
-}: PrimaryDropdownProps) {
-  const [selectValue, setSelectValue] = useState(options[0] || "");
-
-  const handleSelectChange = (e: ChangeEvent<HTMLSelectElement>) => {
-    const value = e.target.value;
-    setSelectValue(value);
-  };
-
+  control,
+  name,
+}: PrimaryDropdownProps<FV>) {
   const menuOptions = options.map((option) => (
-    <option className="bg-white text-mainFontColor" value={option}>
-      {option}
+    <option
+      key={option.id}
+      className="bg-white text-mainFontColor"
+      value={option.id}
+    >
+      {option.name}
     </option>
   ));
 
   return (
-    <select
-      required={required}
-      onChange={handleSelectChange}
-      value={selectValue}
-      className="py-2 px-4 bg-mainFontColor text-white rounded-lg outline-none"
-    >
-      <option className="hidden"></option>
-      {menuOptions}
-    </select>
+    <Controller
+      control={control}
+      name={name}
+      render={({ field: { onChange, value }, fieldState: { error } }) => (
+        <div>
+          <select
+            required={required}
+            onChange={onChange}
+            value={value}
+            className="py-2 px-4 bg-mainFontColor text-white rounded-lg outline-none"
+          >
+            <option className="hidden"></option>
+            {menuOptions}
+          </select>
+          {error?.message && <FormInputErrMsg text={error.message} />}
+        </div>
+      )}
+    />
   );
 }
 
