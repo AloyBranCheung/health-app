@@ -53,6 +53,9 @@ module.exports = {
         almostFull: "90%",
         mediumFull: "75vh",
       },
+      transitionProperty: {
+        outline: "outline",
+      },
     },
   },
   plugins: [],

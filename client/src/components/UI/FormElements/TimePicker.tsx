@@ -19,7 +19,7 @@ export default function TimePicker<FV extends FieldValues>({
           onChange={onChange}
           value={value}
           type="time"
-          className="border-2 border-solid border-gray-200 focus:border-mainFontColor py-2 px-4 rounded-lg"
+          className="border-2 border-solid border-gray-200 focus:outline-mainFontColor transition-outline py-2 px-4 rounded-lg"
         />
       )}
     />

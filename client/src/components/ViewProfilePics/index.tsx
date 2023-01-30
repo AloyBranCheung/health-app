@@ -5,7 +5,7 @@ import Modal from "../UI/Modal";
 import ModalHeader from "../UI/ModalHeader";
 import LoadingSpinner from "../UI/LoadingSpinner";
 
-import useViewProfilePics from "../../hooks/useViewProfilePics";
+import useViewProfilePics from "../../hooks/react-query/useViewProfilePics";
 import ProfilePicsGallery from "./ProfilePicsGallery";
 
 export default function ViewProfilePics() {

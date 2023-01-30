@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
+import queryKeys from "./keys";
 
 export default function useViewProfilePics() {
   const fetchProfilePics = async () => {
@@ -14,7 +15,7 @@ export default function useViewProfilePics() {
   };
 
   return useQuery({
-    queryKey: ["getallprofilepics"],
+    queryKey: queryKeys.profilepics.getAllProfilePics.queryKey,
     queryFn: fetchProfilePics,
   });
 }
