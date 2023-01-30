@@ -29,14 +29,17 @@ export default function InputForm<FV extends FieldValues>({
 }: InputFormProps<FV>) {
   return (
     <div>
-      <div
-        className={`shadow pt-4 bg-white relative flex border-2 border-gray-200 rounded-md transition-all focus-within:border-mainFontColor focus-within:transition-all ${className}`}
-      >
-        <Controller
-          control={control}
-          name={name}
-          render={({ field: { onChange, value, name } }) => (
-            <>
+      <Controller
+        control={control}
+        name={name}
+        render={({
+          field: { onChange, value, name },
+          fieldState: { error },
+        }) => (
+          <>
+            <div
+              className={`shadow pt-4 bg-white relative flex border-2 border-gray-200 rounded-md transition-all focus-within:border-mainFontColor focus-within:transition-all ${className}`}
+            >
               <input
                 value={value}
                 name={name}
@@ -50,16 +53,19 @@ export default function InputForm<FV extends FieldValues>({
                 onFocus={onFocus}
                 readOnly={readOnly}
               />
-            </>
-          )}
-        />
-        <label
-          className="transition-all absolute left-4 top-2 z-10 text-mainFontColor peer-placeholder-shown:text-gray-300 text-sm peer-placeholder-shown:text-lg peer-placeholder-shown:top-4 peer-focus:top-2 peer-focus:text-sm peer-focus:text-mainFontColor"
-          htmlFor={name}
-        >
-          {label}
-        </label>
-      </div>
+              <label
+                className="transition-all absolute left-4 top-2 z-10 text-mainFontColor peer-placeholder-shown:text-gray-300 text-sm peer-placeholder-shown:text-lg peer-placeholder-shown:top-4 peer-focus:top-2 peer-focus:text-sm peer-focus:text-mainFontColor"
+                htmlFor={name}
+              >
+                {label}
+              </label>
+            </div>
+            {error?.message && (
+              <FormInputErrMsg className="ml-1" text={error?.message} />
+            )}
+          </>
+        )}
+      />
       {errorMessage && <FormInputErrMsg className="ml-1" text={errorMessage} />}
     </div>
   );

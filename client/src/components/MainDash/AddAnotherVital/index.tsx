@@ -10,17 +10,17 @@ import EditModal from "../../UI/EditModal";
 import PrimaryDropdown from "../../UI/FormElements/PrimaryDropdown";
 import DatePicker from "../../UI/FormElements/DatePicker";
 import TimePicker from "../../UI/FormElements/TimePicker";
+import InputForm from "../../UI/FormElements/InputForm";
 // validation
 import { z } from "zod";
-import BloodPressureForm from "./BloodPressureForm";
 
 const validationSchema = z.object({
   vitalsType: z.string(),
   date: z.string(),
   time: z.string(),
-  sys: z.number().optional(),
-  dia: z.number().optional(),
-  heartRate: z.number().optional(),
+  sys: z.string().optional(),
+  dia: z.string().optional(),
+  heartRate: z.string().optional(),
 });
 
 export default function AddAnotherVital() {
@@ -29,17 +29,19 @@ export default function AddAnotherVital() {
       vitalsType: "bloodPressure",
       date: dayjs(new Date()).format("YYYY-MM-DD"),
       time: dayjs(new Date()).format("HH:mm"),
+      sys: "",
+      dia: "",
+      heartRate: "",
     },
     resolver: zodResolver(validationSchema),
   });
 
   const handleFormSubmit = (data: z.infer<typeof validationSchema>) => {
     console.log(data);
+    // TODO: data manipulation before submitting
   };
 
   const watchVitalsType = watch("vitalsType");
-
-  console.log(watch());
 
   return (
     <EditModal wrapperId="popupModal" headerText="Add Vital Sign">
@@ -60,12 +62,30 @@ export default function AddAnotherVital() {
           <TimePicker name="time" control={control} />
         </div>
         {watchVitalsType === "bloodPressure" ? (
-          <BloodPressureForm />
+          <div className="flex flex-col gap-5">
+            <InputForm
+              name="sys"
+              control={control}
+              label="Systolic Blood Pressure"
+              type="number"
+            />
+            <InputForm
+              name="dia"
+              control={control}
+              label="Diastolic Blood Pressure"
+              type="number"
+            />
+          </div>
         ) : (
-          <div>heart rate form</div>
+          <InputForm
+            name="heartRate"
+            control={control}
+            type="number"
+            label="Heart Rate"
+          />
         )}
         <div className="flex justify-end">
-          <Button text="test" type="submit" />
+          <Button text="Submit" type="submit" />
         </div>
       </form>
     </EditModal>

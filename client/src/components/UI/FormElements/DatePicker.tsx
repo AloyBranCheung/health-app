@@ -15,7 +15,7 @@ export default function DatePicker<FV extends FieldValues>({
       name={name}
       render={({ field: { onChange, value } }) => (
         <input
-          className="border-2 border-solid border-mainFontColor py-2 px-4 rounded-lg"
+          className="border-2 border-solid border-gray-200 focus:border-mainFontColor py-2 px-4 rounded-lg"
           onChange={onChange}
           value={value}
           type="date"

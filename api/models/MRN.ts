@@ -145,7 +145,7 @@ const HealthSchema = new mongoose.Schema(
             required: true,
           },
           heartRate: {
-            type: Number,
+            type: String,
             required: true,
           },
         },
@@ -164,11 +164,11 @@ const HealthSchema = new mongoose.Schema(
             required: true,
           },
           sys: {
-            type: Number,
+            type: String,
             required: true,
           },
           dia: {
-            type: Number,
+            type: String,
             required: true,
           },
         },

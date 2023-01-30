@@ -1,12 +1,12 @@
 export interface BloodPressure {
   date: string;
   time: string;
-  sys: number;
-  dia: number;
+  sys: string;
+  dia: string;
 }
 
 export interface HeartRate {
   date: string;
   time: string;
-  heartRate: number;
+  heartRate: string;
 }
