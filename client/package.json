@@ -13,6 +13,7 @@
     "@typescript-eslint/typescript-estree": "^5.45.0",
     "axios": "^1.2.5",
     "chart.js": "^3.9.1",
+    "dayjs": "^1.11.7",
     "dotenv": "^16.0.3",
     "framer-motion": "^7.2.0",
     "jest": "^28.1.3",

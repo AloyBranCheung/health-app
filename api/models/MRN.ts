@@ -137,11 +137,11 @@ const HealthSchema = new mongoose.Schema(
       type: [
         {
           date: {
-            type: Number,
+            type: String,
             required: true,
           },
           time: {
-            type: Number,
+            type: String,
             required: true,
           },
           heartRate: {
@@ -156,11 +156,11 @@ const HealthSchema = new mongoose.Schema(
       type: [
         {
           date: {
-            type: Number,
+            type: String,
             required: true,
           },
           time: {
-            type: Number,
+            type: String,
             required: true,
           },
           sys: {
