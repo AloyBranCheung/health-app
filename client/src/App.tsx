@@ -5,6 +5,9 @@ import LogRocket from "logrocket";
 // contexts
 import { AuthContextProvider } from "./context/authContext";
 import { ModalContextProvider } from "./context/modalContext";
+// toast
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 // components
 import Home from "./pages/Home";
 import Login from "./pages/Login";
@@ -32,28 +35,31 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <AuthContextProvider>
         <ModalContextProvider>
-          <BrowserRouter>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/signup" element={<Signup />} />
-              <Route path="/contactus" element={<ContactUs />} />
-              <Route path="/careers" element={<Careers />} />
-              <Route path="/aboutus" element={<AboutUs />} />
-              <Route path="/whatsnew" element={<WhatsNews />} />
-              <Route path="/" element={<ProtectRoute />}>
-                <Route path="/dashboard/" element={<MainDashboard />} />
-                <Route path="/dashboard/myhealth" element={<MyHealth />} />
-                <Route
-                  path="/dashboard/medication"
-                  element={<PrescriptionDashboard />}
-                />
-                <Route path="/dashboard/results" element={<Results />} />
-                <Route path="/dashboard/find" element={<SearchMD />} />
-                <Route path="/dashboard/messages" element={<Messages />} />
-              </Route>
-            </Routes>
-          </BrowserRouter>
+          <div>
+            <ToastContainer />
+            <BrowserRouter>
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/signup" element={<Signup />} />
+                <Route path="/contactus" element={<ContactUs />} />
+                <Route path="/careers" element={<Careers />} />
+                <Route path="/aboutus" element={<AboutUs />} />
+                <Route path="/whatsnew" element={<WhatsNews />} />
+                <Route path="/" element={<ProtectRoute />}>
+                  <Route path="/dashboard/" element={<MainDashboard />} />
+                  <Route path="/dashboard/myhealth" element={<MyHealth />} />
+                  <Route
+                    path="/dashboard/medication"
+                    element={<PrescriptionDashboard />}
+                  />
+                  <Route path="/dashboard/results" element={<Results />} />
+                  <Route path="/dashboard/find" element={<SearchMD />} />
+                  <Route path="/dashboard/messages" element={<Messages />} />
+                </Route>
+              </Routes>
+            </BrowserRouter>
+          </div>
         </ModalContextProvider>
       </AuthContextProvider>
     </QueryClientProvider>

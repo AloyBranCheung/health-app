@@ -1,5 +1,9 @@
-import React from "react";
-//
+import React, { useContext, useEffect } from "react";
+// context
+import AuthContext from "src/context/authContext";
+// react-query
+import useUpdateVitals from "src/hooks/react-query/POST/useUpdateVitals";
+// dayjs
 import dayjs from "dayjs";
 // react-hook-form
 import { useForm } from "react-hook-form";
@@ -24,7 +28,15 @@ const validationSchema = z.object({
 });
 
 export default function AddAnotherVital() {
-  const { control, handleSubmit, watch } = useForm({
+  const { user } = useContext(AuthContext);
+  const { mutate, error, isError, isLoading, isSuccess } = useUpdateVitals();
+  const {
+    control,
+    handleSubmit,
+    watch,
+    reset,
+    formState: { isSubmitSuccessful },
+  } = useForm({
     defaultValues: {
       vitalsType: "bloodPressure",
       date: dayjs(new Date()).format("YYYY-MM-DD"),
@@ -37,8 +49,30 @@ export default function AddAnotherVital() {
   });
 
   const handleFormSubmit = (data: z.infer<typeof validationSchema>) => {
-    console.log(data);
-    // TODO: data manipulation before submitting
+    const dataToSend = {
+      userid: user._id,
+      data:
+        data.vitalsType === "bloodPressure"
+          ? {
+              [data.vitalsType]: {
+                date: data.date,
+                time: data.time,
+                sys: data.sys,
+                dia: data.dia,
+                // heartRate: data.heartRate,
+              },
+            }
+          : {
+              [data.vitalsType]: {
+                date: data.date,
+                time: data.time,
+                // sys: data.sys,
+                // dia: data.dia,
+                heartRate: data.heartRate,
+              },
+            },
+    };
+    mutate(dataToSend);
   };
 
   const watchVitalsType = watch("vitalsType");
