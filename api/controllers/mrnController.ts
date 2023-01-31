@@ -73,18 +73,14 @@ export const updateInformation = async (
   try {
     const userInfo = await User.findById(userId);
     const mrn = userInfo?.MRN;
-    try {
-      const updatedInformation = await MRN.findByIdAndUpdate(
-        mrn,
-        {
-          $set: req.body,
-        },
-        { new: true, runValidators: true }
-      );
-      res.json(updatedInformation);
-    } catch (error) {
-      next(error);
-    }
+    const updatedInformation = await MRN.findByIdAndUpdate(
+      mrn,
+      {
+        $set: req.body,
+      },
+      { new: true, runValidators: true }
+    );
+    res.json(updatedInformation);
   } catch (error) {
     next(error);
   }
