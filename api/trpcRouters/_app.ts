@@ -9,6 +9,7 @@ export const procedure = t.procedure;
 import greetingRouter from "./greetingRouter";
 
 export const appRouter = router({
+  // TODO: delete route
   greeting: greetingRouter,
 });
 
