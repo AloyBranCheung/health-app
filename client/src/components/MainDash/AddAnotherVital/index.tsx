@@ -1,13 +1,13 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 // context
 import AuthContext from "src/context/authContext";
-// react-query
-import useUpdateVitals from "src/hooks/react-query/POST/useUpdateVitals";
 // dayjs
 import dayjs from "dayjs";
 // react-hook-form
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+// trpc mutation
+import useAddVitalSign from "src/hooks/react-query/POST/useAddVitalSign";
 // components
 import Button from "../../UI/Button";
 import EditModal from "../../UI/EditModal";
@@ -29,7 +29,7 @@ const validationSchema = z.object({
 
 export default function AddAnotherVital() {
   const { user } = useContext(AuthContext);
-  const { mutate, error, isError, isLoading, isSuccess } = useUpdateVitals();
+  const { mutate, error, isError, isLoading, isSuccess } = useAddVitalSign();
   const {
     control,
     handleSubmit,

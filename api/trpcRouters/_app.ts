@@ -6,11 +6,10 @@ export const router = t.router;
 export const procedure = t.procedure;
 
 // routers
-import greetingRouter from "./greetingRouter";
+import mrnRouter from "./mrnRouter";
 
 export const appRouter = router({
-  // TODO: delete route
-  greeting: greetingRouter,
+  mrn: mrnRouter,
 });
 
 export type AppRouter = typeof appRouter;
