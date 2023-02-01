@@ -3,16 +3,18 @@ import express, { Request, Response, NextFunction } from "express";
 import mongoose from "mongoose";
 import cors from "cors";
 import cookieParser from "cookie-parser";
-
+import * as trpcExpress from "@trpc/server/adapters/express";
 //interfaces
 import { Error } from "./types";
-
 // routes
 import userRoute from "./routes/userRoute";
 import mrnRoute from "./routes/mrnRoute";
 import dashboardRoute from "./routes/dashboardRoute";
 import ProfilePicRoute from "./routes/ProfilePicRoute";
+// trpc root router
+import appRouter from "./trpcRouters/_app";
 
+// express
 const app = express();
 const PORT = process.env.PORT || 3001;
 
@@ -35,6 +37,12 @@ const connectToMongoose = async () => {
 app.use(cookieParser());
 app.use(express.json());
 app.use(cors());
+app.use(
+  "/api/trpc",
+  trpcExpress.createExpressMiddleware({
+    router: appRouter,
+  })
+);
 app.use("/api/user", userRoute);
 app.use("/api/mrn", mrnRoute);
 app.use("/api/dashboard", dashboardRoute);
