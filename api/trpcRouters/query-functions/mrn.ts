@@ -6,8 +6,8 @@ export const getAllHealthInformationByUserId = async (userid: string) => {
     const userDocument = await User.findById(userid);
     const mrn = userDocument?.MRN;
     const healthInformation = await MRN.findById(mrn);
-    return healthInformation;
+    if (healthInformation) return healthInformation.toJSON();
   } catch (error) {
-    return error;
+    console.log(error);
   }
 };

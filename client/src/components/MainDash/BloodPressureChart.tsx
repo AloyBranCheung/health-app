@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import AuthContext from "src/context/authContext";
 // react-query
 import useGetAllHealthInformationByUserId from "src/hooks/react-query/queries/useGetAllHealthInformationByUserId";
 // chartjs
@@ -15,9 +16,10 @@ import {
 import { Line } from "react-chartjs-2";
 // types
 import { BloodPressure } from "src/@types/Vitals";
-screenY;
+
 export default function BloodPressureChart() {
-  const { data: userHealth } = useGetAllHealthInformationByUserId();
+  const { user } = useContext(AuthContext);
+  const { data: userHealth } = useGetAllHealthInformationByUserId(user._id);
 
   const [bpLabels, setBpLabels] = useState([""]);
   const [bpSys, setBpSys] = useState([""]);
@@ -29,7 +31,7 @@ export default function BloodPressureChart() {
     const bloodPresDia = [""];
     // blood pressure data
     if (userHealth) {
-      const sortBp = userHealth.bloodPressure.sort(
+      const sortBp = userHealth?.bloodPressure.sort(
         (a: BloodPressure, b: BloodPressure) => {
           return Number(new Date(b.date)) - Number(new Date(a.date));
         }

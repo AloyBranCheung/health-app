@@ -31,7 +31,7 @@ const validationSchema = z.object({
 
 export default function AddAnotherVital() {
   const { user } = useContext(AuthContext);
-  const { mutate, error, isError, isLoading, isSuccess } = useAddVitalSign();
+  const { mutate, isError, isLoading, isSuccess } = useAddVitalSign();
   const { control, handleSubmit, watch, reset } = useForm({
     defaultValues: {
       vitalsType: "bloodPressure",

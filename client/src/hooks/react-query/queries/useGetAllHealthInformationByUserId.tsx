@@ -1,10 +1,10 @@
-import { useContext } from "react";
-import AuthContext from "src/context/authContext";
-//
-import { trpc } from "src/utils/trpc";
+// types/utils
+import { trpc, RouterInput } from "src/utils/trpc";
 
-export default function useGetAllHealthInformationByUserId() {
-  const { user } = useContext(AuthContext);
+type HealthInformationRouterInput = RouterInput["mrn"]["getHealthInformation"];
 
-  return trpc.mrn.getHealthInformation.useQuery(user._id);
+export default function useGetAllHealthInformationByUserId(
+  input: HealthInformationRouterInput
+) {
+  return trpc.mrn.getHealthInformation.useQuery(input);
 }
