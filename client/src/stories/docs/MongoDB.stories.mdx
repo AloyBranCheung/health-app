@@ -23,8 +23,26 @@ import { Meta } from "@storybook/addon-docs";
   - one way link
 - `familyMembers` contains an `MRN` that links to a document in `healthinfos`
 
-### Routes
+### Routes (Express)
 
 Update health information by userid
 
 `serverUrl.../api/mrn/healthinformation/:userid`
+
+Get health information document by userid
+
+`serverUrl.../api/mrn/healthinformation/:userid`
+
+### Routes (tRPC)
+
+GET health information by userid
+
+- input: userid
+
+`appRouter.mrn.getHealthInformation`
+
+POST to add blood pressure or heart rate
+
+- input blood pressure/heart rate mongoose schema fields
+
+`appRouter.mrn.addVitalSign`

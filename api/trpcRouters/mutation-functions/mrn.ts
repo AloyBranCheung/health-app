@@ -9,19 +9,17 @@ import { addVitalSignSchema } from "../../validators/mrn";
 export const addVitalSign = async (
   inputData: z.infer<typeof addVitalSignSchema>
 ) => {
-  console.log(inputData);
-  const { userid, bloodPressure, heartRate } = inputData;
+  const { userid, data } = inputData;
   try {
     const userDocument = await User.findById(userid);
     const mrn = userDocument?.MRN;
     const updateMRNDocument = await MRN.findByIdAndUpdate(
       mrn,
-      { $push: bloodPressure || heartRate },
+      { $push: data },
       { new: true, runValidators: true }
     );
     return updateMRNDocument;
   } catch (error) {
-    console.error(error);
     return error;
   }
 };
