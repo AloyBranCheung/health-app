@@ -28,6 +28,7 @@ import Results from "./pages/Results";
 import Messages from "./pages/Messages";
 // react-query
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 // react-query
 const queryClient = new QueryClient();
@@ -41,6 +42,7 @@ function App() {
   return (
     <trpc.Provider client={trpcClient} queryClient={queryClient}>
       <QueryClientProvider client={queryClient}>
+        <ReactQueryDevtools initialIsOpen={false} />
         <AuthContextProvider>
           <ModalContextProvider>
             <div>
