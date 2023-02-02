@@ -15,6 +15,8 @@ import PrimaryDropdown from "../../UI/FormElements/PrimaryDropdown";
 import DatePicker from "../../UI/FormElements/DatePicker";
 import TimePicker from "../../UI/FormElements/TimePicker";
 import InputForm from "../../UI/FormElements/InputForm";
+import LoadingSpinner from "src/components/UI/LoadingSpinner";
+import FormInputErrMsg from "src/components/UI/FormInputErrMsg";
 // validation
 import { z } from "zod";
 
@@ -30,13 +32,7 @@ const validationSchema = z.object({
 export default function AddAnotherVital() {
   const { user } = useContext(AuthContext);
   const { mutate, error, isError, isLoading, isSuccess } = useAddVitalSign();
-  const {
-    control,
-    handleSubmit,
-    watch,
-    reset,
-    formState: { isSubmitSuccessful },
-  } = useForm({
+  const { control, handleSubmit, watch, reset } = useForm({
     defaultValues: {
       vitalsType: "bloodPressure",
       date: dayjs(new Date()).format("YYYY-MM-DD"),
@@ -49,30 +45,35 @@ export default function AddAnotherVital() {
   });
 
   const handleFormSubmit = (data: z.infer<typeof validationSchema>) => {
-    const dataToSend = {
-      userid: user._id,
-      data:
-        data.vitalsType === "bloodPressure"
-          ? {
-              [data.vitalsType]: {
-                date: data.date,
-                time: data.time,
-                sys: data.sys,
-                dia: data.dia,
-                // heartRate: data.heartRate,
-              },
-            }
-          : {
-              [data.vitalsType]: {
-                date: data.date,
-                time: data.time,
-                // sys: data.sys,
-                // dia: data.dia,
-                heartRate: data.heartRate,
-              },
-            },
-    };
-    mutate(dataToSend);
+    const { vitalsType, date, time, sys, dia, heartRate } = data;
+    if (vitalsType === "bloodPressure") {
+      const bloodPressureData = {
+        userid: user._id,
+        data: {
+          bloodPressure: {
+            date,
+            time,
+            sys: sys!,
+            dia: dia!,
+          },
+        },
+      };
+      mutate(bloodPressureData);
+      if (isSuccess) reset();
+    } else {
+      const heartRateData = {
+        userid: user._id,
+        data: {
+          heartRate: {
+            date,
+            time,
+            heartRate: heartRate!,
+          },
+        },
+      };
+      mutate(heartRateData);
+      if (isSuccess) reset();
+    }
   };
 
   const watchVitalsType = watch("vitalsType");
@@ -119,8 +120,13 @@ export default function AddAnotherVital() {
           />
         )}
         <div className="flex justify-end">
-          <Button text="Submit" type="submit" />
+          {isLoading ? (
+            <LoadingSpinner />
+          ) : (
+            <Button text="Submit" type="submit" />
+          )}
         </div>
+        {isError && <FormInputErrMsg text="Something went wrong." />}
       </form>
     </EditModal>
   );
