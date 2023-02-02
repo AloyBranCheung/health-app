@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import track from "react-tracking";
 import LogRocket from "logrocket";
@@ -30,15 +30,25 @@ import Messages from "./pages/Messages";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
-// react-query
-const queryClient = new QueryClient();
 LogRocket.init("zrcdeu/health-app-tracking");
-// trpc
-const trpcClient = trpc.createClient({
-  links: [httpBatchLink({ url: `${process.env.REACT_APP_BACKEND_URL}/trpc` })],
-});
+// // react-query
+// const queryClient = new QueryClient();
+// // trpc
+// const trpcClient = trpc.createClient({
+//   links: [httpBatchLink({ url: `${process.env.REACT_APP_BACKEND_URL}/trpc` })],
+// });
 
 function App() {
+  const [queryClient] = useState(() => new QueryClient());
+  const [trpcClient] = useState(() =>
+    trpc.createClient({
+      links: [
+        httpBatchLink({
+          url: "http://localhost:5000/trpc",
+        }),
+      ],
+    })
+  );
   return (
     <trpc.Provider client={trpcClient} queryClient={queryClient}>
       <QueryClientProvider client={queryClient}>
