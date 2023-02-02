@@ -1,20 +1,11 @@
-import { useQueryClient } from "@tanstack/react-query";
 import { trpc } from "src/utils/trpc";
 
 export default function useAddVitalSign() {
-  const queryClient = useQueryClient();
+  const utils = trpc.useContext();
 
   return trpc.mrn.addVitalSign.useMutation({
-    onSuccess(_, variables) {
-      queryClient.invalidateQueries({
-        queryKey: [
-          ["mrn", "getHealthInformation"],
-          {
-            input: variables.userid,
-            type: "query",
-          },
-        ],
-      });
+    onSuccess() {
+      utils.mrn.getHealthInformation.invalidate();
     },
   });
 }

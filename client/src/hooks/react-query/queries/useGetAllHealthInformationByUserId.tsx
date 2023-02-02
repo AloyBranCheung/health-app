@@ -6,7 +6,5 @@ type HealthInformationRouterInput = RouterInput["mrn"]["getHealthInformation"];
 export default function useGetAllHealthInformationByUserId(
   input: HealthInformationRouterInput
 ) {
-  return trpc.mrn.getHealthInformation.useQuery(input, {
-    queryKey: ["mrn.getHealthInformation", "getallhealthinformation"],
-  });
+  return trpc.mrn.getHealthInformation.useQuery(input);
 }
