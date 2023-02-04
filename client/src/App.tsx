@@ -44,11 +44,12 @@ function App() {
     trpc.createClient({
       links: [
         httpBatchLink({
-          url: "http://localhost:5000/trpc",
+          url: `${process.env.REACT_APP_BACKEND_URL}/trpc`,
         }),
       ],
     })
   );
+
   return (
     <trpc.Provider client={trpcClient} queryClient={queryClient}>
       <QueryClientProvider client={queryClient}>
