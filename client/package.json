@@ -44,6 +44,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "dockerBuild": "docker build -t health-app-frontend .",
+    "dockerRun": "docker run -d --rm -p 3000:3000 health-app-frontend",
     "lint": "npx eslint .",
     "build": "react-scripts build",
     "test": "react-scripts test",
