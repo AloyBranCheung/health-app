@@ -11,8 +11,8 @@ services:
       - "3000:3000"
     env_file:
       - ./client/.env
-    # volumes:
-    #   - "./client:/app"
+    volumes:
+      - "./client:/app/client"
   api:
     build: ./api/
     container_name: "api"
@@ -20,3 +20,6 @@ services:
       - "3001:3001"
     env_file:
       - ./api/.env
+    volumes:
+      - "./api:/app"
+      - "/app/node_modules"

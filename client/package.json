@@ -43,7 +43,7 @@
     "zod-validation-error": "^0.3.0"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "WATCHPACK_POLLING=true react-scripts start",
     "dockerBuild": "docker build -t health-app-frontend .",
     "dockerRun": "docker run -d --rm -p 3000:3000 health-app-frontend",
     "lint": "npx eslint .",
