@@ -1,7 +1,10 @@
 version: "3.8"
 services:
   health-app:
-    build: ./client/
+    build:
+      context: .
+      dockerfile: ./client/Dockerfile
+
     container_name: "health-app"
     ports:
       # dockerPort:hostPort
