@@ -1,14 +1,22 @@
 version: "3.8"
 services:
   health-app:
-    build: ./
+    build:
+      context: .
+      dockerfile: ./client/Dockerfile
+
     container_name: "health-app"
     ports:
+      # dockerPort:hostPort
       - "3000:3000"
-      - "3001:3001"
     env_file:
       - ./client/.env
-      - ./api/.env
-      - ./.env
     # volumes:
-    #   - "./:/app"
+    #   - "./client:/app"
+  api:
+    build: ./api/
+    container_name: "api"
+    ports:
+      - "3001:3001"
+    env_file:
+      - ./api/.env
