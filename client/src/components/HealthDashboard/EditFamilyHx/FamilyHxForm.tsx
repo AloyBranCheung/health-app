@@ -3,9 +3,9 @@ import AuthContext from "../../../context/authContext";
 import ModalContext from "../../../context/modalContext";
 import Button from "../../UI/Button";
 import Input from "../../UI/Input";
-import axios from "axios";
 import FormInputErrMsg from "../../UI/FormInputErrMsg";
 import LoadingSpinner from "../../UI/LoadingSpinner";
+import withAuthServer from "src/utils/axios";
 
 export default function FamilyHxForm() {
   const [newHx, setNewHx] = useState("");
@@ -28,7 +28,7 @@ export default function FamilyHxForm() {
 
     // PUT to DB
     try {
-      await axios.put(
+      await withAuthServer.put(
         `${process.env.REACT_APP_BACKEND_URL}/mrn/healthinformation/${user._id}`,
         {
           familyHx: newHx,
@@ -58,7 +58,7 @@ export default function FamilyHxForm() {
 
     // PUT to DB
     try {
-      await axios.put(
+      await withAuthServer.put(
         `${process.env.REACT_APP_BACKEND_URL}/mrn/healthinformation/${user._id}`,
         {
           familyHx: [...userHealth.familyHx, newHx],

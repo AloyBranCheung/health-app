@@ -4,9 +4,9 @@ import ModalContext from "../../../context/modalContext";
 import Button from "../../UI/Button";
 import Dropdown from "../../UI/Dropdown";
 import Input from "../../UI/Input";
-import axios from "axios";
 import FormInputErrMsg from "../../UI/FormInputErrMsg";
 import LoadingSpinner from "../../UI/LoadingSpinner";
+import withAuthServer from "src/utils/axios";
 
 export default function EditMRNForm() {
   const { user, userHealth, setUser, setUserHealth, isLoading } =
@@ -73,12 +73,12 @@ export default function EditMRNForm() {
 
     try {
       // User
-      await axios.put(
+      await withAuthServer.put(
         `${process.env.REACT_APP_BACKEND_URL}/dashboard/updateuser/${user._id}`,
         userData
       );
       //  MRN
-      await axios.put(
+      await withAuthServer.put(
         `${process.env.REACT_APP_BACKEND_URL}/mrn/healthinformation/${user._id}`,
         mrnData
       );

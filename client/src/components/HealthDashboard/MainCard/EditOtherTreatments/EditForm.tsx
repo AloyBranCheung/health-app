@@ -3,8 +3,8 @@ import AuthContext from "../../../../context/authContext";
 import ModalContext from "../../../../context/modalContext";
 import Button from "../../../UI/Button";
 import Input from "../../../UI/Input";
-import axios from "axios";
 import FormInputErrMsg from "../../../UI/FormInputErrMsg";
+import withAuthServer from "src/utils/axios";
 
 export default function EditForm() {
   const [addTreatment, setAddTreatment] = useState("");
@@ -37,7 +37,7 @@ export default function EditForm() {
 
     // add to DB
     try {
-      const response = await axios.put(
+      const response = await withAuthServer.put(
         `${process.env.REACT_APP_BACKEND_URL}/mrn/healthinformation/${user._id}`,
         {
           otherTx: [...userHealth.otherTx, { treatment: addTreatment }],
@@ -69,7 +69,7 @@ export default function EditForm() {
 
     // remove from DB
     try {
-      await axios.put(
+      await withAuthServer.put(
         `${process.env.REACT_APP_BACKEND_URL}/mrn/healthinformation/${user._id}`,
         {
           otherTx: newTxList,

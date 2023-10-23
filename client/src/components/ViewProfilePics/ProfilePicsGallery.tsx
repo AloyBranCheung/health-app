@@ -1,11 +1,11 @@
 import React, { useContext } from "react";
-import axios from "axios";
 import { useMutation } from "@tanstack/react-query";
 import AuthContext from "../../context/authContext";
 
 // components
 import Button from "../UI/Button";
 import LoadingSpinner from "../UI/LoadingSpinner";
+import withAuthServer from "src/utils/axios";
 
 interface Props {
   data: Array<{
@@ -19,7 +19,7 @@ export default function ProfilePicsGallery({ data }: Props) {
 
   const { mutate, isLoading, isSuccess, reset } = useMutation({
     mutationFn: async (profilePicURL: { profilePic: string }) => {
-      return await axios.put(
+      return await withAuthServer.put(
         `${process.env.REACT_APP_BACKEND_URL}/dashboard/updateuser/${user._id}`,
         profilePicURL
       );

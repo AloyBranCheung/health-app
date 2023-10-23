@@ -2,8 +2,8 @@ import React, { useContext } from "react";
 import AuthContext from "../../context/authContext";
 import Card from "../UI/Card";
 import GoalInput from "./GoalInput";
-import axios from "axios";
 import LoadingSpinner from "../UI/LoadingSpinner";
+import withAuthServer from "src/utils/axios";
 
 interface Props {
   className?: string;
@@ -18,7 +18,7 @@ export default function Goals({ className }: Props) {
 
     const currArr = user.myGoals;
     try {
-      const response = await axios.put(
+      const response = await withAuthServer.put(
         `${process.env.REACT_APP_BACKEND_URL}/dashboard/updateuser/${user._id}`,
         {
           myGoals: [...currArr, { goal }],
@@ -35,7 +35,7 @@ export default function Goals({ className }: Props) {
     // delete goal in state
     const filteredArr = user.myGoals.filter((goal) => goal._id !== id);
     try {
-      const response = await axios.put(
+      const response = await withAuthServer.put(
         `${process.env.REACT_APP_BACKEND_URL}/dashboard/updateuser/${user._id}`,
         {
           myGoals: filteredArr,

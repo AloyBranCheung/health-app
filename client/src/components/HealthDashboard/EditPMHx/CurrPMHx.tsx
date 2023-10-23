@@ -1,8 +1,8 @@
 import React, { useContext, useState } from "react";
 import AuthContext from "../../../context/authContext";
 import Button from "../../UI/Button";
-import axios from "axios";
 import LoadingSpinner from "../../UI/LoadingSpinner";
+import withAuthServer from "src/utils/axios";
 
 export default function CurrPMHx() {
   const { user, userHealth, setUserHealth, isLoading } =
@@ -21,7 +21,7 @@ export default function CurrPMHx() {
     setUserHealth({ ...userHealth, pmHx: newHx });
     // edit DB
     try {
-      await axios.put(
+      await withAuthServer.put(
         `${process.env.REACT_APP_BACKEND_URL}/mrn/healthinformation/${user._id}`,
         {
           pmHx: newHx,
