@@ -11,6 +11,7 @@
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "strict": true,
+    "strictNullChecks": true,
     "forceConsistentCasingInFileNames": true,
     "noFallthroughCasesInSwitch": true,
     "module": "esnext",
@@ -20,6 +21,7 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
+  "references": [{ "path": "../api/" }],
   "include": ["src", "tests"],
   "exclude": ["tests-examples"]
 }

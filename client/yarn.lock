@@ -3322,19 +3322,19 @@
   integrity sha512-RbzJvlNzmRq5c3O09UipeuXno4tA1FE6ikOjxZK0tuxVv3412l64l5t1W5pj4+rJq9vpkm/kwiR07aZXnsKPxw==
 
 "@trpc/client@^10.9.1":
-  version "10.9.1"
-  resolved "https://registry.npmjs.org/@trpc/client/-/client-10.9.1.tgz"
-  integrity sha512-9ma44dFU40KHIEaMdyjRJd9LloFyZZXeAbZJTi2+XK/5sj64FRqqef3fWTj2dBc7A09pk8gls4Tqa3tNC98jSg==
+  version "10.41.0"
+  resolved "https://registry.yarnpkg.com/@trpc/client/-/client-10.41.0.tgz#8abde2ae72fe33cb762ccbc8ba03f39d51c91cd5"
+  integrity sha512-W4lYULb7//2yXkULCKim49slXsBwiBq48rfge1yOWXdq0Ed8VxzXvZt8+uWOkxmHbQAw4lq8G5fCNYFB+Za6vQ==
 
 "@trpc/react-query@^10.9.1":
-  version "10.9.1"
-  resolved "https://registry.npmjs.org/@trpc/react-query/-/react-query-10.9.1.tgz"
-  integrity sha512-R6TvyJkvxc0i7qXNHlb+1aUnsJz5YuxhZDzDUJl9akNlvxlmZFm3R9gEMEjDAXIYAUHjbmucl9FKKN6GjCTBTA==
+  version "10.41.0"
+  resolved "https://registry.yarnpkg.com/@trpc/react-query/-/react-query-10.41.0.tgz#eb07732df29b58861b583eff249a7ef6dadef5d7"
+  integrity sha512-pCLZfIgcnneq1AocPLvstALawZYWS/sbhujd4mwUwA3UXFBWC/D31ysPlbz7R1dhjxhhPaIM+C6pz8vmr2ctpw==
 
 "@trpc/server@^10.9.1":
-  version "10.9.1"
-  resolved "https://registry.npmjs.org/@trpc/server/-/server-10.9.1.tgz"
-  integrity sha512-cUbj8KphlH0IHuoVUhkZrN1E+FdfRpagglqhblyj8VPJKkjzTjb6D8MYHlXhiX7Tdmtwy2w0ev39HBkzlM0thg==
+  version "10.41.0"
+  resolved "https://registry.yarnpkg.com/@trpc/server/-/server-10.41.0.tgz#4689d71677e5f67a7d1e5ed72d01fce24babf2ca"
+  integrity sha512-uC0xLelzOuoFwxbBQ3GzX4DaWNucO9lW2vlGPdKu8ycXu2ObSa739oQ/lNF6qWDNUKXS0tQvGnDCAxEd178EzQ==
 
 "@trysound/sax@0.2.0":
   version "0.2.0"
