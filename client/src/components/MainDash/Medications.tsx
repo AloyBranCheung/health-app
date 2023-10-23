@@ -26,10 +26,10 @@ export default function Medications({ className }: Props) {
 
   // medications list
   const medicationsList =
-    userHealth.medications.length === 0 ? (
+    userHealth?.medications.length === 0 ? (
       <h1>Try adding a medication.</h1>
     ) : (
-      userHealth.medications?.map((medication) => {
+      userHealth?.medications?.map((medication) => {
         return (
           <MedicationPreview
             key={medication._id}
