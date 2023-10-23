@@ -1,10 +1,13 @@
-import User from "../models/User";
+import "dotenv/config";
 import { Request, Response, NextFunction } from "express";
 import bcrypt from "bcrypt";
-import { createError } from "../utils/createError";
 import jwt from "jsonwebtoken";
-import "dotenv/config";
+// models
+import User from "../models/User";
 import MRN from "../models/MRN";
+// util
+import { createError } from "../utils/createError";
+import createJWT from "../utils/createJWT";
 
 export const registerUser = async (
   req: Request,
@@ -20,10 +23,19 @@ export const registerUser = async (
   const newUser = new User({ ...others, password: hash });
   const newMRN = new MRN();
   try {
-    await newUser.save();
+    const user = await newUser.save();
     const mrn = await newMRN.save();
     await User.findByIdAndUpdate(newUser._id, { MRN: mrn._id });
-    res.send("User registered");
+    const token = createJWT({
+      displayName: user?.displayName,
+      firstName: user?.firstName,
+      isProvider: user?.isProvider,
+    });
+    res.send({
+      token,
+      _id: user?._id,
+    });
+    res.redirect(`${process.env.CLIENT_URL}/dashboard`);
   } catch (error) {
     next(error);
   }

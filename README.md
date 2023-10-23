@@ -36,28 +36,21 @@ Docs
 npm run storybook --prefix client
 ```
 
-To Start in Developer Mode:
+To Start in Developer Mode (local):
 
-Install
+1. Setup `.env`s
+2. Run `./install.sh` (must have `yarn`)
+3. Run `./concurrently_dev.sh` (must have `concurrently` installed)
 
-```
-npm install --prefix api && npm install --prefix client
-```
+or
 
-Server
+Docker (Developer mode with hot reload):
 
-```
-npm run dev --prefix api
-```
+1. Setup `.env`s
+2. Run `./dev.sh`
 
-Client
+If you ever need to populate your DB with the avatars:
 
-```
-npm run start --prefix client
-```
+- Note: Must have api dependencies installed and the server running (connected to the DB)
 
-Concurrently
-
-```
-concurrently 'npm run dev --prefix api' 'npm run start --prefix client'
-```
+1. Run `./api/scripts/scrape_avatars.sh`
