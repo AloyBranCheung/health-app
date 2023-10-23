@@ -1,11 +1,11 @@
-import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
 import queryKeys from "./keys";
+import withAuthServer from "src/utils/axios";
 
 export default function useViewProfilePics() {
   const fetchProfilePics = async () => {
     try {
-      const response = axios.get(
+      const response = withAuthServer.get(
         `${process.env.REACT_APP_BACKEND_URL}/profilepics/`
       );
       return await response;
