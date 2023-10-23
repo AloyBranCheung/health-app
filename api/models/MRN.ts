@@ -17,7 +17,7 @@ const HealthSchema = new mongoose.Schema(
     },
     sex: {
       type: String,
-      enum: ["M", "F"],
+      enum: ["M", "F", ""],
       default: "",
     },
     bloodGroup: {

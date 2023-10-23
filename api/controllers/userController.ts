@@ -4,6 +4,7 @@ import bcrypt from "bcrypt";
 import { createError } from "../utils/createError";
 import jwt from "jsonwebtoken";
 import "dotenv/config";
+import MRN from "../models/MRN";
 
 export const registerUser = async (
   req: Request,
@@ -17,8 +18,11 @@ export const registerUser = async (
   const hash = bcrypt.hashSync(plainPassword, salt);
 
   const newUser = new User({ ...others, password: hash });
+  const newMRN = new MRN();
   try {
     await newUser.save();
+    const mrn = await newMRN.save();
+    await User.findByIdAndUpdate(newUser._id, { mrn: mrn._id });
     res.send("User registered");
   } catch (error) {
     next(error);

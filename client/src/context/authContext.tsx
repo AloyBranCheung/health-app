@@ -110,7 +110,15 @@ export const AuthContextProvider = ({ children }: Props) => {
         try {
           setIsLoading(true);
           const response = await axios.get(
-            `${process.env.REACT_APP_BACKEND_URL}/dashboard/user/${id}`
+            `${process.env.REACT_APP_BACKEND_URL}/dashboard/user/${id}`,
+            {
+              data: {
+                userId: id,
+              },
+              headers: {
+                Authorization: `Bearer ${token}`,
+              },
+            }
           );
           setUser(response.data);
         } catch (error) {
@@ -120,7 +128,15 @@ export const AuthContextProvider = ({ children }: Props) => {
         // get user health info
         try {
           const response = await axios.get(
-            `${process.env.REACT_APP_BACKEND_URL}/mrn/healthinformation/${id}`
+            `${process.env.REACT_APP_BACKEND_URL}/mrn/healthinformation/${id}`,
+            {
+              data: {
+                userId: id,
+              },
+              headers: {
+                Authorization: `Bearer ${token}`,
+              },
+            }
           );
           setUserHealth(response.data);
           setIsLoading(false);
@@ -139,7 +155,12 @@ export const AuthContextProvider = ({ children }: Props) => {
       try {
         setIsLoading(true);
         const response = await axios.get(
-          `${process.env.REACT_APP_BACKEND_URL}/dashboard/user/${_id}`
+          `${process.env.REACT_APP_BACKEND_URL}/dashboard/user/${_id}`,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
         );
         setUser(response.data);
       } catch (error) {
@@ -148,7 +169,12 @@ export const AuthContextProvider = ({ children }: Props) => {
       // get user health info
       try {
         const response = await axios.get(
-          `${process.env.REACT_APP_BACKEND_URL}/mrn/healthinformation/${_id}`
+          `${process.env.REACT_APP_BACKEND_URL}/mrn/healthinformation/${_id}`,
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
         );
         setUserHealth(response.data);
         setIsLoading(false);
