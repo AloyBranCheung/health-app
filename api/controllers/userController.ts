@@ -22,7 +22,7 @@ export const registerUser = async (
   try {
     await newUser.save();
     const mrn = await newMRN.save();
-    await User.findByIdAndUpdate(newUser._id, { mrn: mrn._id });
+    await User.findByIdAndUpdate(newUser._id, { MRN: mrn._id });
     res.send("User registered");
   } catch (error) {
     next(error);
