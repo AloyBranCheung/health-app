@@ -20,8 +20,6 @@ export default function FamilyList() {
     onVisible(ModalVisibilityKeys.ViewProfile);
   };
 
-  console.log("userfammem", user?.familyMembers);
-
   const list =
     user?.familyMembers && user.familyMembers.length > 0 ? (
       user.familyMembers.map((member) => {

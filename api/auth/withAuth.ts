@@ -6,7 +6,6 @@ const withAuth = async (req: Request, res: Response, next: NextFunction) => {
 
   if (token && process.env.JWTKEY) {
     try {
-      console.log("token", token);
       jwt.verify(token, process.env.JWTKEY);
       next();
     } catch (error) {

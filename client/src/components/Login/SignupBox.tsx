@@ -192,7 +192,7 @@ export default function LoginModal() {
           </Button>
         </div>
         {error && (
-          <FormInputErrMsg text="There was an error signing up. Please try again later. If you're a dev, check the console.log." />
+          <FormInputErrMsg text="There was an error signing up. Please try again later." />
         )}
       </form>
       <p className="text-base font-semibold">
