@@ -1,10 +1,12 @@
 import React, { useContext } from "react";
 import AuthContext from "../../context/authContext";
 
-export default function ProfileDeets () {
+export default function ProfileDeets() {
   const { user } = useContext(AuthContext);
 
-  const address = Object.values(user?.address).slice(0, -1).join(", ");
+  const address = user?.address
+    ? Object.values(user.address).slice(0, -1).join(", ")
+    : "Add you address";
 
   return (
     <div className="flex flex-col w-full gap-2 justify-center md:justify-around">
@@ -23,7 +25,7 @@ export default function ProfileDeets () {
             />
           </svg>
         </div>
-        <h1 className="w-full">{user?.phoneNumber}</h1>
+        <h1 className="w-full">{user?.phoneNumber ?? "Add a phone number"}</h1>
       </div>
 
       <div className="flex flex-row gap-2 ">

@@ -2,17 +2,19 @@ import React, { useContext, useState, useEffect } from "react";
 import AuthContext from "../../context/authContext";
 
 interface Props {
-  isVisible: boolean
+  isVisible: boolean;
 }
 
-export default function CopyClipboard ({ isVisible }: Props) {
+export default function CopyClipboard({ isVisible }: Props) {
   const { userHealth } = useContext(AuthContext);
   const [textMRN, setTextMRN] = useState("");
   const [isCopied, setIsCopied] = useState(false);
 
   useEffect(() => {
-    setTextMRN(userHealth._id);
-  }, [userHealth._id]);
+    if (userHealth?._id) {
+      setTextMRN(userHealth._id);
+    }
+  }, [userHealth?._id]);
 
   const copyText = () => {
     navigator.clipboard.writeText(textMRN);
@@ -27,7 +29,7 @@ export default function CopyClipboard ({ isVisible }: Props) {
       {isVisible && (
         <>
           <div>
-            <h1 className="break-all">{userHealth._id}</h1>
+            <h1 className="break-all">{userHealth?._id}</h1>
           </div>
           <div className="w-full basis-1/12 flex items-center">
             <svg

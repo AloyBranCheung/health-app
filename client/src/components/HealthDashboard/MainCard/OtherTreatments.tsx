@@ -25,25 +25,29 @@ export default function OtherTreatments({ className, isLoading }: Props) {
   };
 
   // render list of treatments
-  const treatments = userHealth.otherTx.map((treatment) => {
-    return (
-      <div
-        key={treatment._id}
-        className="p-5 bg-white rounded-xl shadow-xl flex flex-row items-center gap-2"
-      >
-        <div className="">
-          <img
-            className="h-5 w-5"
-            src="https://cdn-icons-png.flaticon.com/512/1993/1993436.png"
-            alt="treatmentIcon"
-          />
+  const treatments = userHealth?.otherTx ? (
+    userHealth.otherTx.map((treatment) => {
+      return (
+        <div
+          key={treatment._id}
+          className="p-5 bg-white rounded-xl shadow-xl flex flex-row items-center gap-2"
+        >
+          <div className="">
+            <img
+              className="h-5 w-5"
+              src="https://cdn-icons-png.flaticon.com/512/1993/1993436.png"
+              alt="treatmentIcon"
+            />
+          </div>
+          <div className="w-full">
+            <h1>{treatment.treatment}</h1>
+          </div>
         </div>
-        <div className="w-full">
-          <h1>{treatment.treatment}</h1>
-        </div>
-      </div>
-    );
-  });
+      );
+    })
+  ) : (
+    <div>Add a treatment.</div>
+  );
 
   return (
     <Card className={`${className} h-full`}>

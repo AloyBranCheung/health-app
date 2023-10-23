@@ -47,7 +47,9 @@ export default function MyDetails({ className }: MyDetailsProps) {
                     <strong>Primary Concern:</strong>
                   </h1>
                   <div>
-                    <p>{userHealth.primaryConcern}</p>
+                    <p>
+                      {userHealth?.primaryConcern ?? "Add a primary concern."}
+                    </p>
                   </div>
                 </div>
                 <Button onClick={handleClick} text="Change" />

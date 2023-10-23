@@ -59,23 +59,27 @@ export default function MRN() {
             <div className="flex w-full flex-col">
               <h1>
                 <strong>Gender: </strong>
-                {userHealth.gender}
+                {userHealth?.gender ?? "Add your gender."}
               </h1>
               <h1>
                 <strong>Sex: </strong>
-                {userHealth.sex}
+                {userHealth?.sex ?? "Add your sex."}
               </h1>
               <h1>
                 <strong>Blood Group: </strong>
-                {userHealth.bloodGroup}
+                {userHealth?.bloodGroup ?? " Add your blood group."}
               </h1>
             </div>
             <div className="flex flex-col w-full">
               <h1>
-                <strong>Weight: </strong> {userHealth.weight} kg
+                <strong>Weight: </strong>{" "}
+                {userHealth?.weight ?? "Add your weight in kg."} kg
               </h1>
               <h1>
-                <strong>Age: </strong> {userHealth.age} years old
+                <strong>Age: </strong>{" "}
+                {userHealth?.age
+                  ? `${userHealth.age} years old`
+                  : "Add your age."}
               </h1>
             </div>
           </div>
