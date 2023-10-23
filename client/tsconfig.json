@@ -21,7 +21,7 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
-  "references": [{ "path": "../api/" }],
+  "references": [{ "path": "/api" }],
   "include": ["src", "tests"],
   "exclude": ["tests-examples"]
 }
