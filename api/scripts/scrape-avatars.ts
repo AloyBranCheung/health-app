@@ -32,6 +32,7 @@ async function scrape() {
   });
 
   for await (const url of urls) {
+    // Need to add Authorization header
     await ax.post("http://localhost:3001/api/profilepics", { url });
   }
 
