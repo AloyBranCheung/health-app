@@ -2,9 +2,9 @@ import React, { useContext, useState } from "react";
 import AuthContext from "../../../../../context/authContext";
 import Button from "../../../../UI/Button";
 import Input from "../../../../UI/Input";
-import axios from "axios";
 import LoadingSpinner from "../../../../UI/LoadingSpinner";
 import FormInputErrMsg from "../../../../UI/FormInputErrMsg";
+import withAuthServer from "src/utils/axios";
 interface Props {
   setIsAddFamily: React.Dispatch<React.SetStateAction<boolean>>;
 }
@@ -33,7 +33,7 @@ export default function AddFamilyForm({ setIsAddFamily }: Props) {
       setIsLoading(true);
       // update state
       // // update DB PUT /mrn/healthinformation/${user._id}
-      const { data } = await axios.put(
+      const { data } = await withAuthServer.put(
         `${process.env.REACT_APP_BACKEND_URL}/dashboard/updateuser/${user._id}`,
         {
           familyMembers: [...user.familyMembers, familyMembers],

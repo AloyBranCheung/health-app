@@ -3,8 +3,8 @@ import AuthContext from "../../../../context/authContext";
 import Button from "../../../UI/Button";
 import EditModal from "../../../UI/EditModal";
 import FamilyList from "./FamilyList";
-import axios from "axios";
 import AddFamilyForm from "./AddFamilyForm";
+import withAuthServer from "src/utils/axios";
 
 export default function EditFamilyModal() {
   const {
@@ -24,7 +24,7 @@ export default function EditFamilyModal() {
 
     // update DB
     try {
-      await axios.put(
+      await withAuthServer.put(
         `${process.env.REACT_APP_BACKEND_URL}/dashboard/updateuser/${user._id}`,
         {
           familyMembers: newFamList,

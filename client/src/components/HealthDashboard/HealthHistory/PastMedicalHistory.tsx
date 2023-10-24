@@ -26,7 +26,7 @@ export default function PastMedicalHistory() {
         </h1>
         <Button onClick={handleModalClick} text="Edit" />
       </div>
-      <DiseasesList diseases={userHealth.pmHx} />
+      <DiseasesList diseases={userHealth?.pmHx ?? ["Add a disease."]} />
     </div>
   );
 }

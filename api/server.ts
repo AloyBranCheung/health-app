@@ -6,6 +6,8 @@ import cookieParser from "cookie-parser";
 import * as trpcExpress from "@trpc/server/adapters/express";
 //interfaces
 import { Error } from "./types";
+// middleware
+import withAuth from "./auth/withAuth";
 // routes
 import userRoute from "./routes/userRoute";
 import mrnRoute from "./routes/mrnRoute";
@@ -44,9 +46,9 @@ app.use(
   })
 );
 app.use("/api/user", userRoute);
-app.use("/api/mrn", mrnRoute);
-app.use("/api/dashboard", dashboardRoute);
-app.use("/api/profilepics", ProfilePicRoute);
+app.use("/api/mrn", withAuth, mrnRoute);
+app.use("/api/dashboard", withAuth, dashboardRoute);
+app.use("/api/profilepics", withAuth, ProfilePicRoute);
 
 //  error middleware must be at the end
 app.use((err: Error, req: Request, res: Response, next: NextFunction) => {

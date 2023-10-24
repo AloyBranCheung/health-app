@@ -54,11 +54,15 @@ export default function MyProfile({ className }: Props) {
                 <span className="text-transparent hover:text-white cursor-pointer z-50 absolute w-full h-full flex items-center justify-center hover:bg-modalBackground hover:ease-in ease-out hover:duration-200 rounded-full">
                   Change Profile Pics
                 </span>
-                <img
-                  src={user.profilePic}
-                  alt="profileClipboard"
-                  className="hover:cursor-pointer"
-                />
+                {user?.profilePic ? (
+                  <img
+                    src={user.profilePic}
+                    alt="profileClipboard"
+                    className="hover:cursor-pointer"
+                  />
+                ) : (
+                  "Choose a profile pic."
+                )}
               </div>
             </div>
           </div>

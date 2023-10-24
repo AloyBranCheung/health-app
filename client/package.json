@@ -44,6 +44,7 @@
   },
   "scripts": {
     "start": "WATCHPACK_POLLING=true react-scripts start",
+    "start-local": "react-scripts start",
     "dockerBuild": "docker build -t health-app-frontend .",
     "dockerRun": "docker run -d --rm -p 3000:3000 health-app-frontend",
     "lint": "npx eslint .",

@@ -92,6 +92,7 @@ export default track(
   { app: "health-app name" },
   {
     dispatch: (data) => {
+      // TODO: send tracking data to backend userId + action
       console.log(data);
     },
   }

@@ -5,8 +5,8 @@ import ButtonContainer from "./ButtonContainer";
 import EmailInput from "./EmailInput";
 import PhoneInput from "./PhoneInput";
 import LoadingSpinner from "../UI/LoadingSpinner";
-import axios from "axios";
 import FormInputErrMsg from "../UI/FormInputErrMsg";
+import withAuthServer from "src/utils/axios";
 
 interface Address {
   city: string;
@@ -38,7 +38,7 @@ export default function EditProfileForm() {
   const handleSubmit = () => {
     setIsLoading(true);
     try {
-      axios.put(
+      withAuthServer.put(
         `${process.env.REACT_APP_BACKEND_URL}/dashboard/updateuser/${user._id}`,
         formInput
       );

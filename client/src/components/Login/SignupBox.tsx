@@ -86,20 +86,12 @@ export default function LoginModal() {
     e.preventDefault();
     try {
       // register user
-      await axios.post(
+      const { data } = await axios.post<{ token: string; _id: string }>(
         `${process.env.REACT_APP_BACKEND_URL}/user/register`,
         formInput
       );
 
-      // login user
-      const loginResponse = await axios.post(
-        `${process.env.REACT_APP_BACKEND_URL}/user/login`,
-        {
-          email: formInput.email,
-          password: formInput.password,
-        }
-      );
-      login(loginResponse.data);
+      login(data);
 
       // reset state and navigate to dashboard(replace: true)
       setFormInput({
@@ -113,11 +105,10 @@ export default function LoginModal() {
       setConfirmPassword("");
       setError(false);
 
-      // navigate to dashboard
-      await axios.post(
-        `${process.env.REACT_APP_BACKEND_URL}/mrn/healthinformation/${loginResponse.data._id}`
-      );
-      navigate("/dashboard", { replace: true });
+      const token = sessionStorage.getItem("token");
+      if (token) {
+        navigate("/dashboard");
+      }
     } catch (error: any) {
       setError(true);
       console.error(error.response.data.message);
@@ -201,7 +192,7 @@ export default function LoginModal() {
           </Button>
         </div>
         {error && (
-          <FormInputErrMsg text="There was an error signing up. Please try again later. If you're a dev, check the console.log." />
+          <FormInputErrMsg text="There was an error signing up. Please try again later." />
         )}
       </form>
       <p className="text-base font-semibold">

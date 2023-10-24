@@ -1,10 +1,10 @@
-import axios from "axios";
 import { useMutation } from "@tanstack/react-query";
 // data validation
 import { z } from "zod";
 import { fromZodError } from "zod-validation-error";
 // toast error
 import toastError from "src/utils/toastError";
+import withAuthServer from "src/utils/axios";
 
 // ! DO NOT USE
 const validationSchema = z.object({
@@ -31,7 +31,7 @@ const updateUserInformationPOST = async (
 ) => {
   try {
     validationSchema.parse(data);
-    await axios.put(
+    await withAuthServer.put(
       `${process.env.REACT_APP_BACKEND_URL}/mrn/healthinformation/${userid}`,
       data
     );

@@ -3,17 +3,17 @@ import Input from "../UI/Input";
 import AuthContext from "../../context/authContext";
 
 interface Address {
-  city: string
-  province: string
-  country: string
-  postalCode: string
+  city: string;
+  province: string;
+  country: string;
+  postalCode: string;
 }
 
 interface Props {
-  passedData: (name: string, value: Address) => void
+  passedData: (name: string, value: Address) => void;
 }
 
-export default function AddressInput ({ passedData }: Props) {
+export default function AddressInput({ passedData }: Props) {
   const { user } = useContext(AuthContext);
   const [address, setAddress] = useState<Address>({
     city: "",
@@ -48,28 +48,28 @@ export default function AddressInput ({ passedData }: Props) {
       <Input
         onFocus={handleFocus}
         onChange={handleChange}
-        value={address.city}
+        value={address?.city}
         label="City"
         name="city"
       />
       <Input
         onFocus={handleFocus}
         onChange={handleChange}
-        value={address.province}
+        value={address?.province}
         label="Province"
         name="province"
       />
       <Input
         onFocus={handleFocus}
         onChange={handleChange}
-        value={address.country}
+        value={address?.country}
         label="Country"
         name="country"
       />
       <Input
         onFocus={handleFocus}
         onChange={handleChange}
-        value={address.postalCode}
+        value={address?.postalCode}
         label="Postal Code (A1BC2D)"
         name="postalCode"
         maxLength={6}

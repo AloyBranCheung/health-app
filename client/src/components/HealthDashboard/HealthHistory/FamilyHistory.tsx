@@ -27,7 +27,7 @@ export default function FamilyHistory() {
         <Button onClick={handleClick} text="Edit" />
       </div>
       <div className="flex w-full">
-        <DiseasesList diseases={userHealth.familyHx} />
+        <DiseasesList diseases={userHealth?.familyHx ?? ["Add a disease."]} />
       </div>
     </div>
   );

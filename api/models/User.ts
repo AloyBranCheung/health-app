@@ -41,7 +41,7 @@ const UserSchema = new mongoose.Schema(
           },
         },
       ],
-      default: [{}],
+      default: [],
     },
     isProvider: {
       type: Boolean,

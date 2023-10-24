@@ -20,44 +20,49 @@ export default function FamilyList() {
     onVisible(ModalVisibilityKeys.ViewProfile);
   };
 
-  const list = user.familyMembers.map((member) => {
-    return (
-      <div
-        key={member._id}
-        className="h-full w-full bg-white rounded-xl shadow-xl p-5 flex flex-col md:flex-row md:justify-between gap-5"
-      >
-        <div className="hidden md:flex md:items-center md:justify-center w-full basis-4/12">
-          <img
-            src="https://cdn-icons-png.flaticon.com/512/4825/4825015.png"
-            alt="profile-pic"
-            className="h-16 w-16"
-          />
-        </div>
-        <div className="w-full">
-          <div>
-            <h1>
-              <strong>Nickname: </strong>
-              {member.nickname}
-            </h1>
+  const list =
+    user?.familyMembers && user.familyMembers.length > 0 ? (
+      user.familyMembers.map((member) => {
+        return (
+          <div
+            key={member._id}
+            className="h-full w-full bg-white rounded-xl shadow-xl p-5 flex flex-col md:flex-row md:justify-between gap-5"
+          >
+            <div className="hidden md:flex md:items-center md:justify-center w-full basis-4/12">
+              <img
+                src="https://cdn-icons-png.flaticon.com/512/4825/4825015.png"
+                alt="profile-pic"
+                className="h-16 w-16"
+              />
+            </div>
+            <div className="w-full">
+              <div>
+                <h1>
+                  <strong>Nickname: </strong>
+                  {member.nickname}
+                </h1>
+              </div>
+              <div>
+                <p className="break-all">
+                  <strong>MRN: </strong>
+                  {member.mrn}
+                </p>
+              </div>
+            </div>
+            <div className="self-center">
+              <Button
+                onClick={() => {
+                  handleModal(member.mrn, member.nickname);
+                }}
+                text="View Profile"
+              />
+            </div>
           </div>
-          <div>
-            <p className="break-all">
-              <strong>MRN: </strong>
-              {member.mrn}
-            </p>
-          </div>
-        </div>
-        <div className="self-center">
-          <Button
-            onClick={() => {
-              handleModal(member.mrn, member.nickname);
-            }}
-            text="View Profile"
-          />
-        </div>
-      </div>
+        );
+      })
+    ) : (
+      <div>Add a family member.</div>
     );
-  });
 
   return (
     <>

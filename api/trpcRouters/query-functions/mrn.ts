@@ -7,6 +7,7 @@ export const getAllHealthInformationByUserId = async (userid: string) => {
     const mrn = userDocument?.MRN;
     const healthInformation = await MRN.findById(mrn);
     if (healthInformation) return healthInformation.toJSON();
+    return { error: "No document found." };
   } catch (error) {
     console.log(error);
   }
