@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
+import AuthContext from "src/context/authContext";
 import LoginModal from "../components/Login/LoginModal";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
@@ -6,12 +7,19 @@ import { useNavigate } from "react-router-dom";
 import { useTracking } from "react-tracking";
 
 export default function Login() {
+  const { isLoggedIn } = useContext(AuthContext);
   const { trackEvent } = useTracking();
   const navigate = useNavigate();
   trackEvent({ action: "/login page loaded" });
   const navHome = () => {
     navigate("/");
   };
+
+  useEffect(() => {
+    if (isLoggedIn()) {
+      navigate("/dashboard");
+    }
+  }, []);
 
   return (
     <motion.div
