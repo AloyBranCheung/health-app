@@ -63,16 +63,16 @@ export default function MRN() {
               </h1>
               <h1>
                 <strong>Sex: </strong>
-                {userHealth?.sex ?? "Add your sex."}
+                {userHealth?.sex || "Add your sex."}
               </h1>
               <h1>
                 <strong>Blood Group: </strong>
-                {userHealth?.bloodGroup ?? " Add your blood group."}
+                {userHealth?.bloodGroup || "Add your blood group."}
               </h1>
             </div>
             <div className="flex flex-col w-full">
               <h1>
-                <strong>Weight: </strong>{" "}
+                <strong>Weight: </strong>
                 {userHealth?.weight ?? "Add your weight in kg."} kg
               </h1>
               <h1>

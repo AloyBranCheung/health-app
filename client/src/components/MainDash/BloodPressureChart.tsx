@@ -16,6 +16,7 @@ import {
 import { Line } from "react-chartjs-2";
 // types
 import { BloodPressure } from "src/@types/Vitals";
+import { UserHealth } from "src/context/authContextType";
 
 export default function BloodPressureChart() {
   const { user } = useContext(AuthContext);
@@ -30,12 +31,12 @@ export default function BloodPressureChart() {
     const bloodPresSys = [""];
     const bloodPresDia = [""];
     // blood pressure data
-    if (userHealth) {
-      const sortBp = userHealth?.bloodPressure.sort(
-        (a: BloodPressure, b: BloodPressure) => {
-          return Number(new Date(b.date)) - Number(new Date(a.date));
-        }
-      );
+    if (userHealth && !("error" in userHealth)) {
+      const sortBp = (
+        userHealth?.bloodPressure as UserHealth["bloodPressure"]
+      ).sort((a: BloodPressure, b: BloodPressure) => {
+        return Number(new Date(b.date)) - Number(new Date(a.date));
+      });
       sortBp.forEach((dataPoint: BloodPressure) => {
         bloodPresLabels.push(dataPoint.date);
         bloodPresSys.push(dataPoint.sys);

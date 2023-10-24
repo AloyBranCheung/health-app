@@ -22,8 +22,8 @@ const HealthSchema = new mongoose.Schema(
     },
     bloodGroup: {
       type: String,
-      enum: ["O-", "O+", "A-", "A+", "B-", "B+", "AB-", "AB+", "?"],
-      default: "?",
+      enum: ["O-", "O+", "A-", "A+", "B-", "B+", "AB-", "AB+"],
+      default: "O-",
     },
     weight: {
       type: Number,
@@ -32,15 +32,15 @@ const HealthSchema = new mongoose.Schema(
     },
     pmHx: {
       type: [String],
-      default: [""],
+      default: [],
     },
     familyHx: {
       type: [String],
-      default: [""],
+      default: [],
     },
     allergies: {
       type: [String],
-      default: [""],
+      default: [],
     },
     medications: {
       type: [
@@ -75,7 +75,7 @@ const HealthSchema = new mongoose.Schema(
           },
         },
       ],
-      default: [{ treatment: "" }],
+      default: [],
     },
     labWork: {
       type: [

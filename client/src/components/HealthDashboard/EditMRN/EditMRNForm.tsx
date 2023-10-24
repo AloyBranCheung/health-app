@@ -19,8 +19,8 @@ export default function EditMRNForm() {
     preferredPronouns: user.preferredPronouns.join(", "),
     preferredName: user.preferredName,
     gender: userHealth.gender,
-    sex: userHealth.sex,
-    bloodGroup: userHealth.bloodGroup,
+    sex: userHealth?.sex || "M",
+    bloodGroup: userHealth?.bloodGroup || "O-",
     weight: userHealth.weight,
     age: userHealth.age,
   });
