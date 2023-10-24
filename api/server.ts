@@ -62,8 +62,8 @@ app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
   });
 });
 
-// server listen
-app.get("/api", (req, res) => {
+// health check
+app.get("/_health", (req, res) => {
   res.send("Hello from the server :)");
 });
 
